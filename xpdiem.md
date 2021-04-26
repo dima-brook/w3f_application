@@ -14,7 +14,7 @@ Diem's development team crafted the Move language for smart contract creation. B
 
 We are aspiring to create an automated toolbox that will generate valid code in Move, which could be further validated and compiled to byte-code and interact with the Diem blockchain. We will write the currently nonexistent libraries for NFT creation in Move, meeting the ERC-721 and ERC-1155 standards.
 
-Connection to Polkadot will be implemented via a VM Hub Layer Substrate palette, where our auto generated code in Move will be processed. All the applications produced by our platform will use this pallet to interact with other blockchains and smart contracts via Polkadot.
+Connection to Polkadot will be implemented via a VM Hub Layer Substrate palette, where our auto generated code in Move will be processed and serialized in Solidity. All the applications produced by our platform will use this pallet to interact with other blockchains and smart contracts via Polkadot.
 
 ### Project Details
 
@@ -96,70 +96,72 @@ We are an experienced team, our current project is ..., in the past we've launch
 
 ### Overview
 
-- **Total Estimated Duration:** 12 months.
-- **Total Effort:** 720 days.
+- **Total Estimated Duration:** 6 months.
+- **Total Effort:** 240 days.
 - **Total Costs:** $30,000
 
 ### Milestone 1 - Pre-Alpha version of XPDiem Platform
 
-- **Estimated Duration:** 3 months
-- Working days **x** ppl. **:** 60 **x** 2
-- Effort: 120 days
-- **Costs:** $2,500
+- **Estimated Duration:** 1.5 months
+- Working days **x** ppl. **:** 30 **x** 2
+- Effort: 60 days
+- **Costs:** $7,500
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0. | System Architecture | Drafting the masterplan of the project |
-| 1. | Smart Contract Editor Architecture | Design of the UI user workflow |
+| 1. | Smart Contract Editor Architecture | Design of the BE structure & the UI user workflow|
 | 2. | Move-VM & Compiler Architecture | Elaboration of the valid Move code generation | 
-| 3. | Polkadot Move palette interaction Architecture | Planning the data flows and the structure of the "intensions" | 
+| 3. | Polkadot palette Architecture | Planning protocols & data flows | 
 | 4. | Application Editor Architecture | Design of the UI user workflow and data flows from the above modules | 
 | 5. | Compliance Validator Architecture | Design of the QA workflow for the above modules | 
 
 
-### Milestone 2 — Alpha version of Move pallet
+### Milestone 2 — Alpha version of Move Compiler
 
-- **Estimated Duration:** 3 months
-- Working days **x** ppl. **:** 60 **x** 2
-- Effort: 120 days
-- **Costs:** $2,500
+- **Estimated Duration:** 1.5 months
+- Working days **x** ppl. **:** 30 **x** 2
+- Effort: 60 days
+- **Costs:** $7,500
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0. | Smart Contract Builder | Developing the UI in React and BE in TypeScript|
-| 1. | Alpha version of Move-VM Compiler | Writing the Move code generator in Rust | 
+| 1. | Alpha version of Move-VM Compiler | Writing the Move code generator| 
 | 2. | Linking Move-VM Compiler | Test / debug Move code generation from the requests from the FE via BE |
-| 3. | Alpha Polkadot Move Parathread | Writing the template Move functions for interaction with Polkadot |
-| 4. | Polkadot Move palette | Testing the system in Kusama |
-| 5. | Compliance Validator |  Developing automated test for the UI, BE, Move-VM, Polkadot Parathread interaction |
+| 3. | Alpha Polkadot Parathread | Writing the template functions for interaction with Polkadot |
+| 4. | Move-VM NFT Libraries | Development of ERC-721 and ERC-1155 in Move |
+| 5. | Compliance Validator |  Developing automated test for the UI, BE, Move-VM, Polkadot pallet functions |
 
+### Milestone 3 — Beta version of XPDiem platform & Testing
 
-- **Estimated Duration:** 3 months
-- Working days **x** ppl. **:** 60 **x** 2
-- Effort: 120 days
-- **Costs:** $2,500
+- **Estimated Duration:** 1.5 months
+- Working days **x** ppl. **:** 30 **x** 2
+- Effort: 60 days
+- **Costs:** $7,500
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0. | Application Builder (AB) | Developing the FE & BE in TypeScript |
 | 1. | Linking the Smart Contract Builder (SCB) | Attaching the results of the SCB module to the product | 
 | 2. | Linking the Polkadot Adapter (PA) | Testing data flows between the AB and PA |
-| 3. | Compliance Validator | Writing automated test for the data flows between the AB, PA & the SCB |
-| 4. | XPDiem experimental network | Developing a Kusama parathread for testing |
-| 5. | Testing in Kusamsa | Testing all Polkadot related transactions in Kusama |
+| 4. | XPDiem experimental network | Developing a Polkadot Westnet  |
+| 3. | Compliance Validator | Writing automated test for the data flows between the AB & PA|
+| 5. | Testing in Polkadot Westnet  | Testing all Polkadot related transactions in Westnet |
 
+### Milestone 4 — Production version testing and Launch
 
-- **Estimated Duration:** 3 months
-- Working days **x** ppl. **:** 60 **x** 2
-- Effort: 120 days
-- **Costs:** $2,500
+- **Estimated Duration:** 1.5 months
+- Working days **x** ppl. **:** 30 **x** 2
+- Effort: 60 days
+- **Costs:** $7,500
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
-| 0. | Integrating with Diem | Testing a resulting application in Diem test-net / main-net |
-| 1. | Integrating with Kusama | Testing the resulting application in Kusama | 
+| 0. | Diem blockchain integration | Testing a resulting application in Diem test-net or main-net |
+| 1. | Integrating with Westnet | Testing the resulting application in Westnet | 
 | 2. | Integrating with Polkadot | Testing the PA in real Polkadot environment |
-| 3. | Compliance Validator | Adding automated test for integrated modules |
+| 3. | Compliance Validator | Adding automated test for the above integrated modules |
 | 4. | Documentation | Writing and publishing final documentation with all the amendments |
 | 5. | Tutorials | Preparing and publishing tutorials with examples and exercises | 
 | 6. | Product Launch | Publishing the XPDiem Platform for public use |
@@ -171,4 +173,3 @@ The Polkadot adaptor pallet can be potentially refactored to accept an injectabl
 ## Additional Information
 
 None.
-
