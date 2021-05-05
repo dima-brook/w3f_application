@@ -108,7 +108,7 @@ We’re planning to elaborate the most popular smart contract bytecode templates
 
 **Verbal Kint**
 
-- Over 3 years of experiences in Blockchain Development in Rust and Move
+- Over 5 years of experiences in Blockchain Development in Rust and Move
 
 
 ### Team Code Repos (PoC)
@@ -205,14 +205,18 @@ We’re planning to elaborate the most popular smart contract bytecode templates
 **Community Plan**
 
 Hiring 3-5 more developers
+
 Joining Polkadot related events
+
 Publishing articles in Telegram, medium.com and other channels
 
 
 **Development Plan**
 
 The template bytecode chunks will become more atomic to add flexibility to the bytecode compilation process.
+
 Eventually, we hope to enable our pallet to become completely dynamic, being able to process yet unseen non predefined smart contract patterns and convert them into valid bytecodes of a chosen smart contract language.
+
 Development of bridges to the Avalanche, Binance, Cardano, Diem? (should regulations allow), Elrond, Heco and Solana blockchains.
 
 ## Additional Information
