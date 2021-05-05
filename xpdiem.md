@@ -10,11 +10,11 @@
 
 XP Network aims to build a platform which allows to develop NFT based applications on Avalanche, Binance, Cardano, Diem blockchain, Elrond, Ethereum, Heco, Polkadot and Solana. This platform will enable artists, musicians, celebrities, game developers and other content providers to create personal online NFT marketplaces without writing code.
 
-We are aspiring to create an automated toolbox that will generate valid code in Ink!, Move, Solidity and Rust which could be further validated and compiled to byte-code and interact with the corresponding blockchains via Polkadot Relay Chain. We will also write the currently nonexistent libraries for NFT creation in Move.
+We are aspiring to create an automated toolbox that will generate valid code in Move, Solidity and Rust (Ink!) which could be further validated and compiled to byte-code and interact with the corresponding blockchains via Polkadot Relay Chain. We will also write the currently nonexistent libraries for NFT creation in Move.
 
 #### Integration
 
-Connection to Polkadot will be implemented via a VM Hub Layer Substrate palette, where our auto generated code in Move will be processed and serialized in Solidity and vice versa. All the applications produced by our platform will use this pallet to interact with other blockchains and smart contracts via Polkadot. 
+Connection to Polkadot will be implemented via a VM Hub Layer Substrate palette, where our auto generated code in Move or Rust will be processed and serialized in Solidity and vice versa. All the applications produced by our platform will use this pallet to interact with other blockchains and smart contracts via Polkadot. 
 
 ### Project Details
 
@@ -22,19 +22,19 @@ We will not further speak about the rest of the XP Network platform and will onl
 
 A. **Documentation** and tutorials.
 
-B. The **VM Hub Layer**  is a Substrate pallet which allows different Virtual Machines to interact with each other. The Layer implements serialization and deserialization of data formats and shared storage between different VMs, making requests between them possible. For example, one could call a smart contract written in Solidity from a smart contract written in Move or Ink! and vice versa.
+B. The **VM Hub Layer**  which is a Substrate pallet that allows different Virtual Machines to interact with each other. The Layer implements serialization and deserialization of data formats and shared storage between different VMs, making requests between them possible. For example, one could call a smart contract written in Solidity from a smart contract written in Move or Ink! and vice versa.
 
 A user can choose between the following blockchains: Avalanche, Binance, Cardano, Diem, Elrond, Ethereum, Heco, Polkadot and Solana. Depending on the user’s blockchain choice, a smart contract programming language will be chosen. For example, if a user wants to interact with Ethereum, Solidity will be chosen as a target language.
 
 This module consists of:
 
-1. **Bytecode Deserializer** - it receives binary input and returns a human readable code in assembly. 
+1. **Bytecode Deserializer** - it receives binary input and returns a human readable opcode. 
 2. **Assembly Code Converter** - it  creates the following key - value pairs:
-The chosen smart contract programming language.
-Template number.
-Data to populate the smart contract with.
+   + The chosen smart contract programming language.
+   + Template number.
+   + Data to populate the smart contract with.
 3. **Bytecode Compiler** - it takes the key - value pairs generated at the previous stage as an input and generates the chosen smart contract language bytecode as its output.
-4. **Polkadot parathread** - it uses the Relay Chain callback mechanism to communicate with the other parachains and parathreads using XP Network protocol. Since the existing mechanism is connectionless and stateless there’s no way to automatically be notified whether a message or a transaction succeeded. This is why every transaction is marked with a unique token. While waiting for the results of the transaction or to identify the incoming messages as related to the transaction the token is stored together with the transaction info.
+4. **Polkadot parathread** - it uses the Relay Chain callback mechanism to communicate with the other parachains and parathreads using XP Network protocol. Since the existing mechanism is connectionless and stateless there’s no way to automatically be notified whether a message or a transaction succeeded. This is why every transaction must be marked with a unique token. While waiting for the results of the transaction or to identify the incoming messages as related to the transaction the token is stored together with the transaction info.
 
 A set of pre-programmed audited code templates are ready to be populated by the arbitrary data. Once a request is received, the templates are populated with the incoming data and are instantly compiled into transaction ready bytecode. Initially there will be a limited set of ready code templates for each platform. However, new templates will be added on a permanent regular basis. Eventually most possible use cases will be available for each bridged platform. Finally, the original smart contract bytecode will be translated directly into the target language bytecode, removing all limitations.
 
