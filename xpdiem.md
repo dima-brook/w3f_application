@@ -44,29 +44,29 @@ Before applying for the grant we have prepared GitHub repositories with the Proo
 
 Since the idea behind the VM Hub is converting one smart contract language bytecode to another we have elaborated the following steps:
 
-Writing a short smart contract in Solidity.
-Compiling it to bytecode with the solc compiler.
-Deserialize the bytecode into opcode
-Using the opcode to map the bytecode and cut it into blocks with
-Commands (MSTORE, SSTORE, CALLVALUE, ISZERO, JUMPI, REVERT… )
-Data (PUSH 80, PUSH [$] 000000000000000000000000000000000000000001, etc.)
+1. Writing a short smart contract in Solidity.
+2. Compiling it to bytecode with the solc compiler.
+3. Deserialize the bytecode into opcode
+4. Using the opcode to map the bytecode and cut it into blocks with
+   a. Commands (MSTORE, SSTORE, CALLVALUE, ISZERO, JUMPI, REVERT… )
+   b. Data (PUSH 80, PUSH [$] 000000000000000000000000000000000000000001, etc.)
  	this will become a bytecode template.
-Writing a request in Move which will call. The call will specify which template we want to use and will provide the data to populate the template with new data.
-The code in Move is compiled to bytecode & passed to our Substrate pallet.
-The pallet deserializes the Move bytecode and extracts the instruction - which template to use and the data to populate it with.
-The data from the request is used to assemble only the blocks of target bytecode expecting data.
-The template is reassembled to bytecode.
-The new data from the request in Move is used to populate the human readable smart contract in Solidity.
-The new smart contract is compiled into bytecode with the native solc compiler.
-The two resulting bytecodes are compared.
-If the two bytecodes are identical the Concept is Proved.
+5. Writing a request in Move which will call. The call will specify which template we want to use and will provide the data to populate the template with new data.
+6. The code in Move is compiled to bytecode & passed to our Substrate pallet.
+7. The pallet deserializes the Move bytecode and extracts the instruction - which template to use and the data to populate it with.
+8. The data from the request is used to assemble only the blocks of target bytecode expecting data.
+9. The template is reassembled to bytecode.
+10. The new data from the request in Move is used to populate the human readable smart contract in Solidity.
+11. The new smart contract is compiled into bytecode with the native solc compiler.
+12. The two resulting bytecodes are compared.
+13. If the two bytecodes are identical the Concept is Proved.
 
-####Expected obstacles:
+#### Expected obstacles:
 For efficiency in EVM higher order bits of types narrower than 256 bits, e.g. uint24 may be ignored or cleaned shortly before writing them to memory or before comparisons. This means, before comparison or saving higher order bits must be “manually” cleaned.
 In the Move language the code is divided into scripts and Modules. When scripts are compiled to the bytecode they become straightforward opcodes, however, modules can be recursively called from the scripts or from the other modules. Thus, modules deserialisation is much more complex and also requires recursiveness to retrieve the content of all the functions or data stored in different parts of the stack.
 
 
-####Further development
+#### Further development
 We cannot get rid of the target language dependency, however, the source language can be abstracted to an API protocol able to call predefined smart contracts in supported languages (Move, Solidity and Rust) from other programming languages. This may initially seem to be a limitation, but the number of actually used smart contracts is not infinite. If all or nearly all known smart contract patterns are present in the template library it will give more freedoms than limitations.
 
 We’re planning to elaborate the most popular smart contract bytecode templates in 3 languages: Move, Solidity and Rust and write APIs for compiling and sending the resulting bytecodes to the supported blockchains (see the list above).
