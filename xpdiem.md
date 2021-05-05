@@ -1,7 +1,7 @@
 # Open Grant Proposal
 
-- **Project Name:** XP Network VM Hub.
-- **Team Name:** XP Network.
+- **Project Name:** XP.network VM Hub.
+- **Team Name:** XP.network.
 - **Payment Address:** .
 
 ## Project Overview
@@ -103,7 +103,7 @@ The smart contract templates are a temporary solution. Eventually we will add th
 
 - **Contact Email:** dima@xp.network.com
 
-- [XP Network website](https://xp.network.com)
+- [XP.network website](https://xp.network.com)
 
 ### Legal Structure
 
@@ -123,7 +123,7 @@ The smart contract templates are a temporary solution. Eventually we will add th
 
 
 ### Team Code Repos (PoC)
-[XP Network repo](https://github.com/xp-network/)
+[XP.network repo](https://github.com/xp-network/)
 
 [Move Compiler](https://github.com/xp-network/move-compiler)
 
