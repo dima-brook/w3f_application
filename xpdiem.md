@@ -28,7 +28,7 @@ A user can choose between the following blockchains: Avalanche, Binance, Cardano
 
 This module consists of:
 
-1. **Bytecode Deserializer** - it receives hexadecimal input and returns a human readable code in assembly. 
+1. **Bytecode Deserializer** - it receives binary input and returns a human readable code in assembly. 
 2. **Assembly Code Converter** - it  creates the following key - value pairs:
 The chosen smart contract programming language.
 Template number.
@@ -47,19 +47,18 @@ Since the idea behind the VM Hub is converting one smart contract language bytec
 1. Writing a short smart contract in Solidity.
 2. Compiling it to bytecode with the solc compiler.
 3. Deserialize the bytecode into opcode
-4. Using the opcode to map the bytecode and cut it into blocks with
+4. An array of opcodes will become a bytecode template:
    a. Commands (MSTORE, SSTORE, CALLVALUE, ISZERO, JUMPI, REVERT… )
    b. Data (PUSH 80, PUSH [$] 000000000000000000000000000000000000000001, etc.)
- 	this will become a bytecode template.
-5. Writing a request in Move which will call. The call will specify which template we want to use and will provide the data to populate the template with new data.
+5. Writing a request in Move which will specify which template we want to use and will provide the data to populate the template with new data.
 6. The code in Move is compiled to bytecode & passed to our Substrate pallet.
 7. The pallet deserializes the Move bytecode and extracts the instruction - which template to use and the data to populate it with.
-8. The data from the request is used to assemble only the blocks of target bytecode expecting data.
+8. The data from the request is used to populate the opcode parameters in the template.
 9. The template is reassembled to bytecode.
 10. The new data from the request in Move is used to populate the human readable smart contract in Solidity.
 11. The new smart contract is compiled into bytecode with the native solc compiler.
-12. The two resulting bytecodes are compared.
-13. If the two bytecodes are identical the Concept is Proved.
+12. We run the two bytecodes in the Ethereum testnet.
+13. If both the smart contracts run in the testnet and produce the same result - the concept is proved.
 
 #### Expected obstacles:
 For efficiency in EVM higher order bits of types narrower than 256 bits, e.g. uint24 may be ignored or cleaned shortly before writing them to memory or before comparisons. This means, before comparison or saving higher order bits must be “manually” cleaned.
