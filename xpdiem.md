@@ -92,7 +92,7 @@ We’re planning to elaborate the most popular smart contract bytecode templates
 
 - **Contact Email:** dima@xp.network.com
 
-- [XP Network website] (https://xp.network.com)
+- [XP Network website](https://xp.network.com)
 
 ### Legal Structure
 
@@ -113,16 +113,21 @@ We’re planning to elaborate the most popular smart contract bytecode templates
 
 ### Team Code Repos (PoC)
 [XP Network repo](https://github.com/xp-network/)
+
 [Move Compiler](https://github.com/xp-network/move-compiler)
+
 [Solidity Compiler](https://github.com/xp-network/solidity-compiler)
+
 [EVM to Assembler](https://github.com/xp-network/evm-asm)
+
 [VM Hub Pallet](https://github.com/xp-network/vm_hub_pallet)
+
 [XP Compiler](https://github.com/xp-network/xp-compiler)
 
 
 ### Team LinkedIn Profiles
 
-[Dmitry Bryukhanov](https://www.linkedin.com/in/dmitry-briukhanov-60b2ab45/ )
+[Dmitry Bryukhanov](https://www.linkedin.com/in/dmitry-briukhanov-60b2ab45/)
 
 ## Development Roadmap
 
