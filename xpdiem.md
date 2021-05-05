@@ -109,17 +109,12 @@ We’re planning to elaborate the most popular smart contract bytecode templates
 - Over 3 years of experiences in Blockchain Development in Rust and Move
 
 
-### Team Code Repos
+### Team Code Repos (PoC)
 [XP Network repo] (https://github.com/xp-network/ )
-
 [Move Compiler] (https://github.com/xp-network/move-compiler )
-
 [Solidity Compiler] (https://github.com/xp-network/solidity-compiler )
-
 [EVM to Assembler] (https://github.com/xp-network/evm-asm )
-
 [VM Hub Pallet] (https://github.com/xp-network/vm_hub_pallet )
-
 [XP Compiler] (https://github.com/xp-network/xp-compiler )
 
 
@@ -200,21 +195,17 @@ We’re planning to elaborate the most popular smart contract bytecode templates
 
 ## Future Plans
 
-Community Plan
+**Community Plan**
 
 Hiring 3-5 more developers
-
 Joining Polkadot related events
-
 Publishing articles in Telegram, medium.com and other channels
 
 
-Development Plan
+**Development Plan**
 
 The template bytecode chunks will become more atomic to add flexibility to the bytecode compilation process.
-
 Eventually, we hope to enable our pallet to become completely dynamic, being able to process yet unseen non predefined smart contract patterns and convert them into valid bytecodes of a chosen smart contract language.
-
 Development of bridges to the Avalanche, Binance, Cardano, Diem? (should regulations allow), Elrond, Heco and Solana blockchains.
 
 ## Additional Information
