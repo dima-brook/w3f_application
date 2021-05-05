@@ -44,14 +44,14 @@ Before applying for the grant we have prepared GitHub repositories with the Proo
 
 Since the idea behind the VM Hub is converting one smart contract language bytecode to another we have elaborated the following steps:
 
-1. Writing a short smart contract in Solidity.
-2. Compiling it to bytecode with the solc compiler.
-3. Deserialize the bytecode into opcode
-4. An array of opcodes will become a bytecode template:
+1. We wrote a short smart contract in Solidity.
+2. We compiled it to bytecode with the solc compiler.
+3. We deserialized the bytecode into opcode.
+4. An array of opcodes became a bytecode template:
    a. Commands (MSTORE, SSTORE, CALLVALUE, ISZERO, JUMPI, REVERT… )
    b. Data (PUSH 80, PUSH [$] 000000000000000000000000000000000000000001, etc.)
-5. Writing a request in Move which will specify which template we want to use and will provide the data to populate the template with new data.
-6. The code in Move is compiled to bytecode & passed to our Substrate pallet.
+5. We wrote a request in Move which will specify which template we want to use and will provide the data to populate the template with new data.
+6. The code in Move is then compiled to bytecode & passed to our Substrate pallet.
 7. The pallet deserializes the Move bytecode and extracts the instruction - which template to use and the data to populate it with.
 8. The data from the request is used to populate the opcode parameters in the template.
 9. The template is reassembled to bytecode.
@@ -60,8 +60,11 @@ Since the idea behind the VM Hub is converting one smart contract language bytec
 12. We run the two bytecodes in the Ethereum testnet.
 13. If both the smart contracts run in the testnet and produce the same result - the concept is proved.
 
+The above process is automated and can be reproduced on any machine.
+
 #### Expected obstacles:
 For efficiency in EVM higher order bits of types narrower than 256 bits, e.g. uint24 may be ignored or cleaned shortly before writing them to memory or before comparisons. This means, before comparison or saving higher order bits must be “manually” cleaned.
+
 In the Move language the code is divided into scripts and Modules. When scripts are compiled to the bytecode they become straightforward opcodes, however, modules can be recursively called from the scripts or from the other modules. Thus, modules deserialisation is much more complex and also requires recursiveness to retrieve the content of all the functions or data stored in different parts of the stack.
 
 
