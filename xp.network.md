@@ -10,10 +10,9 @@
 
 XP.network is a codeless platform for building blockchain agnostic NFT DApps. XP.network allows non-developers to build their NFT marketplaces, galleries, museums and many more use-cases without coding.
 
-In order to synchronize communication between different [parachains](https://research.web3.foundation/en/latest/polkadot/XCMP/index.html) we want to build our own protocol which will be used by a network of XP.network pallets. At the moment Polkadot’s Relay Chain allows [connectionless callbacks](https://github.com/xp-network/xcm-format) and Substrate is using the Rust implementation of [libp2p](https://substrate.dev/docs/en/knowledgebase/getting-started/architecture).
-
-Libp2p has a number of [protocols](https://github.com/libp2p/specs), but none of them suits the purpose of tracking a "TOPIC" of negotiation between the peers. 
-Since it is currently hard to trace whether an incoming message is related to any previous transaction or request, we will elaborate a protocol that will enable such tracking. It will be a number of pallets, each acting like a “post office” from a post office network. They will all use our XP Relay Chain protocol.
+In order to synchronize communication between different [parachains](https://research.web3.foundation/en/latest/polkadot/XCMP/index.html) we want to build our own protocol which will be used by a network of XP.network pallets.
+ 
+Since it is currently hard to trace whether an incoming message is related to any previous transaction or request, we will elaborate a protocol that will enable such tracking by the "TOPIC". It will be a number of pallets, each acting like a “post office” from a post office network. They will all use our XP Relay Chain protocol.
 
 Since different blockchains may use different smart contract languages, we are aspiring to create an automated toolbox that will communicate via the Polkadot Relay Chain and will generate in the target pallet a valid code in Move, Solidity and Rust (Ink!) which could be further validated and compiled to byte-code to interact with the target blockchains. After the target blockchain has finished or rejected the transaction, the information about this is packed back into the reply XP Relay Chain protocol message and is sent back to the requesting pallet for passing it to the requesting blockchain.
 
@@ -32,11 +31,11 @@ The pallets (one for each parahcain / parathread) will act as a “post office n
 **XP Relay Chain Protocol** will be supported by a number of pallets, each acting as a “post office”. A typical message will include:
 ```terminal
 {
-ID: id,                              //required to identify that the other blockchain’s reply is related to this request,
-Callback_Function: func_name,        // a designated Polkadot Relay Chain callback function,
-Callback_Arguments: [ ... ],         // required for the above function,
-To: dest,                            // indicates the destination parachain / parathread,
-Payload: blob                        // A binary representation of the "intention"
+ID:                 id,               //required to identify that the other blockchain’s reply is related to this request,
+CallbackFunction:   funcName,         // a designated Polkadot Relay Chain callback function,
+CallbackArguments:  [ ... ],          // required for the above function,
+To:                 dest,             // indicates the destination parachain / parathread,
+Payload:            blob              // A binary representation of the "intention"
 }
 ```
 
@@ -65,7 +64,7 @@ The **XP.network Handshake protocol** will look like this:
 7. Once the above message is received by the initiating pallet it will check its integrity and will pass the result to its blockchain. It will then send the same message back to the counterpart to finish negotiation on the Topic_ID.
 8. IER stands for Initiator pallet error. This flag will be raised if there is a technical issue in the initiating pallet.
 
-Every pallet will know how to read such incoming messages. If the message is related to the blockchain this pallet is attached to it will do the following:
+Every parachain equipped with our pallet will know how to read such incoming messages. If the message is related to the blockchain this pallet is attached to it will do the following:
 
 1. Deserialize the incoming message from bytecode to optcode,
 2. Transform the commands and arguments from the optcode to a smart contract in the target language, used by the blockchain it works for.
