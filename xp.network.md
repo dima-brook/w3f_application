@@ -8,6 +8,8 @@
 
 ### Overview
 
+XP.network is a coddless platform for building NFT based applications for different blockchains, Polkadot, Diem and several other. The platform will allow artists, photographers and other non developers build their NFT marketplaces, galleries, museums, etc. without coding.
+
 In order to synchronize communication between different parachains we want to elaborate our own protocol implemented in a network of pallets. At the moment Polkadot’s Relay Chain allows connectionless callbacks. It is hard to trace whether an incoming message is related to any previous transaction or request. Therefore, we will elaborate a protocol that will enable such tracking. It will be a number of pallets, each acting like a “post office” from a post office network. They will all use our XP Relay Chain protocol.
 
 Since different blockchains may use different smart contract languages, we are aspiring to create an automated toolbox that will communicate via the Polkadot Relay Chain and will generate in the target pallet a valid code in Move, Solidity and Rust (Ink!) which could be further validated and compiled to byte-code to interact with the target blockchains. After the target blockchain has finished or rejected the transaction, the information about this is packed back into the reply XP Relay Chain protocol message and is sent back to the requesting pallet for passing it to the requesting blockchain.
@@ -16,13 +18,14 @@ Because there's no NFT library in Move's standard library we will have to write 
 
 #### Integration
 
-Connection to Polkadot will be implemented via a VM Hub Layer Substrate pallet, where our auto generated code in Move or Rust will be processed and serialized in Solidity and vice versa. 
+All the NFT based applications built by our platform will be using the XP Relay Chain protocol we're aspiring to elaborate.
 
-The pallets will act as a “post office network” supporting the protocol that enables nodes to keep track of the “topics”.
+Connection to Polkadot will be implemented via a VM Hub Layer Substrate pallets. The pallets (one for each parahcain / parathread) will act as a “post office network” supporting the protocol that enables nodes to keep track of the “topics”. They will also "translate" the intentions of one parachain regardless of its smart contract language to a smart contract in the language of the target parachain / parathread.
 
 ### Project Details
 
 **XP Relay Chain Protocol** will be supported by a number of pallets, each acting as a “post office”. The protocol will include:
+```terminal
 {
 ID: id, required to identify that the other blockchain’s reply is related to this request,
 Callback_Function: a designated Polkadot Relay Chain callback function,
@@ -30,7 +33,8 @@ Callback_Arguments: required for the above function,
 To: indicates the destination parachain / parathread,
 Function: what function should be called in the target pallet,
 Arguments: [ ], a list of argument for the above pallet function
-}.
+}
+```
 Every pallet will know how to read such incoming messages. If the message is related to the blockchain this pallet is attached to it will do the following:
 Deserialize the incoming message from bytecode to optcode,
 Transform the commands and arguments from the optcode to a smart contract in the target language, used by the blockchain it works for.
@@ -116,12 +120,13 @@ The smart contract templates are a temporary solution. Eventually we will add th
 
 **Dmitry Briukhanov**
 
-- Over 18 years of experiences in Development and Management 
-- Former Senior Project Manager in Best Systems
+- Over 18 years of experience in Development and Management 
+- Former Senior Software Developer in Best Systems, Israel
+- Former Team Lead in NLK, Russia
 
 **Verbal Kint**
 
-- Over 15 years of experiences in Blockchain Development in Rust and Move
+- Over 5 years of experiences in Blockchain Development 8 years in Rust, 1 year in Move and 15 years of development experience overall
 
 
 ### Team Code Repos (PoC)
@@ -155,7 +160,7 @@ The smart contract templates are a temporary solution. Eventually we will add th
 - **Estimated Duration:** 20 working days (1 month)
 - Working days **x** ppl. **:** 20 **x** 2
 - Effort: 40 days
-- **Costs:** $1.46 Ether
+- **Costs:** 1.46 Ether
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
