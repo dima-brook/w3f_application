@@ -34,10 +34,14 @@ ID: id,                              //required to identify that the other block
 Callback_Function: func_name,        // a designated Polkadot Relay Chain callback function,
 Callback_Arguments: [ ... ],         // required for the above function,
 To: dest,                            // indicates the destination parachain / parathread,
-Function: xp_func_name,              // what function should be called in the target pallet,
-Arguments: [ ... ]                   // a list of argument for the above pallet function
+Payload: blob                        // A binary representation of the "intention"
 }
 ```
+
+The message inside the binary payload will be structured as follows:
+
+![img](https://github.com/xp-network/w3f_application/blob/main/Screen%20Shot%202021-05-06%20at%2014.12.37.png)
+
 Every pallet will know how to read such incoming messages. If the message is related to the blockchain this pallet is attached to it will do the following:
 1. Deserialize the incoming message from bytecode to optcode,
 2. Transform the commands and arguments from the optcode to a smart contract in the target language, used by the blockchain it works for.
