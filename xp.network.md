@@ -17,7 +17,9 @@ Since it is currently hard to trace whether an incoming message is related to an
 
 Since different blockchains may use different smart contract languages, we are aspiring to create an automated toolbox that will communicate via the Polkadot Relay Chain and will generate in the target pallet a valid code in Move, Solidity and Rust (Ink!) which could be further validated and compiled to byte-code to interact with the target blockchains. After the target blockchain has finished or rejected the transaction, the information about this is packed back into the reply XP Relay Chain protocol message and is sent back to the requesting pallet for passing it to the requesting blockchain.
 
-Because there's no NFT library in Move's standard library we will have to write it as part of this project. This will allow a. other blockchains to call NFT smart contracts in Move, 2. run NFT smart contracts in other languages from Move.
+Because there's no NFT library in Move's standard library we will have to write it as part of this project. This will allow 
+1. other blockchains to call NFT smart contracts in Move, 
+2. to run NFT smart contracts in other languages from Move.
 
 #### Integration
 
