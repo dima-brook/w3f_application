@@ -53,7 +53,7 @@ The **XP.network Handshake protocol** will look like this:
    
    b. it flips the AKN flag from 0 to 1, keeping the other flags in the off state
    
-   c. it checks whether the template of the desired type exists and the argument list matches the requirement. In case it does not the DER (destination error) and END flags are set to 1.
+   c. it checks whether the template of the desired type exists and the argument list matches the requirement. In case at least one does not, the DER (destination error) and END flags are set to 1.
    
    c. it keeps the rest of the blob intact to prove to the sender that exactly this message was received.
    
