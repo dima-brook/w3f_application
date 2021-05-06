@@ -2,7 +2,7 @@
 
 - **Project Name:** XP.network VM Hub.
 - **Team Name:** XP.network.
-- **Payment Address:** .
+- **Payment Address:** Ethereum: 0xf583E3E2a227b8fD2daFC145DACCc3B36e7420b5.
 
 ## Project Overview
 
@@ -10,7 +10,11 @@
 
 XP.network is a coddless platform for building NFT based applications for different blockchains, Polkadot, Diem and several other. The platform will allow artists, photographers and other non developers build their NFT marketplaces, galleries, museums, etc. without coding.
 
-In order to synchronize communication between different parachains we want to elaborate our own protocol implemented in a network of pallets. At the moment Polkadot’s Relay Chain allows [connectionless callbacks](https://github.com/xp-network/xcm-format) and Substrate is using the Rust implementation of [libp2p](https://substrate.dev/docs/en/knowledgebase/getting-started/architecture) implementation. It is hard to trace whether an incoming message is related to any previous transaction or request. Therefore, we will elaborate a protocol that will enable such tracking. It will be a number of pallets, each acting like a “post office” from a post office network. They will all use our XP Relay Chain protocol.
+In order to synchronize communication between different parachains we want to elaborate our own protocol implemented in a network of pallets. At the moment Polkadot’s Relay Chain allows [connectionless callbacks](https://github.com/xp-network/xcm-format) and Substrate is using the Rust implementation of [libp2p](https://substrate.dev/docs/en/knowledgebase/getting-started/architecture).
+
+It is currently hard to trace whether an incoming message is related to any previous transaction or request. Therefore, we will elaborate a protocol that will enable such tracking. It will be a number of pallets, each acting like a “post office” from a post office network. They will all use our XP Relay Chain protocol.
+
+Libp2p has a number of [protocols](https://github.com/libp2p/specs), but none of them suits the purpose of tracking a "TOPIC" of negotiation between the peers.
 
 Since different blockchains may use different smart contract languages, we are aspiring to create an automated toolbox that will communicate via the Polkadot Relay Chain and will generate in the target pallet a valid code in Move, Solidity and Rust (Ink!) which could be further validated and compiled to byte-code to interact with the target blockchains. After the target blockchain has finished or rejected the transaction, the information about this is packed back into the reply XP Relay Chain protocol message and is sent back to the requesting pallet for passing it to the requesting blockchain.
 
