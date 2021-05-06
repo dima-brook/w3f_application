@@ -10,7 +10,7 @@
 
 XP.network is a codeless platform for building blockchain agnostic NFT DApps. XP.network allows non-developers to build their NFT marketplaces, galleries, museums and many more use-cases without coding.
 
-In order to synchronize communication between different [parachains](https://research.web3.foundation/en/latest/polkadot/XCMP/index.html) we want to build our own protocol which will be supported by a network of XP.network pallets. At the moment Polkadot’s Relay Chain allows [connectionless callbacks](https://github.com/xp-network/xcm-format) and Substrate is using the Rust implementation of [libp2p](https://substrate.dev/docs/en/knowledgebase/getting-started/architecture).
+In order to synchronize communication between different [parachains](https://research.web3.foundation/en/latest/polkadot/XCMP/index.html) we want to build our own protocol which will be used by a network of XP.network pallets. At the moment Polkadot’s Relay Chain allows [connectionless callbacks](https://github.com/xp-network/xcm-format) and Substrate is using the Rust implementation of [libp2p](https://substrate.dev/docs/en/knowledgebase/getting-started/architecture).
 
 Libp2p has a number of [protocols](https://github.com/libp2p/specs), but none of them suits the purpose of tracking a "TOPIC" of negotiation between the peers. 
 Since it is currently hard to trace whether an incoming message is related to any previous transaction or request, we will elaborate a protocol that will enable such tracking. It will be a number of pallets, each acting like a “post office” from a post office network. They will all use our XP Relay Chain protocol.
