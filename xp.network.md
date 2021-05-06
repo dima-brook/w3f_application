@@ -10,7 +10,7 @@
 
 XP.network is a coddless platform for building NFT based applications for different blockchains, Polkadot, Diem and several other. The platform will allow artists, photographers and other non developers build their NFT marketplaces, galleries, museums, etc. without coding.
 
-In order to synchronize communication between different parachains we want to elaborate our own protocol implemented in a network of pallets. At the moment Polkadot’s Relay Chain allows connectionless callbacks. It is hard to trace whether an incoming message is related to any previous transaction or request. Therefore, we will elaborate a protocol that will enable such tracking. It will be a number of pallets, each acting like a “post office” from a post office network. They will all use our XP Relay Chain protocol.
+In order to synchronize communication between different parachains we want to elaborate our own protocol implemented in a network of pallets. At the moment Polkadot’s Relay Chain allows [connectionless callbacks](https://github.com/xp-network/xcm-format). It is hard to trace whether an incoming message is related to any previous transaction or request. Therefore, we will elaborate a protocol that will enable such tracking. It will be a number of pallets, each acting like a “post office” from a post office network. They will all use our XP Relay Chain protocol.
 
 Since different blockchains may use different smart contract languages, we are aspiring to create an automated toolbox that will communicate via the Polkadot Relay Chain and will generate in the target pallet a valid code in Move, Solidity and Rust (Ink!) which could be further validated and compiled to byte-code to interact with the target blockchains. After the target blockchain has finished or rejected the transaction, the information about this is packed back into the reply XP Relay Chain protocol message and is sent back to the requesting pallet for passing it to the requesting blockchain.
 
@@ -72,10 +72,8 @@ Since the idea behind the VM Hub is converting one smart contract language bytec
 7. The pallet deserializes the Move bytecode and extracts the instruction - which template to use and the data to populate it with.
 8. The data from the request is used to populate the opcode parameters in the template.
 9. The template is reassembled to bytecode.
-10. The new data from the request in Move is used to populate the human readable smart contract in Solidity.
-11. The new smart contract is compiled into bytecode with the native solc compiler.
-12. We run the two bytecodes in the Ethereum testnet.
-13. If both the smart contracts run in the testnet and produce the same result - the concept is proved.
+10. We run the two bytecodes (from steps 2 & 9) in the Ethereum testnet.
+11. If both the smart contracts run in the testnet and produce the same result - the concept is proved.
 
 The above process is automated and can be reproduced on any machine.
 
@@ -88,7 +86,7 @@ In the Move language the code is divided into scripts and Modules. When scripts 
 #### Further development
 We cannot get rid of the target language dependency, however, the source language can be abstracted to an API protocol able to call predefined smart contracts in supported languages (Move, Solidity and Rust) from other programming languages. This may initially seem to be a limitation, but the number of actually used smart contracts is not infinite. If all or nearly all known smart contract patterns are present in the template library it will give more freedoms than limitations.
 
-We’re planning to elaborate the most popular smart contract bytecode templates in 3 languages: Move, Solidity and Rust and write APIs for compiling and sending the resulting bytecodes to the supported blockchains (see the list above).
+We’re planning to elaborate the most popular smart contract bytecode templates in 3 languages: Move, Solidity and Rust and write APIs for compiling and sending the resulting bytecodes to the supported blockchains.
 
 The smart contract templates are a temporary solution. Eventually we will add the flexibility to directly translate smart contracts from one language to another without predefined templates.
 
