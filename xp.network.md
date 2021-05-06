@@ -25,7 +25,7 @@ Because there's no NFT library in Move's standard library we will have to write 
 
 All the NFT based applications built by our platform will be using the XP Relay Chain protocol we're building.
 
-The pallets (one for each parahcain / parathread) will act as a “post office network” supporting the protocol that enables nodes to keep track of the “topics”. They will also "translate" the intentions of one parachain, regardless of its smart contract language to a smart contract, to the language of the target parachain / parathread.
+The pallets (one for each parahcain / parathread) will act as a “post office network” supporting the protocol that enables nodes to keep track of the “topics”. They will also "translate" the intentions of one parachain, regardless of its smart contract language, to a smart contract in the language of the target parachain / parathread.
 
 ### Project Details
 
