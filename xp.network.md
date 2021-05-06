@@ -42,6 +42,20 @@ The message inside the binary payload will be structured as follows:
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/Screen%20Shot%202021-05-06%20at%2014.12.37.png)
 
+The Handshake protocol will be different from the one we are used to in TCP. XP.network handshake will look like this:
+1. An initiating pallet sends a message with a smart contract call to a designated pallet.
+2. Once the designated pallet receives the message it unpacks the blob from the payload and returns the confirmation like this:
+   a. it replaces the Source & the Destination addresses
+   b. it flips the AKN flag from 0 to 1, keeping the other flags in the off state
+   c. it checks whether the template of the desired type exists and the argument list matches the requirement. In case it does not the DER (destination error) and END flags are set to 1.
+   c. it keeps the rest of the blob intact to prove to the sender that exactly this message was received.
+   d. it crafts a Message with the same ID and sends it back for the initiator to confirm that the transaction is being processed or failed.
+4. The initiating pallet checks the integrity of the parcel and whether END or DER flags were not raised and if everything is ok will return the same message (with flipped Sender & Receiver) with the INT(egrity) flag set to 1. Otherwise the INT(egrity) flag will remain 0, but NER(nework error) flag will be raised to indicate that the message was corrupted in the transport layer.
+5. Once the message with the Topic_ID arrives to the destination pallet it will check the inegrity flag and if the flag is 1 it will start processing the request.
+6. Once the request has been processed, submited to the target blockchain and a success / failure result is received form the blockchain it will craft a new message with the same Topic_ID setting the OK or REJ flags as well as the END flag to 1.
+7. Once the above message is received by the initiating pallet it will check its integrity and will pass the result to its blockchain. It will then send the same message back to the counterpart to finish negotiation on the Topic_ID.
+8. IER stands for Initiator pallet error. This flag will be raised if there is a technical issue in the initiating pallet.
+
 Every pallet will know how to read such incoming messages. If the message is related to the blockchain this pallet is attached to it will do the following:
 1. Deserialize the incoming message from bytecode to optcode,
 2. Transform the commands and arguments from the optcode to a smart contract in the target language, used by the blockchain it works for.
