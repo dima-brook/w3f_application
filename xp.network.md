@@ -136,7 +136,7 @@ The smart contract templates are a temporary solution. Eventually we will add th
 
 - **Contact Email:** dima@xp.network.com
 
-- [XP.network website](https://xp.network.com)
+- [XP.network website](https://xp.network/)
 
 ### Legal Structure
 
