@@ -44,7 +44,7 @@ The message inside the binary payload will be structured as follows:
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/XP.network.protocol.png)
 
-The **Handshake protocol** will be different from the one we are used to in TCP. XP.network handshake will look like this:
+The **XP.network Handshake protocol** will look like this:
 
 1. An initiating pallet sends a message with a smart contract call to a designated pallet.
 2. Once the designated pallet receives the message it unpacks the blob from the payload and returns the confirmation like this:
