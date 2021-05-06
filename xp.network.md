@@ -12,7 +12,7 @@ XP.network is a codeless platform for building blockchain agnostic NFT DApps. XP
 
 In order to synchronize communication between different [parachains](https://research.web3.foundation/en/latest/polkadot/XCMP/index.html) we want to build our own protocol which will be used by a network of XP.network pallets.
  
-Since it is currently hard to trace whether an incoming message is related to any previous transaction or request, we will elaborate a protocol that will enable such tracking by the "TOPIC". It will be a number of pallets, each acting like a “post office” from a post office network. They will all use our XP Relay Chain protocol.
+Since it is currently hard to trace whether an incoming message is related to any previous transaction or request, we will elaborate a protocol that will enable such tracking by the "TOPIC ID". It will be a group of pallets, each acting like a “post office” from a post office network. They will all use our XP Relay Chain protocol.
 
 Since different blockchains may use different smart contract languages, we are aspiring to create an automated toolbox that will communicate via the Polkadot Relay Chain and will generate in the target pallet a valid code in Move, Solidity and Rust (Ink!) which could be further validated and compiled to byte-code to interact with the target blockchains. After the target blockchain has finished or rejected the transaction, the information about this is packed back into the reply XP Relay Chain protocol message and is sent back to the requesting pallet for passing it to the requesting blockchain.
 
