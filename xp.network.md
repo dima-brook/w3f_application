@@ -116,12 +116,12 @@ The smart contract templates are a temporary solution. Eventually we will add th
 
 **Dmitry Briukhanov**
 
-- Over 8 years of experiences in Development and Management 
+- Over 18 years of experiences in Development and Management 
 - Former Senior Project Manager in Best Systems
 
 **Verbal Kint**
 
-- Over 5 years of experiences in Blockchain Development in Rust and Move
+- Over 15 years of experiences in Blockchain Development in Rust and Move
 
 
 ### Team Code Repos (PoC)
@@ -148,14 +148,14 @@ The smart contract templates are a temporary solution. Eventually we will add th
 
 - **Total Estimated Duration:** 6 months.
 - **Total Effort:** 240 days.
-- **Total Costs:** $30,000
+- **Total Costs:** 8.79 Ether
 
 ### Milestone 1 - VM Hub pallet Move Code to Solidity bytecode (MVP)
 
 - **Estimated Duration:** 20 working days (1 month)
 - Working days **x** ppl. **:** 20 **x** 2
 - Effort: 40 days
-- **Costs:** $5,000
+- **Costs:** $1.46 Ether
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
@@ -172,7 +172,7 @@ The smart contract templates are a temporary solution. Eventually we will add th
 - **Estimated Duration:** 34 working days (1.5 months)
 - Working days **x** ppl. **:** 34 **x** 2
 - Effort: 68 days
-- **Costs:** $8,500
+- **Costs:** 2.49 Ether
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
@@ -189,7 +189,7 @@ The smart contract templates are a temporary solution. Eventually we will add th
 - **Estimated Duration:** 33 working days (1.5 months)
 - Working days **x** ppl. **:** 33 **x** 2
 - Effort: 66 days
-- **Costs:** $8,250
+- **Costs:** 2.42 Ether
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
@@ -204,7 +204,7 @@ The smart contract templates are a temporary solution. Eventually we will add th
 - **Estimated Duration:** 33 working days (1.5 months)
 - Working days **x** ppl. **:** 33 **x** 2
 - Effort: 66 days
-- **Costs:** $8,250
+- **Costs:** 2.42 Ether
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
