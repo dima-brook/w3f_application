@@ -60,7 +60,7 @@ The **XP.network Handshake protocol** will look like this:
    d. it crafts a Message with the same ID and sends it back for the initiator to confirm that the transaction is being processed or failed.
    
 4. The initiating pallet checks the integrity of the parcel and whether END or DER flags were not raised and if everything is ok will return the same message (with swapped Sender & Receiver) with the INT(egrity) flag set to 1. Otherwise the INT(egrity) flag will remain 0, but NER(nework error) flag will be raised to indicate that the message was corrupted in the transport layer.
-5. Once the message with the Topic_ID arrives to the destination pallet it will check the inegrity flag and if the flag is 1 it will start processing the request.
+5. Once the message with the Topic_ID arrives to the destination pallet it will check the inegrity flag and if the flag is 1 it will start processing the request. Otherwise, it will retrun the same message, acknowledging broken integrity and proving that the transaction is terminated.
 6. Once the request has been processed, submited to the target blockchain and a success / failure result is received form the blockchain it will craft a new message with the same Topic_ID setting the OK or REJ flags as well as the END flag to 1.
 7. Once the above message is received by the initiating pallet it will check its integrity and will pass the result to its blockchain. It will then send the same message back to the counterpart to finish negotiation on the Topic_ID.
 8. IER stands for Initiator pallet error. This flag will be raised if there is a technical issue in the initiating pallet.
@@ -112,7 +112,6 @@ The above process is automated and can be reproduced on any machine.
 For efficiency in EVM higher order bits of types narrower than 256 bits, e.g. uint24 may be ignored or cleaned shortly before writing them to memory or before comparisons. This means, before comparison or saving higher order bits must be “manually” cleaned.
 
 In the Move language the code is divided into scripts and Modules. When scripts are compiled to the bytecode they become straightforward opcodes, however, modules can be recursively called from the scripts or from the other modules. Thus, modules deserialisation is much more complex and also requires recursiveness to retrieve the content of all the functions or data stored in different parts of the stack.
-
 
 #### Further development
 We cannot get rid of the target language dependency, however, the source language can be abstracted to an API protocol able to call predefined smart contracts in supported languages (Move, Solidity and Rust) from other programming languages. This may initially seem to be a limitation, but the number of actually used smart contracts is not infinite. If all or nearly all known smart contract patterns are present in the template library it will give more freedoms than limitations.
