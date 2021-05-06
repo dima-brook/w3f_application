@@ -41,7 +41,7 @@ Payload:            blob              // A binary representation of the "intenti
 
 The message inside the binary payload will be structured as follows:
 
-![img](https://github.com/xp-network/w3f_application/commit/16f708e8a3f2b2a9c2c07e0a31f7348bdffd2fcd)
+![img](https://github.com/xp-network/w3f_application/blob/main/XP.network.protocol.png)
 
 The **XP.network Handshake protocol** will look like this:
 
