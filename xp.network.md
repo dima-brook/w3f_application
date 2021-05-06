@@ -46,11 +46,17 @@ The **Handshake protocol** will be different from the one we are used to in TCP.
 
 1. An initiating pallet sends a message with a smart contract call to a designated pallet.
 2. Once the designated pallet receives the message it unpacks the blob from the payload and returns the confirmation like this:
-   a. it replaces the Source & the Destination addresses
+
+   a. it swaps the Source & the Destination addresses
+   
    b. it flips the AKN flag from 0 to 1, keeping the other flags in the off state
+   
    c. it checks whether the template of the desired type exists and the argument list matches the requirement. In case it does not the DER (destination error) and END flags are set to 1.
+   
    c. it keeps the rest of the blob intact to prove to the sender that exactly this message was received.
+   
    d. it crafts a Message with the same ID and sends it back for the initiator to confirm that the transaction is being processed or failed.
+   
 4. The initiating pallet checks the integrity of the parcel and whether END or DER flags were not raised and if everything is ok will return the same message (with flipped Sender & Receiver) with the INT(egrity) flag set to 1. Otherwise the INT(egrity) flag will remain 0, but NER(nework error) flag will be raised to indicate that the message was corrupted in the transport layer.
 5. Once the message with the Topic_ID arrives to the destination pallet it will check the inegrity flag and if the flag is 1 it will start processing the request.
 6. Once the request has been processed, submited to the target blockchain and a success / failure result is received form the blockchain it will craft a new message with the same Topic_ID setting the OK or REJ flags as well as the END flag to 1.
