@@ -8,7 +8,7 @@
 
 ### Overview
 
-XP.network is a codeless platform for building NFT based applications for different blockchains, such as: Diem, Polkadot, Ethereum and many more. The platform will allow artists, photographers and other non developers build their NFT marketplaces, galleries, museums, etc. without coding.
+XP.network is a codeless platform for building blockchain agnostic NFT DApps. XP.network allows non-developers to build their NFT marketplaces, galleries, museums and many more use-cases without coding.
 
 In order to synchronize communication between different [parachains](https://research.web3.foundation/en/latest/polkadot/XCMP/index.html) we want to elaborate our own protocol implemented in a network of pallets. At the moment Polkadot’s Relay Chain allows [connectionless callbacks](https://github.com/xp-network/xcm-format) and Substrate is using the Rust implementation of [libp2p](https://substrate.dev/docs/en/knowledgebase/getting-started/architecture).
 
