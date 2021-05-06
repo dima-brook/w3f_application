@@ -180,14 +180,14 @@ The smart contract templates are a temporary solution. Eventually we will add th
 
 - **Total Estimated Duration:** 6 months.
 - **Total Effort:** 240 days.
-- **Total Costs:** 8.79 Ether
+- **Total Costs:** BTC 0.54
 
 ### Milestone 1 - VM Hub pallet Move Code to Solidity bytecode (MVP)
 
 - **Estimated Duration:** 20 working days (1 month)
 - Working days **x** ppl. **:** 20 **x** 2
 - Effort: 40 days
-- **Costs:** 1.46 Ether
+- **Costs:** BTC 0.09
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
@@ -204,7 +204,7 @@ The smart contract templates are a temporary solution. Eventually we will add th
 - **Estimated Duration:** 34 working days (1.5 months)
 - Working days **x** ppl. **:** 34 **x** 2
 - Effort: 68 days
-- **Costs:** 2.49 Ether
+- **Costs:** BTC 0.15
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
@@ -221,7 +221,7 @@ The smart contract templates are a temporary solution. Eventually we will add th
 - **Estimated Duration:** 33 working days (1.5 months)
 - Working days **x** ppl. **:** 33 **x** 2
 - Effort: 66 days
-- **Costs:** 2.42 Ether
+- **Costs:** BTC 0.15
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
@@ -236,7 +236,7 @@ The smart contract templates are a temporary solution. Eventually we will add th
 - **Estimated Duration:** 33 working days (1.5 months)
 - Working days **x** ppl. **:** 33 **x** 2
 - Effort: 66 days
-- **Costs:** 2.42 Ether
+- **Costs:** BTC 0.15
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
