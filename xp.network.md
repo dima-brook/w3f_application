@@ -2,7 +2,7 @@
 
 - **Project Name:** XP.network VM Hub.
 - **Team Name:** XP.network.
-- **Payment Address:** Ethereum: 0xf583E3E2a227b8fD2daFC145DACCc3B36e7420b5.
+- **Payment Address:** BTC: bc1qdpx2e6lejre536ph0csskas888ua3pz5p4pkuj.
 
 ## Project Overview
 
