@@ -24,15 +24,15 @@ Connection to Polkadot will be implemented via a VM Hub Layer Substrate pallets.
 
 ### Project Details
 
-**XP Relay Chain Protocol** will be supported by a number of pallets, each acting as a “post office”. The protocol will include:
+**XP Relay Chain Protocol** will be supported by a number of pallets, each acting as a “post office”. A typical message will include:
 ```terminal
 {
-ID: id, required to identify that the other blockchain’s reply is related to this request,
-Callback_Function: a designated Polkadot Relay Chain callback function,
-Callback_Arguments: required for the above function,
-To: indicates the destination parachain / parathread,
-Function: what function should be called in the target pallet,
-Arguments: [ ], a list of argument for the above pallet function
+ID: id,                              //required to identify that the other blockchain’s reply is related to this request,
+Callback_Function: func_name,        // a designated Polkadot Relay Chain callback function,
+Callback_Arguments: [ ... ],         // required for the above function,
+To: dest,                            // indicates the destination parachain / parathread,
+Function: xp_func_name,              // what function should be called in the target pallet,
+Arguments: [ ... ]                   // a list of argument for the above pallet function
 }
 ```
 Every pallet will know how to read such incoming messages. If the message is related to the blockchain this pallet is attached to it will do the following:
