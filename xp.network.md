@@ -52,24 +52,15 @@ The runtime [storage](https://substrate.dev/rustdocs/v3.0.0/frame_support/storag
 
 The **XP.network Handshake protocol** will roughly look like this:
 
-1. An initiating pallet sends a message with a smart contract call to a designated pallet.
-2. Once the designated pallet receives the message it unpacks the blob from the payload and returns the confirmation like this:
-
-   a. it swaps the Source & the Destination addresses
-
-   b. it flips the AKN flag from 0 to 1, keeping the other flags in the off state
-
-   c. it checks whether the template of the desired type exists and the argument list matches the requirement. In case at least one does not, the DER (destination error) and END flags are set to 1.
-
-   c. it keeps the rest of the blob intact to prove to the sender that exactly this message was received.
-
-   d. it crafts a Message with the same ID and sends it back for the initiator to confirm that the transaction is being processed or failed.
-
-4. The initiating pallet checks the integrity of the parcel and whether END or DER flags were not raised and if everything is ok will return the same message (with swapped Sender & Receiver) with the INT(egrity) flag set to 1. Otherwise the INT(egrity) flag will remain 0, but NER(nework error) flag will be raised to indicate that the message was corrupted in the transport layer.
-5. Once the message with the Topic_ID arrives to the destination pallet it will check the inegrity flag and if the flag is 1 it will start processing the request. Otherwise, it will retrun the same message, acknowledging broken integrity and proving that the transaction is terminated.
-6. Once the request has been processed, submited to the target blockchain and a success / failure result is received form the blockchain, it will craft a new message with the same Topic_ID setting the OK or REJ flags as well as the END flag to 1.
-7. Once the above message is received by the initiating pallet it will check its integrity and will pass the result to its blockchain. It will then send the same message back to the counterpart to finish negotiation on the Topic_ID.
-8. IER stands for Initiator pallet error. This flag will be raised if there is a technical issue in the initiating pallet.
+Flags:
+**INT** - Integrity violation
+**IER** - Ininitiating pallet error
+**NER** - Network error
+**DER** - Destination pallet error
+**ACK** - Acknowledged
+**OK** - Successfull transaction (TX) in the target parachain
+**REJ** - Rejection of the TX in the target parachain
+**END** - End of transaction, the blob can be erased from memory
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/XP.network%20Protocol.png)
 
