@@ -50,15 +50,15 @@ The runtime [storage](https://substrate.dev/rustdocs/v3.0.0/frame_support/storag
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/XP.network.protocol.png)
 
-Flags:
+Flags:</br>
 **INT** - Integrity violation </br>
-**IER** - Ininitiating pallet error \n
-**NER** - Network error
-**DER** - Destination pallet error
-**ACK** - Acknowledged
-**OK** - Successfull transaction (TX) in the target parachain
-**REJ** - Rejection of the TX in the target parachain
-**END** - End of transaction, the blob can be erased from memory
+**IER** - Ininitiating pallet error </br>
+**NER** - Network error </br>
+**DER** - Destination pallet error </br>
+**ACK** - Acknowledged </br>
+**OK** - Successfull transaction (TX) in the target parachain </br>
+**REJ** - Rejection of the TX in the target parachain </br>
+**END** - End of transaction, the blob can be erased from memory </br>
 
 The **XP.network Handshake protocol** will roughly look like this:
 
