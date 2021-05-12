@@ -282,6 +282,6 @@ Writing pallets with the XP Relay Chain protocols for the languages other than S
 
 Development of bridges to the Avalanche, Binance, Cardano, Diem? (should regulations allow), Elrond, Heco and Solana blockchains.
 
-## Additional Information
+## Additional Information 
 
 [The project repo:](https://github.com/xp-network)
