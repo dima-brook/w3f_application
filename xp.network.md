@@ -10,25 +10,32 @@
 
 XP.network is a codeless platform for building blockchain agnostic NFT DApps. XP.network allows non-developers to build their NFT marketplaces, galleries, museums and many more use-cases without coding.
 
-In order to synchronize communication between different [parachains](https://research.web3.foundation/en/latest/polkadot/XCMP/index.html) we want to build our own protocol which will be used by a network of XP.network pallets.
- 
-Since it is currently hard to trace whether an incoming message is related to any previous transaction or request, we will elaborate a protocol that will enable such tracking by the "TOPIC ID". It will be a group of pallets, each acting like a “post office” from a post office network. They will all use our XP Relay Chain protocol.
+In order to synchronize communication between different [parachains](https://research.web3.foundation/en/latest/polkadot/XCMP/index.html) we want to build our own protocol which will be used by a network of XP.network pallets, that can be attached to and be used by any parachain.
 
-Since different blockchains may use different smart contract languages, we are aspiring to create an automated toolbox that will communicate via the Polkadot Relay Chain and will generate in the target pallet a valid code in Move, Solidity and Rust (Ink!) which could be further validated and compiled to byte-code to interact with the target blockchains. After the target blockchain has finished or rejected the transaction, the information about this is packed back into the reply XP Relay Chain protocol message and is sent back to the requesting pallet for passing it to the requesting blockchain.
+Since it is currently hard to trace whether an incoming message is related to any previous transaction or request, we will elaborate a protocol that will enable such tracking by the "TOPIC ID", which is especially useful when multiple transactions are executed between two blockchains. It will be a group of pallets, each acting like a “post office” in a post office network, all implementing our XP Relay Chain protocol.
 
-Because there's no NFT library in Move's standard library we will have to write it as part of this project. This will allow 
+Since different blockchains may use different smart contract languages, we are developing an automated toolbox that will communicate via the Polkadot Relay Chain and will generate in the target pallet a valid code in Move, Solidity and Rust (Ink!) which is validated and compiled to byte-code to interact with the target blockchains. After the target blockchain has executed or rejected the transaction, the information about this is packed back into the reply XP Relay Chain protocol message and is sent back to the requesting pallet for passing it to the requesting blockchain.
+
+Because there's no NFT library in Move's standard library we will have to write it as part of this project. This will allow: 
 1. other blockchains to call NFT smart contracts in Move, 
 2. to run NFT smart contracts in other languages from Move.
 
 #### Integration
 
-All the NFT based applications built by our platform will be using the XP Relay Chain protocol we're building.
+Any parachain, parathread or bridge can attach our pallet and use its functionality. The pallets will act as a “post office network” supporting the protocol that enables nodes to keep track of the “Topics”. They will also "translate" the intentions of one parachain, regardless of its smart contract language, to a smart contract in the language of the target parachain / parathread. We're currently working on pallets for three smart contract languages: Move, Rust and Solidity.
 
-The pallets (one for each parahcain / parathread) will act as a “post office network” supporting the protocol that enables nodes to keep track of the “topics”. They will also "translate" the intentions of one parachain, regardless of its smart contract language, to a smart contract in the language of the target parachain / parathread.
+All the NFT based applications built by our codeless platform will be using the XP Relay Chain protocol we're building.
 
 ### Project Details
 
-**XP Relay Chain Protocol** will be supported by a number of pallets, each acting as a “post office”. A typical message will include:
+The project is comprised of 2 large interdependant deliverables:
+
+1. The XP.network Relay Chain Protocol, which will enable parachains to communicate their smart contracts in a language agnostic "intention" format. It is designed to keep track of the "TOPIC" of negotiation.
+
+2. Three Substrate Pallet templates that will communicate with each other implementing the XP.network protocol and will convert their original Move, Solidity & Rust smart contract bytecodes to a language agnostic "intention". This "intention" will be sent as payload in a Relay Chain callback to the target XP.network pallet attached to a designated parachain. There, the "intention" will be converted to a smart contract of the target blockchain. Once the target blockchain responds, the initiating parachain gets notified according to the XP.network protocol.
+
+
+**XP Relay Chain Protocol** will be supported by a number of pallets, each acting as a “post office” for its parathread. A typical message will include:
 ```terminal
 {
 ID:                 id,               //required to identify that the other blockchain’s reply is related to this request,
@@ -39,55 +46,55 @@ Payload:            blob              // A binary representation of the "intenti
 }
 ```
 
-The message inside the binary payload will be structured as follows:
+The runtime [storage](https://substrate.dev/rustdocs/v3.0.0/frame_support/storage/trait.StorageValue.html#required-methods) & the message inside the binary payload will be structured as follows:
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/XP.network.protocol.png)
 
-The **XP.network Handshake protocol** will look like this:
+The **XP.network Handshake protocol** will roughly look like this:
 
 1. An initiating pallet sends a message with a smart contract call to a designated pallet.
 2. Once the designated pallet receives the message it unpacks the blob from the payload and returns the confirmation like this:
 
    a. it swaps the Source & the Destination addresses
-   
+
    b. it flips the AKN flag from 0 to 1, keeping the other flags in the off state
-   
+
    c. it checks whether the template of the desired type exists and the argument list matches the requirement. In case at least one does not, the DER (destination error) and END flags are set to 1.
-   
+
    c. it keeps the rest of the blob intact to prove to the sender that exactly this message was received.
-   
+
    d. it crafts a Message with the same ID and sends it back for the initiator to confirm that the transaction is being processed or failed.
-   
+
 4. The initiating pallet checks the integrity of the parcel and whether END or DER flags were not raised and if everything is ok will return the same message (with swapped Sender & Receiver) with the INT(egrity) flag set to 1. Otherwise the INT(egrity) flag will remain 0, but NER(nework error) flag will be raised to indicate that the message was corrupted in the transport layer.
 5. Once the message with the Topic_ID arrives to the destination pallet it will check the inegrity flag and if the flag is 1 it will start processing the request. Otherwise, it will retrun the same message, acknowledging broken integrity and proving that the transaction is terminated.
 6. Once the request has been processed, submited to the target blockchain and a success / failure result is received form the blockchain, it will craft a new message with the same Topic_ID setting the OK or REJ flags as well as the END flag to 1.
 7. Once the above message is received by the initiating pallet it will check its integrity and will pass the result to its blockchain. It will then send the same message back to the counterpart to finish negotiation on the Topic_ID.
 8. IER stands for Initiator pallet error. This flag will be raised if there is a technical issue in the initiating pallet.
 
+![img](https://github.com/xp-network/w3f_application/blob/main/XP.network%20Protocol.png)
+
 Every parachain equipped with our pallet will know how to read such incoming messages. If the message is related to the blockchain this pallet is attached to, it will do the following:
 
-1. Deserialize the incoming message from bytecode to optcode,
-2. Transform the commands and arguments from the optcode to a smart contract in the target language, used by the blockchain it works for.
-3. It will pass the generated bytecode to the blockchain for execution.
-4. Once there is a reply from the blockchain, the reply will be packed into the return message of the present protocol and sent back to the requesting pallet via 5. Polkadot Relay Chain callbacks with the same id it got the request.
-6. The pallet which initiated the transaction will receive the reply and will match the id of the reply with the id of the request.
-7. It will deserialize the bytecode of the reply and will transform it to the bytecode of its smart contract language (should it be different from the counterpart’s).
+1. Transform the commands and arguments from the "intention" to a smart contract in the target language, used by the blockchain it works for.
+2. It will pass the generated bytecode to the blockchain for execution.
+3. Once there is a reply from the blockchain, the reply will be packed into the return message of the present protocol and sent back to the requesting pallet via the Polkadot Relay Chain callbacks with the same id it got the request.
+4. The pallet, which initiated the transaction, will receive the reply and will match the id of the reply with the id of the request.
+5. It will deserialize the bytecode of the reply and will transform it to the bytecode of its smart contract language (should it be different from the counterpart’s).
 
 A pallet implementing this protocol consists of:
 
-1. **Bytecode Deserializer** - it receives binary input and returns a human readable opcode. 
+1. **Bytecode Deserializer** - it receives a smart contract bytecode as input and returns a human readable opcode. 
 2. **Assembly Code Converter** - it  creates the following key - value pairs:
-   + The chosen smart contract programming language.
-   + Template number.
+   + Target template number.
    + Data to populate the smart contract with.
 3. **Bytecode Compiler** - it takes the key - value pairs generated at the previous stage as an input and generates the chosen smart contract language bytecode as its output.
-4. **Polkadot parathread** - it uses the Relay Chain callback mechanism to communicate with the other parachains and parathreads using XP Network protocol.
+4. **Polkadot pallet** - it uses the Relay Chain callback mechanism to communicate with the other parachains and parathreads using XP Network protocol.
 
-A set of pre-programmed audited code templates are ready to be populated by the arbitrary data. Once a request is received, the templates are populated with the incoming data and are instantly compiled into transaction ready bytecode. Initially there will be a limited set of ready code templates for each platform. However, new templates will be added on a permanent regular basis. Eventually most possible use cases will be available for each bridged platform. Finally, the original smart contract bytecode will be translated directly into the target language bytecode, removing all limitations.
+A set of pre-programmed audited code templates are ready to be populated by the arbitrary data. Once a request is received, the templates are populated with the incoming data and are instantly compiled into transaction ready bytecode. Initially there will be a limited set of ready smart contract opcode templates for each platform, currently 20, each representing a different use case. However, new templates will be added on a permanent regular basis. Eventually most possible use cases will be available for each bridged platform.
 
 #### [PoC](https://github.com/xp-network/xp-compiler)
 
-Before applying for the grant we have prepared GitHub repositories with the Proof of Concept.
+Before applying for the grant we have prepared a GitHub repository with the Proof of Concept.
 
 Since the idea behind the VM Hub is converting one smart contract language bytecode to another we have elaborated the following steps:
 
@@ -107,7 +114,10 @@ Since the idea behind the VM Hub is converting one smart contract language bytec
 
 The above process is automated and can be reproduced on any machine.
 
-#### Expected obstacles:
+#### The XP.network Hub is not:
+This hub is by no means a bridge between the blockchains. It completely relies on Polkadot's existing infrastructure to communicate and secure interaction between the parathreads. However, we have plans of building bridges to a number of blockchains in further projects.
+
+#### Expected obstacles
 For efficiency in EVM higher order bits of types narrower than 256 bits, e.g. uint24 may be ignored or cleaned shortly before writing them to memory or before comparisons. This means, before comparison or saving higher order bits must be “manually” cleaned.
 
 In the Move language the code is divided into scripts and Modules. When scripts are compiled to the bytecode they become straightforward opcodes, however, modules can be recursively called from the scripts or from the other modules. Thus, modules deserialisation is much more complex and also requires recursiveness to retrieve the content of all the functions or data stored in different parts of the stack.
@@ -157,17 +167,15 @@ The smart contract templates are a temporary solution. Eventually we will add th
 
 
 ### Team Code Repos (PoC)
-[XP.network repo](https://github.com/xp-network/)
+[PoC Documentation](https://xp-network.github.io/poc-documentation/) Method names, parameters with types, return types and description.
 
-[Move Compiler](https://github.com/xp-network/move-compiler)
+[Move Compiler](https://github.com/xp-network/move-compiler) Generates human readable code in Move.
 
-[Solidity Compiler](https://github.com/xp-network/solidity-compiler)
+[Solidity Compiler](https://github.com/xp-network/solidity-compiler) Generates human redable and byte code in Solidity.
 
-[EVM to Assembler](https://github.com/xp-network/evm-asm)
+[EVM to Assembler](https://github.com/xp-network/evm-asm) Converts Solidity bytecode to opcode.
 
-[VM Hub Pallet](https://github.com/xp-network/vm_hub_pallet)
-
-[XP Compiler](https://github.com/xp-network/xp-compiler)
+[XP Compiler](https://github.com/xp-network/xp-compiler) PoC project. Accepts a comand in Move, or JSON and compiles bytecode in Solidity, tests it in the bytecode in Ropsten (Ethereum testnet).
 
 
 ### Team LinkedIn Profiles
@@ -180,23 +188,26 @@ The smart contract templates are a temporary solution. Eventually we will add th
 
 - **Total Estimated Duration:** 6 months.
 - **Total Effort:** 240 days.
-- **Total Costs:** BTC 0.54
+- **Total Costs:** $ 30,000
 
 ### Milestone 1 - VM Hub pallet Move Code to Solidity bytecode (MVP)
 
 - **Estimated Duration:** 20 working days (1 month)
 - Working days **x** ppl. **:** 20 **x** 2
 - Effort: 40 days
-- **Costs:** BTC 0.09
+- **Costs:** $5000
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
-| 0. | Documentation | Documents containing product architecture as well as usage manuals  |
-| 1. | Bytecode deserialiser | Developing the Move and Solidity bytecode deserializers to opcode |
-| 2. | Assembler parser | Developing opcode parser for Move and generating “intentions” |
-| 3. | Intentions callers | Writing functions to be called with the “intentions” Move - Solidity | 
-| 4. | Bytecode compiler | Development of the Solidity opcode mapper to bytecode | 
-| 5. | Testing in Solidity Testnet| Running the generated bytecode in Ethereum testnet | 
+| 0a. | License | Apache 2.0 |
+| 0b. | Description | We will support all functional modules that have been implemented on Polkadot. |
+| 0c. | Delivery time | Mid June |
+| 0d. | Documentation | Documents containing product architecture as well as basic user manuals  |
+| 1. | Smart Contract templates | We'll write 20 optcode smart contract templates for known use cases in Move & Solidity |
+| 2. | Assembler parser (for Move) | 20 Move initiating opcodes are parced and “intentions” are generated for calling the 20 templates in Solidity |
+| 3. | Intentions callers (for Move) | 20 smart contracts templates are called in Solidity opcode from the “intentions” originating from Move | 
+| 4. | Bytecode compiler (for Solidity) | 20 smart contract templates in Solidity opcode are mapped to bytecode valid for EVM | 
+| 5. | Testing in Solidity Testnet| 20 Solidity smart contract bytecodes generated by step 4 are tested and debugged with Ethereum testnet till our smart contracts run without errors and the required resources are monted and burned in the blockchain | 
 
 
 ### Milestone 2 — VM Hub pallet Solidity Code to Move bytecode
@@ -204,48 +215,64 @@ The smart contract templates are a temporary solution. Eventually we will add th
 - **Estimated Duration:** 34 working days (1.5 months)
 - Working days **x** ppl. **:** 34 **x** 2
 - Effort: 68 days
-- **Costs:** BTC 0.15
+- **Costs:** $8,500
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
-| 0. | Assembler Parser | Developing the parser for the Solidity opcode |
-| 1. | Intentions callers | Writing functions to be called with the “intentions” Solidity - Move | 
-| 2. | Bytecode compiler | Development of the Move opcode mapper to Move bytecode |
-| 4. | Move NFT Libraries | Development of NFT libraries in Move |
-| 5. | Protocol development | Development of XP Relay Chain Protocol |
-| 6. | Testing in Westend | Testing the message protocol between two pallets (Move & Solidity) messaging protocol | 
-| 7. | Testing in Diem Testnet| Running the generated Move bytecode in the Diem testnet | 
+| 0a. | License | Apache 2.0 |
+| 0b. | Description | We will support all functional modules that have been implemented on Polkadot. |
+| 0c. | Delivery time | Beginning of August |
+| 0d. | Documentation | Documents containing product architecture as well as basic user manuals  |
+| 1. | Assembler Parser (for Solidity) | 20 initiating smart contracts in Solidity optcode are parced |
+| 2. | Intentions callers (for Move) | 20 Move optcode templates are called with the “intentions” from Solidity optcode | 
+| 3. | Bytecode compiler (for Move) | 20 Move smart contract opcodes are mapped to valid Move bytecode |
+| 4. | Move NFT Library | NFT library is developed in Move |
+| 5. | XP Relay Chain Protocol | XP Relay Chain Protocol is developed and documented |
+| 6. | Substrate Pallet (for Move & Solidity) | 2 template pallets implementing the XP Relay Chain protocol are developed | 
+| 7. | Testing in Diem Testnet| The generated Move bytecode is tested in the Diem testnet and debugged till it runns without errors and the expected modules and resources are added to the blockchain |
 
 ### Milestone 3 — VM Hub pallet Move Code & Solidity bytecode to Rust bytecode
 
 - **Estimated Duration:** 33 working days (1.5 months)
 - Working days **x** ppl. **:** 33 **x** 2
 - Effort: 66 days
-- **Costs:** BTC 0.15
+- **Costs:** $8,250
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
-| 1. | Bytecode deserialiser | Developing the Rust bytecode deserializer to assembler |
-| 2. | Assembler parser | Developing opcode parser for Rust and generating “intentions” |
-| 3. | Intentions callers | Writing functions to be called with the “intentions” Move, Solidity - Rust and vice versa | 
-| 4. | Bytecode compiler | Development of the Rust opcode mapper to bytecode | 
-| 5. | Testing Polkadot Westnet| Running the generated from the messaging protocol bytecode in Polkadot Westnet | 
+| 0a. | License | Apache 2.0 |
+| 0b. | Description | We will support all functional modules that have been implemented on Polkadot. |
+| 0c. | Delivery time |Beginning of September |
+| 0d. | Documentation | Documents containing product architecture as well as basic user manuals  |
+| 1. | Smart Contract templates | We'll write 20 optcode smart contract templates for known use cases in Rust |
+| 2. | Assembler parser (Rust) | Developing opcode parser for Rust and generating “intentions” from the parsed opcode |
+| 3. | Intentions callers | 20 Rust opcode templates to be called with the “intentions” originating in Move | 
+| 4. | Intentions callers | 20 Rust opcode templates to be called with the “intentions” originating in Solidity | 
+| 5. | Intentions callers | 20 Move opcode templates to be called with the “intentions” originating in Rust | 
+| 6. | Intentions callers | 20 Solidity opcode templates to be called with the “intentions” originating in Rust | 
+| 7. | Bytecode compiler (for Rust) | 20 Rust opcode smart contract templates are mapped to Rust bytecode | 
+| 8. | Substrate Pallet (for Rust) | 1 template pallet implementing the XP Relay Chain protocol is developed |
+| 9. | Testing in Polkadot Westnet| Testing and debugging 20 generated smart contracts inside Rust bytecode in Polkadot Westnet till the transaction executes and the result is added to the blockchain | 
+| 10. | Testing in Westend | XP Relay Chain Protocol is tested between tree pallets (Move, Rust & Solidity) messaging protocol till they interact according to the protocol assuming no bad actor interrupt the normal flow | 
 
 ### Milestone 4 — Smart Contract templates in Move, Solidity, Rust, testing and launch
 
 - **Estimated Duration:** 33 working days (1.5 months)
 - Working days **x** ppl. **:** 33 **x** 2
 - Effort: 66 days
-- **Costs:** BTC 0.15
+- **Costs:** $8,250
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
-| 0. | Smart Contract templates | Writing optcode smart contract templates for known use cases in Move, Solidity, Rust |
-| 1. | Integrating with Polkadot | Testing the PA in live Polkadot environment |
-| 2. | Compliance Validator | Adding automated test for the above integrated modules |
-| 3. | Documentation | Writing and publishing final documentation with all the amendments |
-| 4. | Tutorials | Preparing and publishing tutorials with examples and exercises | 
-| 5. | Product Launch | Publishing the XP Network VM Hub for public use |
+| 0a. | License | Apache 2.0 |
+| 0b. | Description | We will support all functional modules that have been implemented on Polkadot. |
+| 0c. | Delivery time |Mid of October |
+| 0d. | Documentation | Documents containing product architecture as well as profound user manuals  |
+| 1. | Testing in Westend | XP Relay Chain Protocol is tested between tree pallets (Move, Rust & Solidity) messaging protocol till they interact according to the protocol assuming a bad actor does interrupt the normal flow or errors occur in one of the pallets |
+| 2. | Integrating with Polkadot | Testing and debugging the XP Network Protocol in live Polkadot environment |
+| 3. | Compliance Validator | Adding automated tests for: 1. pallets (Move, Rust, Solidity), 2. XP.network protocol interactions between pallets: Move -> Solidity, Solidity -> Move, Move -> Rust, Rust -> Move, Solidity-> Rust, Rust -> Solidity |
+| 4. | Documentation | Writing and publishing final documentation with all the amendments 1. XP.Network protocol, 2. XP.network pallets (for Move, Rust & Solidity)|
+| 5. | Tutorials | Preparing and publishing tutorials with examples and exercises 1. How to use XP.network Protocol, 2. How to attach an XP.Network pallet to a parachain (for Move, Rust & Solidity)| 
 
 ## Future Plans
 
