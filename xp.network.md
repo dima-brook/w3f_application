@@ -78,27 +78,19 @@ A pallet implementing this protocol consists of:
 2. **Bytecode Compiler** - it takes the key - value pairs generated at the previous stage as an input and generates the chosen smart contract language bytecode as its output.
 3. **Polkadot pallet** - it uses the Relay Chain callback mechanism to communicate with the other parachains and parathreads using XP Network protocol.
 
-A set of pre-programmed audited code templates are ready to be populated by the arbitrary data. Once a request is received, the templates are populated with the incoming data and are instantly compiled into transaction ready bytecode. Initially there will be a limited set of ready smart contract opcode templates for each platform, currently 20, each representing a different use case. However, new templates will be added on a permanent regular basis. Eventually most possible use cases will be available for each bridged platform.
-
 #### [PoC](https://github.com/xp-network/xp-compiler)
 
 Before applying for the grant we have prepared a GitHub repository with the Proof of Concept.
 
 Since the idea behind the VM Hub is converting one smart contract language bytecode to another we have elaborated the following steps:
 
-1. We wrote a short smart contract in Solidity.
-2. We compiled it to bytecode with the solc compiler.
-3. We deserialized the bytecode into opcode.
-4. An array of opcodes became a bytecode template:
-   a. Commands (MSTORE, SSTORE, CALLVALUE, ISZERO, JUMPI, REVERT… )
-   b. Data (PUSH 80, PUSH [$] 000000000000000000000000000000000000000001, etc.)
-5. We wrote a request in Move which will specify which template we want to use and will provide the data to populate the template with new data.
-6. The code in Move is then compiled to bytecode & passed to our Substrate pallet.
-7. The pallet deserializes the Move bytecode and extracts the instruction - which template to use and the data to populate it with.
-8. The data from the request is used to populate the opcode parameters in the template.
-9. The template is reassembled to bytecode.
-10. We run the two bytecodes (from steps 2 & 9) in the Ethereum testnet.
-11. If both the smart contracts run in the testnet and produce the same result - the concept is proved.
+1. We wrote a smart contract in Move.
+2. We compiled the code in move to byte code using the native Move compiler.
+3. We decompiled the Move byte code to the Move opcode.
+4. We mapped the opcode in Move to the Solidity opcode.
+5. We serialized the opcode in Solidity to the Solidity bytecode.
+6. We tested the resulting bytecode in the Ethereum testnet.
+7. The byte code ran and the transaction was included in the block, which proves the concept.
 
 The above process is automated and can be reproduced on any machine.
 
@@ -111,15 +103,13 @@ For efficiency in EVM higher order bits of types narrower than 256 bits, e.g. ui
 In the Move language the code is divided into scripts and Modules. When scripts are compiled to the bytecode they become straightforward opcodes, however, modules can be recursively called from the scripts or from the other modules. Thus, modules deserialisation is much more complex and also requires recursiveness to retrieve the content of all the functions or data stored in different parts of the stack.
 
 #### Further development
-We cannot get rid of the target language dependency, however, the source language can be abstracted to an API protocol able to call predefined smart contracts in supported languages (Move, Solidity and Rust) from other programming languages. 
 
-We’re planning to elaborate the most popular smart contract bytecode templates in 3 languages: Move, Solidity and Rust and write APIs for compiling and sending the resulting bytecodes to the supported blockchains.
-
-The smart contract templates are a temporary solution. Eventually we will add the flexibility to directly map the smart contracts's opcodes from one language to another without predefined templates.
+We may add mode languages to the VM Hub, like Plutus - the newly developed Smart Contract language in Haskel, developed by the Cardano team.
 
 ### Ecosystem Fit
 
-- The VM Hub will eventually develop to become programming language independent and will enable yet nonexistent languages to seamlessly integrate with the established blockchains via Polkadot.
+- The XP.network protocol allows parachains to communicate in a connectionless but ordered and reliable way.
+- Any new smart contract language can be incorporated in the system. It will only require opcode mapper and "intention" builder to allow a new smart contract language to the Polkadot ecosystem. 
 
 ## Team
 
