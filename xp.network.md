@@ -188,9 +188,8 @@ The smart contract templates are a temporary solution. Eventually we will add th
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
-| 0b. | Description | We will support all functional modules that have been implemented on Polkadot. |
-| 0c. | Delivery time | Mid June |
-| 0d. | Documentation | Documents containing product architecture as well as basic user manuals  |
+| 0b. | Delivery time | Mid June |
+| 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
 | 1. | Move bytecode deserialiser | We will develop a deserialiser of Move bytecode to Move opcode with recursive modules deserialisation |
 | 2. | Bytecode compiler (for Solidity) | We will build an EVM compliant Solidity optcode to bytecode mapper |
 | 3. | Intention builder | We will develop a tool for building language independent "intentions" serving as structured messages in the XP.network protocol | 
@@ -210,9 +209,8 @@ The smart contract templates are a temporary solution. Eventually we will add th
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
-| 0b. | Description | We will support all functional modules that have been implemented on Polkadot. |
-| 0c. | Delivery time | Beginning of August |
-| 0d. | Documentation | Documents containing product architecture as well as basic user manuals  |
+| 0b. | Delivery time | Beginning of August |
+| 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
 | 1. | Solidity bytecode deserializer | We will develop a deserialiser of Solidity bytecode to Solidity opcode |
 | 2. | Bytecode compiler (for Move) | We will build a MoveVM compliant Move optcode to bytecode mapper |
 | 3. | Intentions compiler from Solidity | We will develop a tool for populating language independant "intentions" from Solidity optcode | 
@@ -230,9 +228,8 @@ The smart contract templates are a temporary solution. Eventually we will add th
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
-| 0b. | Description | We will support all functional modules that have been implemented on Polkadot. |
-| 0c. | Delivery time |Beginning of September |
-| 0d. | Documentation | Documents containing product architecture as well as basic user manuals  |
+| 0b. | Delivery time |Beginning of September |
+| 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
 | 1. | Intentions compiler from Rust | Developing opcode parser for Rust and generating “intentions” from the parsed opcode |
 | 2. | Intentions callers | 20 Rust example smart contracts to be called with the “intentions” originating in Move | 
 | 3. | Intentions callers | 20 Rust example smart contracts to be called with the “intentions” originating in Solidity | 
@@ -252,9 +249,8 @@ The smart contract templates are a temporary solution. Eventually we will add th
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
-| 0b. | Description | We will support all functional modules that have been implemented on Polkadot. |
-| 0c. | Delivery time |Mid of October |
-| 0d. | Documentation | Documents containing product architecture as well as profound user manuals  |
+| 0b. | Delivery time |Mid of October |
+| 0c. | Documentation | Documents containing product architecture as well as profound user manuals  |
 | 1. | Testing in Westend | XP Relay Chain Protocol is tested between tree pallets (Move, Rust & Solidity) messaging protocol till they interact according to the protocol assuming a bad actor does interrupt the normal flow or errors occur in one of the pallets |
 | 2. | Integrating with Polkadot | Testing and debugging the XP Network Protocol in live Polkadot environment |
 | 3. | Compliance Validator | Developing automated tests for: 1. pallets (Move, Rust, Solidity), 2. XP.network protocol interactions between pallets: Move -> Solidity, Solidity -> Move, Move -> Rust, Rust -> Move, Solidity-> Rust, Rust -> Solidity, min 60% code coverage |
