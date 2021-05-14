@@ -22,7 +22,7 @@ Any parachain, parathread or bridge can attach our pallet and use its functional
 
 The project is comprised of 2 interdependant deliverables:
 
-1. The XP.network Relay Chain Protocol, which will enable parachains to communicate their smart contracts in a language agnostic "intention" format. It is designed to keep track of the "TopicId" representing a negotiated TX.
+1. The XP.network Relay Chain Protocol, which will enable parachains to communicate keeping track of the state change of every transaction with the TopicId.
 
 2. A Substrate Pallet implementing the XP.network Relay Chain protocol.
 
