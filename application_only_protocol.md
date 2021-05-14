@@ -1,6 +1,6 @@
 # Open Grant Proposal
 
-- **Project Name:** XP.network VM Hub.
+- **Project Name:** XP.network Relay Chain Protocol.
 - **Team Name:** XP.network.
 - **Payment Address:** BTC: bc1qdpx2e6lejre536ph0csskas888ua3pz5p4pkuj.
 
@@ -12,27 +12,25 @@ XP.network is a codeless platform for building blockchain agnostic NFT DApps. XP
 
 In order to synchronize communication between different [parachains](https://research.web3.foundation/en/latest/polkadot/XCMP/index.html) we want to build our own protocol which will be used by a network of XP.network pallets, that can be attached to and be used by any parachain.
 
-Since it is currently hard to trace whether an incoming message is related to any previous transaction or request, we will elaborate a protocol that will enable such tracking by the "TOPIC ID", which is especially useful when multiple transactions are executed between two blockchains. It will be a group of pallets, each acting like a “post office” in a post office network, all implementing our XP Relay Chain protocol.
+Since, using the current XCMP protocol, it is hard to trace whether an incoming message is related to any previous transaction or request, we will elaborate a protocol that will enable such tracking by the "TopicId", which is especially useful when multiple transactions(TXs) are executed between two blockchains (Lx, Ly). Besides, when a message is sent from one parachain to another the initiating parachain is not kept updated about the progress of a transaction, while our protocol will take care of that. The XP.network Relay Chain protocol will be supported by a group of pallets, each acting like a “post office” in a post office network.
 
 #### Integration
 
-Any parachain, parathread or bridge can attach our pallet and use its functionality. The pallets will act as a “post office network” supporting the protocol that enables nodes to keep track of the “Topics”. They will also "translate" the intentions of one parachain, regardless of its smart contract language, to a smart contract in the language of the target parachain / parathread.
+Any parachain, parathread or bridge can attach our pallet and use its functionality. The pallets will act as a “post office network” supporting the protocol that enables nodes to keep track of the “TopicIds”. Each "TopicId" represents one negotiated transaxtion (TX) between two parachains (Lx, Ly).
 
 ### Project Details
 
-The project is comprised of 2 large interdependant deliverables:
+The project is comprised of 2 interdependant deliverables:
 
-1. The XP.network Relay Chain Protocol, which will enable parachains to communicate their smart contracts in a language agnostic "intention" format. It is designed to keep track of the "TOPIC" of negotiation.
+1. The XP.network Relay Chain Protocol, which will enable parachains to communicate their smart contracts in a language agnostic "intention" format. It is designed to keep track of the "TopicId" representing a negotiated TX.
 
-2. A Substrate Pallet implementing the XP.network protocol The message will be packed as payload in a Relay Chain callback to the target XP.network pallet attached to a designated parachain. Once the target blockchain responds, the initiating parachain gets notified according to the XP.network protocol.
+2. A Substrate Pallet implementing the XP.network Relay Chain protocol.
 
 
 **XP Relay Chain Protocol** will be supported by a number of pallets, each acting as a “post office” for its parathread. A typical message will include:
 ```terminal
 {
 ID:                 id,               //required to identify that the other blockchain’s reply is related to this request,
-CallbackFunction:   funcName,         // a designated Polkadot Relay Chain callback function,
-CallbackArguments:  [ ... ],          // required for the above function,
 To:                 dest,             // indicates the destination parachain / parathread,
 Payload:            blob              // A binary representation of the "intention"
 }
@@ -42,23 +40,20 @@ The runtime [storage](https://substrate.dev/rustdocs/v3.0.0/frame_support/storag
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/xp.network%20blob.png)
 
-The **XP.network Handshake protocol** will roughly look like this:
+The **XP.network Decision Tree**, regulating the eficiency of data flow between two pallets, will roughly look like this:
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/XP.network%20Protocol-2.png)
 
-Every parachain equipped with our pallet will know how to read such incoming messages. If the message is related to the blockchain this pallet is attached to, it will do the following:
+Every parachain equipped with our pallet will know how to read such incoming messages. 
 
-1. Confirm to the initiating party that the message has been received.
-2. Check the integrity of the payload
-3. Listen to the events in the target blockchain.
-4. Inform the initiating party of the success or error while executing the transaction in the target blockchain.
-5. Instruct the counterpart to free the runtime storage once the transaction is over.
+Apart from standard setup, a pallet implementing XP.network Relay Chain Protocol consists of:
 
-A pallet implementing this protocol consists of:
-
-1. **Payload deserialiser** - it reads the contents of the binary file and populates the fields of the Message struct.
-2. **Payload serialiser** - it packs the values of the Message struct into a binary representation.
-3. **Polkadot pallet** - it uses the Relay Chain callback mechanism to communicate with the other parachains and parathreads using XP Network protocol.
+1. **Message Listener** - it listens to the incomming messages and passes them to the Decision Tree.
+2. **Message Deserialiser** - it reads the contents of the binary file and populates the fields of the Message struct.
+3. **Message Serialiser** - it packs the values of the Message struct into a binary representation.
+4. **Message Sender** - it uses the Relay Chain callback mechanism to communicate with the other parachains and parathreads using XP Network protocol.
+5. **Runtime Storage** - it stores the binaries with the current state of the corresponding transaction. Each blob can be accessed like so: ```sender[TopicId]```.
+6. **Decsision Tree** - it controlls the eficiency of the data flow between the pallets.
 
 #### The XP.network Hub is not:
 This hub is by no means a bridge between the blockchains. It completely relies on Polkadot's existing infrastructure to communicate and secure interaction between the parathreads. However, we have plans of building bridges to a number of blockchains in further projects.
@@ -69,7 +64,8 @@ We may add more flags to reflect more states of the negotiated transaction, for 
 
 ### Ecosystem Fit
 
-- The XP.network protocol allows parachains to communicate in a connectionless but ordered and reliable way.
+- The XP.network protocol allows parachains to communicate in a connectionless but ordered and reliable way. The protocol allows to store the State of the negotiated TX and enables the functionality required to inform the User accordingly.
+
 - All it takes is to attach the XP.network pallet to a parachain.
 
 ## Team
@@ -108,13 +104,9 @@ We may add more flags to reflect more states of the negotiated transaction, for 
 ### Team Code Repos (PoC)
 [PoC Documentation](https://xp-network.github.io/poc-documentation/) Method names, parameters with types, return types and description.
 
-[Move Compiler](https://github.com/xp-network/move-compiler) Generates human readable code in Move.
+[XCMP Pallet example](https://github.com/xp-network/xcmp_pallet-poc)
 
-[Solidity Compiler](https://github.com/xp-network/solidity-compiler) Generates human redable and byte code in Solidity.
-
-[EVM to Assembler](https://github.com/xp-network/evm-asm) Converts Solidity bytecode to opcode.
-
-[XP Compiler](https://github.com/xp-network/xp-compiler) PoC project. Accepts a comand in Move, or JSON and compiles bytecode in Solidity, tests it in the bytecode in Ropsten (Ethereum testnet).
+[Protocol Blob Serialisation example](https://github.com/xp-network/serde_xp_protocol)
 
 
 ### Team LinkedIn Profiles
@@ -210,14 +202,7 @@ Joining Polkadot related events
 
 Publishing articles in Telegram, medium.com and other channels
 
-
 **Development Plan**
-
-The template bytecode chunks will become more atomic to add flexibility to the bytecode compilation process.
-
-Eventually, we hope to enable our pallet to become completely dynamic, being able to process yet unseen non predefined smart contract patterns and convert them into valid bytecodes of a chosen smart contract language.
-
-Writing pallets with the XP Relay Chain protocols for the languages other than Solidity, Move and Rust.
 
 Development of bridges to the Avalanche, Binance, Cardano, Diem? (should regulations allow), Elrond, Heco and Solana blockchains.
 
