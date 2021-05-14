@@ -149,12 +149,12 @@ We may add more flags to reflect more states of the negotiated transaction, for 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
-| 0b. | Delivery time | Beginning of August |
+| 0b. | Delivery time | Mid July |
 | 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
-| 1. | Message Listener | We will develop a module listening to the messages from the Relay Chain XCMP is built |
-| 2. | Message Sender | We will develop a module sending the messages via the Relay Chain XCMP is built |
-| 3. | Decision Tree | We will develop the data flow controllers |
-| 4. | Relay Cain Integration | Two pallets implementing the XP.network Relay Chain protocol communicate via the Westend Relay Chain  |
+| 1. | Message Listener | We will develop a module listening to the messages from the Relay Chain XCMP |
+| 2. | Message Sender | We will develop a module sending the messages via the Relay Chain XCMP |
+| 3. | Decision Tree | We will develop the efficient data flow controllers |
+| 4. | Relay Cain Integration | We will establish communication between two pallets implementing the XP.network Relay Chain protocol via the Westend Relay Chain |
 
 ### Milestone 3 — VM Hub pallet Move Code & Solidity bytecode to Rust bytecode
 
@@ -166,7 +166,7 @@ We may add more flags to reflect more states of the negotiated transaction, for 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
-| 0b. | Delivery time |Beginning of September |
+| 0b. | Delivery time | Mid August |
 | 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
 | 1. | Compliance Validator | Developing automated tests for the XP.network protocol interactions between pallets with min 70% code coverage |
 | 2. | Documentation | Writing the final documentation with all the amendments 1. XP.Network protocol, 2. XP.network pallets - textual & UML|
