@@ -185,7 +185,7 @@ Publishing articles in Telegram, medium.com and other channels
 
 **Development Plan**
 
-Development of bridges to the Avalanche, Binance, Cardano, Diem? (should regulations allow), Elrond, Heco and Solana blockchains.
+The XP.network Relay Chain Protocol is a work in progress. Once version 1.0.0 is implemented, we're planning to keep improving the protocol, eliminating yet undiscovered bugs and adding more functionality and flexibility.
 
 ## Additional Information 
 
