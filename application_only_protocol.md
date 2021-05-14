@@ -117,8 +117,8 @@ We may add more flags to reflect more states of the negotiated transaction, for 
 
 ### Overview
 
-- **Total Estimated Duration:** 6 months.
-- **Total Effort:** 240 days.
+- **Total Estimated Duration:** 3 months.
+- **Total Effort:** 120 days.
 - **Total Costs:** $ 30,000
 
 ### Milestone 1 - VM Hub pallet Move bytecode to Solidity bytecode (pre-MVP)
@@ -126,7 +126,7 @@ We may add more flags to reflect more states of the negotiated transaction, for 
 - **Estimated Duration:** 20 working days (1 month)
 - Working days **x** ppl. **:** 20 **x** 2
 - Effort: 40 days
-- **Costs:** $5000
+- **Costs:** $10,000
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
@@ -134,63 +134,43 @@ We may add more flags to reflect more states of the negotiated transaction, for 
 | 0b. | Delivery time | Mid June |
 | 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
 | 1. | XP.network Protocol | XP.network protocol is developed and documented |
-| 2. | XP.network Message serialiser | The binary Message serialiser is built |
-| 3. | XP.network Message deserialiser | The binary Message deserialiser is built |
-
+| 2. | Message serialiser | The binary Message serialiser is built |
+| 3. | Message deserialiser | The binary Message deserialiser is built |
+| 4. | Runtime Storage integration | Implementing the message blob CRUD functionality in the runtime storage |
 
 ### Milestone 2 — VM Hub pallet Solidity Code to Move bytecode (MVP)
 
-- **Estimated Duration:** 34 working days (1.5 months)
-- Working days **x** ppl. **:** 34 **x** 2
-- Effort: 68 days
-- **Costs:** $8,500
+- **Estimated Duration:** 20 working days (1 month)
+- Working days **x** ppl. **:** 20 **x** 2
+- Effort: 40 days
+- **Costs:** $10,000
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
 | 0b. | Delivery time | Beginning of August |
 | 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
-| 1. | XP.network pallet | A Substrate pallet implementing the XP.network protocol is built |
-| 2. | Relay Cain integration | The Polkadot Relay Chain callbacks  |
+| 1. | Message Listener | A module listening to the messages from the Relay Chain XCMP is built |
+| 2. | Message Sender | A module sending the messages via the Relay Chain XCMP is built |
+| 3. | Decision Tree | Developing the data flow controllers |
+| 4. | Relay Cain Integration | The Polkadot Relay Chain callbacks are used to deliver the protocol messages |
 
 ### Milestone 3 — VM Hub pallet Move Code & Solidity bytecode to Rust bytecode
 
-- **Estimated Duration:** 33 working days (1.5 months)
-- Working days **x** ppl. **:** 33 **x** 2
-- Effort: 66 days
-- **Costs:** $8,250
+- **Estimated Duration:** 20 working days (1 month)
+- Working days **x** ppl. **:** 20 **x** 2
+- Effort: 40 days
+- **Costs:** $10,000
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
 | 0b. | Delivery time |Beginning of September |
 | 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
-| 1. | Intentions compiler from Rust | Developing opcode parser for Rust and generating “intentions” from the parsed opcode |
-| 2. | Intentions callers | 20 Rust example smart contracts to be called with the “intentions” originating in Move | 
-| 3. | Intentions callers | 20 Rust example smart contracts to be called with the “intentions” originating in Solidity | 
-| 4. | Intentions callers | 20 Move example smart contracts to be called with the “intentions” originating in Rust | 
-| 5. | Intentions callers | 20 Solidity example smart contracts to be called with the “intentions” originating in Rust | 
-| 6. | Bytecode compiler (for Rust) | 20 Rust example smart contracts are mapped to Rust bytecode | 
-| 7. | Substrate Pallet (for Rust) | 1 template pallet implementing the XP Relay Chain protocol is developed |
-| 8. | Testing in Polkadot Westnet| Testing and debugging 20 example smart contracts inside Rust bytecode in Polkadot Westnet till the transaction executes and the result is added to the blockchain | 
-
-### Milestone 4 — Smart Contract templates in Move, Solidity, Rust, testing and launch
-
-- **Estimated Duration:** 33 working days (1.5 months)
-- Working days **x** ppl. **:** 33 **x** 2
-- Effort: 66 days
-- **Costs:** $8,250
-
-| Number | Deliverable | Specification |
-| ------------- | ------------- | ------------- |
-| 0a. | License | Apache 2.0 |
-| 0b. | Delivery time |Mid of October |
-| 0c. | Documentation | Documents containing product architecture as well as profound user manuals  |
-| 1. | Testing in Westend | XP Relay Chain Protocol is tested between tree pallets (Move, Rust & Solidity) messaging protocol till they interact according to the protocol assuming a bad actor does interrupt the normal flow or errors occur in one of the pallets |
-| 2. | Integrating with Polkadot | Testing and debugging the XP Network Protocol in live Polkadot environment |
-| 3. | Compliance Validator | Developing automated tests for: 1. pallets (Move, Rust, Solidity), 2. XP.network protocol interactions between pallets: Move -> Solidity, Solidity -> Move, Move -> Rust, Rust -> Move, Solidity-> Rust, Rust -> Solidity, min 60% code coverage |
-| 4. | Documentation | Writing and publishing final documentation with all the amendments 1. XP.Network protocol, 2. XP.network pallets (for Move, Rust & Solidity)|
-| 5. | Tutorials | Preparing and publishing tutorials with examples and exercises 1. How to use XP.network Protocol, 2. How to attach an XP.Network pallet to a parachain (for Move, Rust & Solidity)| 
+| 1. | Compliance Validator | Developing automated tests for the XP.network protocol interactions between pallets with min 70% code coverage |
+| 2. | Documentation | Writing the final documentation with all the amendments 1. XP.Network protocol, 2. XP.network pallets |
+| 3. | Tutorials | Preparing and publishing tutorials with examples and exercises 1. How to use XP.network Protocol, 2. How to attach an XP.Network pallet to a parachain | 
+| 4. | Testing in Polkadot Westnet| Testing and debugging Polkadot Westnet till 30 example transactions execute and the results are added to the blockchain | 
 
 ## Future Plans
 
