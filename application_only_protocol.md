@@ -56,7 +56,7 @@ Apart from standard setup, a pallet implementing XP.network Relay Chain Protocol
 6. **Decsision Tree** - it controlls the eficiency of the data flow between the pallets.
 
 #### The XP.network Relay Chain protocol is not:
-This hub is by no means a bridge between the blockchains. It completely relies on Polkadot's existing infrastructure to communicate and secure interaction between the parathreads. However, we have plans of building bridges to a number of blockchains in further projects.
+This protocol is by no means a bridge between the blockchains. It completely relies on Polkadot's existing XCMP infrastructure to communicate and secure interaction between the parathreads. However, we have plans of building bridges to a number of blockchains in further projects.
 
 #### Further development
 
