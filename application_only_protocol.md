@@ -16,13 +16,13 @@ Since, using the current XCMP protocol, it is hard to trace whether an incoming 
 
 #### Integration
 
-Any parachain, parathread or bridge can attach our pallet and use its functionality. The pallets will act as a “post office network” supporting the protocol that enables nodes to keep track of the “TopicIds”. Each "TopicId" represents one negotiated transaxtion (TX) between two parachains (Lx, Ly).
+Any parachain, parathread or bridge can attach our pallet and use its functionality. The pallets will act as a “post office network” supporting the protocol that enables nodes to keep track of the “TopicIds”. Each "TopicId" represents one negotiated transaction (TX) between two parachains (Lx, Ly).
 
 ### Project Details
 
-The project is comprised of 2 interdependant deliverables:
+The project is comprised of 2 interdependent deliverables:
 
-1. The XP.network Relay Chain Protocol, which will enable parachains to communicate keeping track of the state change of every transaction with the TopicId.
+1. The XP.network Relay Chain Protocol, which will enable parachains to communicate kepping track of the current state of every transaction.
 
 2. A Substrate Pallet implementing the XP.network Relay Chain protocol.
 
@@ -40,7 +40,7 @@ The runtime [storage](https://substrate.dev/rustdocs/v3.0.0/frame_support/storag
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/xp.network%20blob.png)
 
-The **XP.network Decision Tree**, regulating the eficiency of the data flow between the two pallets, will roughly look like this:
+The **XP.network Decision Tree**, regulating the efficiency of the data flow between the two pallets, will roughly look like this:
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/XP.network%20Protocol-3.png)
 
@@ -105,7 +105,7 @@ We may add more flags to reflect more states of the negotiated transaction, for 
 ### Team Code Repos (PoC)
 [PoC Documentation](https://xp-network.github.io/poc-documentation/) Method names, parameters with types, return types and description.
 
-[XCMP Pallet example](https://github.com/xp-network/xcmp_pallet-poc)
+[XCMP Pallet example](https://github.com/xp-network/xcmp_pallet-poc/tree/master/xmessage)
 
 [Protocol Blob Serialisation example](https://github.com/xp-network/serde_xp_protocol)
 
