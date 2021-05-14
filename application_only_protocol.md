@@ -44,6 +44,8 @@ The **XP.network Decision Tree**, regulating the eficiency of the data flow betw
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/XP.network%20Protocol-2.png)
 
+The above scheme is a work in progress and subject to change.
+
 Apart from standard setup, a pallet implementing XP.network Relay Chain Protocol consists of:
 
 1. **Message Listener** - it listens to the incomming messages and passes them to the Decision Tree.
@@ -131,7 +133,7 @@ We may add more flags to reflect more states of the negotiated transaction, for 
 | 0a. | License | Apache 2.0 |
 | 0b. | Delivery time | Mid June |
 | 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
-| 1. | XP.network Protocol | XP.network protocol is developed and documented |
+| 1. | XP.network Protocol | XP.network protocol is developed and documented in textual descriptions and UML diagrams |
 | 2. | Message serialiser | The binary Message serialiser is built |
 | 3. | Message deserialiser | The binary Message deserialiser is built |
 | 4. | Runtime Storage integration | Implementing the message blob CRUD functionality in the runtime storage |
@@ -148,10 +150,10 @@ We may add more flags to reflect more states of the negotiated transaction, for 
 | 0a. | License | Apache 2.0 |
 | 0b. | Delivery time | Beginning of August |
 | 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
-| 1. | Message Listener | A module listening to the messages from the Relay Chain XCMP is built |
-| 2. | Message Sender | A module sending the messages via the Relay Chain XCMP is built |
-| 3. | Decision Tree | Developing the data flow controllers |
-| 4. | Relay Cain Integration | The Polkadot Relay Chain callbacks are used to deliver the protocol messages |
+| 1. | Message Listener | We will develop a module listening to the messages from the Relay Chain XCMP is built |
+| 2. | Message Sender | We will develop a module sending the messages via the Relay Chain XCMP is built |
+| 3. | Decision Tree | We will develop the data flow controllers |
+| 4. | Relay Cain Integration | Two pallets implementing the XP.network Relay Chain protocol communicate via the Westend Relay Chain  |
 
 ### Milestone 3 — VM Hub pallet Move Code & Solidity bytecode to Rust bytecode
 
@@ -166,9 +168,9 @@ We may add more flags to reflect more states of the negotiated transaction, for 
 | 0b. | Delivery time |Beginning of September |
 | 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
 | 1. | Compliance Validator | Developing automated tests for the XP.network protocol interactions between pallets with min 70% code coverage |
-| 2. | Documentation | Writing the final documentation with all the amendments 1. XP.Network protocol, 2. XP.network pallets |
-| 3. | Tutorials | Preparing and publishing tutorials with examples and exercises 1. How to use XP.network Protocol, 2. How to attach an XP.Network pallet to a parachain | 
-| 4. | Testing in Polkadot Westnet| Testing and debugging Polkadot Westnet till 30 example transactions execute and the results are added to the blockchain | 
+| 2. | Documentation | Writing the final documentation with all the amendments 1. XP.Network protocol, 2. XP.network pallets - textual & UML|
+| 3. | Tutorials | Preparing tutorials with examples 1. How to use XP.network Protocol, 2. How to attach an XP.Network pallet to a parachain | 
+| 4. | Testing in Polkadot Westnet| Testing and debugging Polkadot Westnet till 20 example transactions execute and the results are added to the blockchain | 
 
 ## Future Plans
 
