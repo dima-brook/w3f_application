@@ -168,7 +168,7 @@ We may add more flags to reflect more states of the negotiated transaction, for 
 | 0a. | License | Apache 2.0 |
 | 0b. | Delivery time | Mid August |
 | 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
-| 1. | Compliance Validator | Developing automated tests for the XP.network protocol interactions between pallets with min 70% code coverage |
+| 1. | Compliance Validator | Developing automated tests for the XP.network protocol interactions between pallets with min 85% code coverage |
 | 2. | Documentation | Writing the final documentation with all the amendments 1. XP.Network protocol, 2. XP.network pallets - textual & UML|
 | 3. | Tutorials | Preparing tutorials with examples 1. How to use XP.network Protocol, 2. How to attach an XP.Network pallet to a parachain | 
 | 4. | Testing in Polkadot Westnet| Testing and debugging Polkadot Westnet till 20 example transactions execute and the results are added to the blockchain | 
