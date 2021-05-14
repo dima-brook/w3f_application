@@ -54,7 +54,7 @@ Flags:</br>
 
 The **XP.network Handshake protocol** will roughly look like this:
 
-![img](https://github.com/xp-network/w3f_application/blob/main/XP.network%20Protocol.png)
+![img](https://github.com/xp-network/w3f_application/blob/main/XP.network%20Protocol-2.png)
 
 Every parachain equipped with our pallet will know how to read such incoming messages. If the message is related to the blockchain this pallet is attached to, it will do the following:
 
