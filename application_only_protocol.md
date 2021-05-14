@@ -53,7 +53,7 @@ Apart from standard setup, a pallet implementing XP.network Relay Chain Protocol
 5. **Runtime Storage** - it stores the binaries with the current state of the corresponding transaction. Each blob can be accessed like so: ```sender[TopicId]```.
 6. **Decsision Tree** - it controlls the eficiency of the data flow between the pallets.
 
-#### The XP.network Hub is not:
+#### The XP.network Relay Chain protocol is not:
 This hub is by no means a bridge between the blockchains. It completely relies on Polkadot's existing infrastructure to communicate and secure interaction between the parathreads. However, we have plans of building bridges to a number of blockchains in further projects.
 
 #### Further development
