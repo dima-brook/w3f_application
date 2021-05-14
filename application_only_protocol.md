@@ -40,7 +40,7 @@ The runtime [storage](https://substrate.dev/rustdocs/v3.0.0/frame_support/storag
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/xp.network%20blob.png)
 
-The **XP.network Decision Tree**, regulating the eficiency of data flow between two pallets, will roughly look like this:
+The **XP.network Decision Tree**, regulating the eficiency of the data flow between two pallets, will roughly look like this:
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/XP.network%20Protocol-2.png)
 
