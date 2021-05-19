@@ -38,7 +38,7 @@ Payload:            blob              // A binary representation of the "intenti
 
 The runtime [storage](https://substrate.dev/rustdocs/v3.0.0/frame_support/storage/trait.StorageValue.html#required-methods) & the message inside the binary payload will be structured as follows:
 
-![img](https://github.com/xp-network/w3f_application/blob/main/xp.network%20blob.png)
+![img](https://github.com/xp-network/w3f_application/blob/main/xp.network_blob.png)
 
 Even the complete message adds only 64 additional bits to the original TX binary code. 16 bits for the TopicId, 16 bits for the flags and 32 bits for the length of the TX binary. In order to reduce the overhead:
  
