@@ -4,7 +4,7 @@
 - **Authors:** DimaBryuhanov, dima@xp.network, VKint, kint@xp.network
 - **Status:** Draft
 - **Created:** 2021-05
-- **Reference Implementation** [PoC Documentation](https://xp-network.github.io/poc-documentation/) Method names, parameters with types, return types and description.
+- **Reference Implementation**:
 
 [XCMP Pallet example](https://github.com/xp-network/xcmp_pallet-poc/tree/master/xmessage)
 
