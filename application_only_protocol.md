@@ -95,7 +95,7 @@ We may add more flags to reflect more states of the negotiated transaction, for 
 
 - **Contact Name:** Dmitry Briukhanov
 
-- **Contact Email:** dima@xp.network.com
+- **Contact Email:** dima@xp.network
 
 - [XP.network website](https://xp.network/)
 
