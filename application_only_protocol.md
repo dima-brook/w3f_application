@@ -10,7 +10,7 @@
 
 XP.network is a codeless platform for building blockchain agnostic NFT DApps. XP.network allows non-developers to build their NFT marketplaces, galleries, museums and many more use-cases without coding. We will connect our users's applications to different blockchains via Polkadot.
 
-In order to synchronize communication between different [parachains](https://research.web3.foundation/en/latest/polkadot/XCMP/index.html) we want to build our own protocol which will be used by a network of XP.network pallets, that can be attached to and be used by any parachain.
+In order to synchronize communication between different [parachains](https://research.web3.foundation/en/latest/polkadot/XCMP/index.html) we want to build our own protocol which will be used by an XP.network pallet, that can be attached to and be used by any parachain.
 
 The XP.network protocol allows parachains to communicate in a connectionless but ordered and reliable way. The protocol allows to store the State of a negotiated transaction (TX) and enables the functionality required to inform the User or the original parachain accordingly.
 
@@ -21,7 +21,7 @@ At the moment, XCMP is a work in progress and SPREE only exists in documentation
 2. Once the state of a transaction changes or an error occurs, the requesting parachain gets notified. Some of such messages help keep the end user properly informed about the state of events with his/her transaction, others inform the pallets that the transaction has terminated and the memory must be freed from the blob, which might be expensive to store, especially when it is no longer needed. 
 
 3. Another feature uses the fact that a pallet, implementing our protocol, is a part of its parent parachain. Therefore, it has no additional overhead in tracking whether the transaction succeeded or failed. It listens to events related to the transaction and notifies the requesting parachian of the result and provides the data of the outcome when it becomes available without being additionally requested about this information. 
-4. 
+
 
 #### Integration
 
@@ -49,20 +49,34 @@ The runtime [storage](https://substrate.dev/rustdocs/v3.0.0/frame_support/storag
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/xp.network_blob.png)
 
-Even the complete message adds only 64 additional bits to the original TX binary code. 16 bits for the TopicID, 16 bits for the flags and 32 bits for the length of the TX binary. In order to reduce the overhead:
+Even the complete message adds only 64 bits to the original TX binary code. 16 bits for the TopicID, 16 bits for the flags and 32 bits for the length of the TX binary. In order to reduce the overhead:
 1. When notifying about errors or about submission of the TX bytecode for execution, only the first 32 bits are attached to the message: 16 bits of the TopicID and 16 bits for flags. They will be used to update the blob, where the state of a TX is stored during the number of seconds when a TX is executed in a target parachain. The extrinsics bytecode is not moved when it is not required.
 2. Should, sometime in the future, even such tiny notifications create a noticeable overhead, we will: </br>
 	a. join them into batches to reduce the number of messages  </br>
 	b. remove the AKN notification, which is required till SPREE becomes available to confirm that the message has been received with the same TX bytecode as the sender's.
 
-Our protocol offers solutions to the following raised [issues](https://github.com/paritytech/polkadot/issues?q=is%3Aissue+xcm+is%3Aopen):
+Our protocol addresses two of the raised [issues](https://github.com/paritytech/polkadot/issues?q=is%3Aissue+xcm+is%3Aopen)
++ [Adding events for UMP message execution results](https://github.com/paritytech/polkadot/issues/2720)
+Instead of broadcasting events spamming the network, we message only the target pallet. Reducing excessive computation in the blockchain.
 
-+ [Adding events for UMP message execution results](https://github.com/paritytech/polkadot/issues/2720), however, instead of broadcasting events spamming the network, we message only the target pallet, the only one interested in the event, reducing excessive computation in the blockchain.
++ [XCM Retry Queue #2702](https://github.com/paritytech/polkadot/issues/2702) suggests several use-cases, where our protocol can come handy:
 
-+ [XCM Retry Queue #2702](https://github.com/paritytech/polkadot/issues/2702) Suggest several use-cases, where our protocol can come handy:
-1. When a nonsense message or erroneous code is sent a DER (destination error flag is raised) and, should a parachain produce a more wordy explanation, it would be delivered in the TXData section of the blob. Such TX should not be retried in the future.
-2. When an unknown token has been transferred to a parachain and the target parachain failed to process the request an error flag will be raised, but the END flag (indicating to erase the blob from the memory will not). This will prevent the assets to be irreversibly lost and will leave the opportunity for the developers to add the token and allow the transaction to be successfully processed at a later time.
+1. When a nonsense message or erroneous code is sent, a DER (destination error flag) is raised, and if a parachain produces a more wordy explanation, it would be delivered in the TXData section of the blob. Since such TX should not be retried in the future the END flag will also be raised instructing the sender pallet to remove the transaction state blob from the storage.
+
+2. When an unknown token has been transferred to a parachain and the target parachain failed to process the request, an error flag will be raised. 
+An END flag will not be raised, therefore the state blob will not be removed. This will prevent the assets from being irreversibly lost and will leave the opportunity for the developers to add the token and allow the transaction to be successfully processed at a later time.
+
 3. In case there's not enough gas in the target parachain the process will be the same as above in point 2.
+
+XP.network uses XCM protocol as its transport layer and complies with the XCM protocol's four ['A's](https://github.com/paritytech/xcm-format):
+
+1. <i>Asynchronous</i>: our protocol does not block the sender in any way.
+
+2. <i>Absolute</i>: XP.network protocol informs the sending parachain that the message has been delivered by setting the AKN flag and sending back the message with the same TopicID. The order becomes insignificant, due to the fact, that the TopicID is more precise than the order.
+
+3. <i>Asymmetric</i>: The messages do not have a result. The outcome of the message processing is always delivered in a separate message.
+
+4. <i>Agnostic</i>: XP.network protocol makes no assumptions about the Consensus System of either parachains.
 
 The **XP.network Decision Tree**, regulating the efficiency of the data flow between the two pallets, will roughly look like this:
 
