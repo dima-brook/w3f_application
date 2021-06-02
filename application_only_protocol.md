@@ -174,7 +174,7 @@ We may add more flags to reflect more states of the negotiated transaction, for 
 | 0b. | Documentation | We will provide both **inline documentation** of the code and a basic **tutorial** that explains how a user can (for example) spin up one of our Substrate nodes and send test transactions, which will show how the new functionality works. |
 | 0c. | Testing Guide | Core functions will be fully covered by unit tests to ensure functionality and robustness. In the guide, we will describe how to run these tests. |
 | 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
-| 0e. | Article | We will publish an **article**/workshop that explains 1. How to use XP.network Protocol, 2. How to attach an XP.Network pallet to a parachain 
+| 0e. | Article | We will publish an **article**/workshop that explains 1. What is XP.network protocol and 2. how it can be used. |
 | 0f. | PSP | Drafting, Calling for feedback, Acceptance, Integration |
 | 1. | XP.network Protocol | XP.network protocol is developed and documented in textual descriptions and UML diagrams |
 | 2. | Message serializer | The binary Message serializer is built with SCALE |
@@ -197,7 +197,7 @@ We may add more flags to reflect more states of the negotiated transaction, for 
 | 0b. | Documentation | We will provide both **inline documentation** of the code and a basic **tutorial** that explains how a user can (for example) spin up one of our Substrate nodes and send test transactions, which will show how the new functionality works. |
 | 0c. | Testing Guide | Core functions will be fully covered by unit tests to ensure functionality and robustness. In the guide, we will describe how to run these tests. |
 | 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
-| 0e. | Article | We will publish an **article**/workshop that explains 1. How to use XP.network Protocol, 2. How to attach an XP.Network pallet to a parachain 
+| 0e. | Article | We will publish an **article**/workshop that explains how is XP.network Protocol integrated in Polkadot |
 | 0f. | PSP | Drafting, Calling for feedback, Acceptance, Integration |
 | 1. | Message Listener | We will develop a module listening to the messages from the XCMP |
 | 2. | Message Sender | We will develop a module sending the messages via XCMP |
