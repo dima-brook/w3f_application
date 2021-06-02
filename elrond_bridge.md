@@ -86,17 +86,17 @@ The structure of the CCCB:
 
 ### Overview
 
-- **Total Estimated Duration:** 3 months.
-- **Total Effort:** 120 days.
-- **Total Costs:** $ 30,000
+- **Total Estimated Duration:** 1 month.
+- **Total Effort:** 20 days.
+- **Total Costs:** $ 0.00
 
 
 ### Milestone 1 - Alpha version of CCCB
 
-- **Estimated Duration:** 20 working days (1 month)
-- Working days **x** ppl. **:** 20 **x** 2
-- Effort: 40 days
-- **Costs:** $15,000
+- **Estimated Duration:** 10 working days (1 month)
+- Working days **x** ppl. **:** 5 **x** 2
+- Effort: 10 days
+- **Costs:** $0.00
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
@@ -111,10 +111,10 @@ The structure of the CCCB:
 
 ### Milestone 2 — Beta version of CCCB
 
-- **Estimated Duration:** 20 working days (1 month)
-- Working days **x** ppl. **:** 20 **x** 2
-- Effort: 40 days
-- **Costs:** $15,000
+- **Estimated Duration:** 10 working days (2.5 month)
+- Working days **x** ppl. **:** 5 **x** 2
+- Effort: 10 days
+- **Costs:** $0.00
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
