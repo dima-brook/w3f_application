@@ -13,7 +13,7 @@ XP.network is a blockchain-agnostic platform for building NFT DApps. With XP.net
 In this project, we aim to bring Elrond’s users and ecosystem to Polkadot.
 
 ### CCCB UI
-[img!](https://github.com/xp-network/w3f_application/blob/main/Cross%20Chain%20Bridge.png)
+![img](https://github.com/xp-network/w3f_application/blob/main/Cross%20Chain%20Bridge.png)
 
 ### Project Details
 
