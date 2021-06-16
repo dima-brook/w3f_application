@@ -46,6 +46,8 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 
 ### Use-cases
 
+![img](https://github.com/xp-network/w3f_application/blob/main/XP-Elrond%20bridge.png)
+
 + Liquidity transfer form an account in a substrate Parachain to Elrond or form Elrond to a Parachain.
 + Selling or purchasing Parachain based NFTs by an account holder in Elrond or vice versa.
 + Cross chain NFT based games with RPC connected smart contracts.
