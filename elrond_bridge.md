@@ -1,8 +1,8 @@
 # Open Grant Proposal
 
-- **Project Name:** XP.network Substrate Parachain - Elrond Cross-Chain Communication Bridge (CCCB).
-- **Team Name:** XP.network.
-- **Payment Address:** BTC: bc1qdpx2e6lejre536ph0csskas888ua3pz5p4pkuj.
+- **Project Name:** XP.network Substrate Parachain - Elrond Cross-Chain Communication Bridge (CCCB)
+- **Team Name:** XP.network
+- **Payment Address:** BTC: bc1qdpx2e6lejre536ph0csskas888ua3pz5p4pkuj
 
 ## Project Overview
 
@@ -139,7 +139,7 @@ At the moment, Elrond has not implemented smart contract event emission, therefo
 | 0a. | License | Apache 2.0 |
 | 0b. | Delivery time | End of July |
 | 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
-| 0d. | Video Tutorial | Preparing tutorials with examples </br>1. How to attach an XP.Network CCCB pallet to a parachain, </br>2. How to use the CCCB to interact with Elrond blockchain | 
+| 0d. | Video Tutorial | Preparing tutorials with examples </br>1. How to attach an XP.network CCCB pallet to a parachain, </br>2. How to use the CCCB to interact with Elrond blockchain | 
 | 1. | Substrate pallet | Migration of the smart contracts in Ink! to a substrate pallet in Rust  |
 | 2. | Unit tests | We will write automated unit tests with for the 1 & 2 milestones with min 85% code coverage and will test the Elrond's side in the live Elrond Testnet, while the test Substrate parachain will run in synq with ROCOCO |
 | 3. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
