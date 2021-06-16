@@ -16,7 +16,7 @@ In this project, we aim to bring Elrond’s users and ecosystem to Polkadot.
 
 The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parachain and Elrond which are two non-identical unsynchronized blockchain, allowing liquidity transfers.
 
-#### The structure of the CCCB:
+#### CCCB Structure:
 ##### 1. A Substrate pallet implementing the following functionality:
   + Fungible liquidity freezing  for a Parachain native token and wrapped eGold.
   + Fungible liquidity release to an arbitrary account of wrapped eGold or Parachain native token.
