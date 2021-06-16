@@ -25,8 +25,8 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
   + Support of cross-chain RPC with an arbitrary number of arguments.
   + Bridge relay validator subscription mechanism implementation.
   + BFT consensus mechanism implementation.
-#### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
-#### 3. “Elrond-Minter” smart contract written in Rust deployable on Elrond blockchain.
+##### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
+##### 3. “Elrond-Minter” smart contract written in Rust deployable on Elrond blockchain.
   + Fungible liquidity freezing (eGold or wrapped Parachain native tokens).
   + Non-fungible liquidity freezing.
   + Fungible liquidity release to an arbitrary account (wrapped Parachain native tokens or eGold)
