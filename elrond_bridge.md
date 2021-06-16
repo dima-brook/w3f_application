@@ -81,9 +81,9 @@ At the moment, Elrond has not implemented smart contract event emission, therefo
 
 - Over 5 years of experiences in Blockchain Development 8 years in Rust, 1 year in Move and 15 years of development experience overall
 
-**Rupansh Kek**
+**Rupansh Sekar**
 
-- Over 1 year of experiences in Blockchain Development 2 years in Rust, 3 years in C
+- Over 1 year of experiences in Blockchain Development 2 years in Rust, 4 years in C
 
 
 ### Team Code Repos
@@ -94,6 +94,7 @@ At the moment, Elrond has not implemented smart contract event emission, therefo
 ### Team LinkedIn Profiles
 
 [Dmitry Bryukhanov](https://www.linkedin.com/in/dmitry-briukhanov-60b2ab45/)
+[Rupansh Sekar](https://www.linkedin.com/in/rupansh-sekar-10941b16a/)
 
 
 ## Development Roadmap
