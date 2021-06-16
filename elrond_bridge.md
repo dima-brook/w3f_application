@@ -41,6 +41,15 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
   + Users will be able to transfer their liquidity or NFTs from any Substrate parachain to Elrond and backwards once they attach the XP.network pallet to their parachain or parathread.
   + Substrate parachain smart contracts will be able to call smart contracts functions in Elrond with an arbitrary number of arguments via the bridge relay validators. The same will be possible from the side of Elrond.
 
+### Use-cases
+
++ Liquidity transfer form an account in a substrate Parachain to Elrond or form Elrond to a Parachain.
++ Selling or purchasing Parachain based NFTs by an account holder in Elrond or vice versa.
++ Cross chain NFT based games with RPC connected smart contracts.
++ Lending or borrowing eGold, sovereign Parachain coins or NFTs.
++ Cross-chain NFT smart contracts with royalties.
++ Cross-chain NFT insurances.
+
 ## Team
 
 ### Team members
@@ -146,6 +155,7 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 
 + Develop a DEX between the coins of the Substrate Parachains to Elrond and back.
 + Make the relay validators completely decentralized, implementing the PoS consensus mechanism.
++ Adding support for Elrond Wallet. 
 
 ## Additional Information
 
