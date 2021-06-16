@@ -135,7 +135,7 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 | 0b. | Delivery time | End of July |
 | 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
 | 0d. | Video Tutorial | Preparing tutorials with examples </br>1. How to attach an XP.network CCCB pallet to a parachain, </br>2. How to use the CCCB to interact with Elrond blockchain | 
-| 1. | Substrate pallet | Migration of the smart contracts in Ink! to a substrate pallet in Rust  |
+| 1. | Substrate pallet | Migration of the smart contracts from Milestone 1.2 to a substrate pallet  |
 | 2. | Unit tests | We will write automated unit testing for all of the functionality covering at least 85% of the code and running on Elrond's live testnet|
 | 3. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
 | 4. | Security audit | Testing the system resilience to fraudulent or erroneous validators | 
