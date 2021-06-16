@@ -8,13 +8,13 @@
 
 ### Overview
 
-XP.network is a codeless platform for building blockchain agnostic NFT DApps. XP.network allows non-developers to build their NFT marketplaces, galleries, museums and many more use-cases without coding. We will connect our users's applications to different blockchains via Polkadot.
+XP.network is a blockchain-agnostic platform for building NFT DApps. With XP.network, even non-developers can create NFT marketplaces, galleries, lending apps, and more - without a single line of code and on any blockchain, thanks to the interoperability features of Polkadot.
 
 In this project, we aim to bring Elrond’s users and ecosystem to Polkadot.
 
 ### Project Details
 
-The main product of the project is a Cross-Chain Communication Bridge (CCCB) for two non-identical unsynchronized blockchains A (Substrate Parachain) and B (Elrond).
+The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parachain and Elrond which are two non-identical unsynchronized blockchain. Allowing liquidity transfers.
 
 #### The structure of the CCCB:
 ##### 1. A Substrate pallet implementing the following functionality:
