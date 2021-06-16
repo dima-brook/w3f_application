@@ -17,7 +17,7 @@ In this project, we aim to bring Elrond’s users and ecosystem to Polkadot.
 The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parachain and Elrond which are two non-identical unsynchronized blockchain, allowing liquidity transfers.
 
 #### CCCB Structure:
-##### 1. A Substrate pallet implementing the following functionality:
+#### 1. A Substrate pallet implementing the following functionality:
   + Fungible liquidity freezing  for a Parachain native token and wrapped eGold.
   + Fungible liquidity release to an arbitrary account of wrapped eGold or Parachain native token.
   + Non-fungible liquidity freezing.
@@ -25,8 +25,8 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
   + Support of cross-chain RPC with an arbitrary number of arguments.
   + Bridge relay validator subscription mechanism implementation.
   + BFT consensus mechanism implementation.
-##### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
-##### 3. “Elrond-Minter” smart contract written in Rust deployable on Elrond blockchain.
+#### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
+#### 3. “Elrond-Minter” smart contract written in Rust deployable on Elrond blockchain.
   + Fungible liquidity freezing (eGold or wrapped Parachain native tokens).
   + Fungible liquidity release to an arbitrary account (wrapped Parachain native tokens or eGold)
   + Non-fungible liquidity freezing.
@@ -113,7 +113,7 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 | 0a. | License | Apache 2.0 |
 | 0b. | Delivery time | End of June |
 | 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
-| 0d. | Tests | Interactive liquidity transfer tests in local testnents deployed in a docker container  |
+| 0d. | Tests | Interactive liquidity transfer tests in local testnets deployed in a docker container  |
 | 0e. | Video tutorial | A video demonstrating how to deploy the smart contracts and run the interactive tests |
 | 1. | CCCB architecture | CCCB architecture is developed and documented in textual descriptions and UML diagrams |
 | 2. | Smart Contracts in Ink! | Functionality: </br>1. Fungible & Non-fungible token locking & releasing </br>2. RPC functionality </br>3. Relay validators subscription and BFT validation |
