@@ -109,10 +109,9 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
-| 0b. | Delivery time | End of June |
-| 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
-| 0d. | Tests | Interactive liquidity transfer tests in local testnets deployed in a docker container  |
-| 0e. | Media announcement | [Official Elrond announcement about this bridge](https://elrond.com/blog/elrond-bridge-polkadot-xpnetwork-nft-dapps/) |
+| 0b. | Documentation | Documents containing product architecture as well as basic user manuals  |
+| 0c. | Tests | Interactive liquidity transfer tests in local testnets deployed in a docker container  |
+| 0d. | Media announcement | [Official Elrond announcement about this bridge](https://elrond.com/blog/elrond-bridge-polkadot-xpnetwork-nft-dapps/) |
 | 1. | CCCB architecture | CCCB architecture is developed and documented in textual descriptions and UML diagrams |
 | 2. | Smart Contracts in Ink! | Functionality: </br>1. Fungible & Non-fungible token locking & releasing </br>2. RPC functionality </br>3. Relay validators subscription and BFT validation |
 | 3. | Semi-decentralized relay validators | Bridge relay validators written in Typescript |
@@ -120,9 +119,9 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 
 
 
-### Milestone 2 — Beta version of CCCB
+### Milestone 1 — Beta version of CCCB
 
-- **Estimated Duration:** 10 working days (2 weeks)
+- **Estimated Duration:** 5 working days (1 week)
 - Working days **x** ppl. **:** 5 **x** 2
 - Effort: 10 days
 - **Costs:** $0.00
@@ -130,9 +129,9 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
-| 0b. | Delivery time | End of July |
-| 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
-| 0d. | Video Tutorial | Preparing tutorials with examples </br>1. How to attach an XP.network CCCB pallet to a parachain, </br>2. How to use the CCCB to interact with Elrond blockchain | 
+| 0b. | Documentation | Documents containing product architecture as well as basic user manuals  |
+| 0c. | Video Tutorial | Preparing tutorials with examples </br>1. How to attach an XP.network CCCB pallet to a parachain, </br>2. How to use the CCCB to interact with Elrond blockchain | 
+| 0d. | Media Announcement | We will publish a media announecement about having finished the betta version of the bridge | 
 | 1. | Substrate pallet | Migration of the smart contracts from Milestone 1.2 to a substrate pallet  |
 | 2. | Bridge UI | The UI in React allowing codeless cross-chain transactions  |
 | 3. | Unit tests | We will write automated unit testing for all of the functionality covering at least 85% of the code and running on Elrond's live testnet|
