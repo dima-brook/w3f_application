@@ -84,6 +84,7 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 ### Team Code Repos
 
 [Rust Documentation](https://xp-network.github.io/poc-documentation/docs/freezer/) Method names, parameters with types, return types and description.
+</br>
 [PoC repository](https://github.com/xp-network/XP.network-Elrond-Migration)
 
 ### Team LinkedIn Profiles
