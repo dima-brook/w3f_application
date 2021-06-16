@@ -162,7 +162,7 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 
 + Develop a DEX between the coins of the Substrate Parachains to Elrond and back.
 + Make the relay validators completely decentralized, implementing the PoS consensus mechanism.
-+ Adding support for Elrond Wallet. 
++ Add support for Elrond Wallet and other crypto currency wallets.
 
 ## Additional Information
 
