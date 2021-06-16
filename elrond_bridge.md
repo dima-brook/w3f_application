@@ -96,8 +96,8 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 
 ### Overview
 
-- **Total Estimated Duration:** 1 month
-- **Total Effort:** 20 days
+- **Total Estimated Duration:** 1 week
+- **Total Effort:** 10 days
 - **Total Costs:** $ 0.00
 
 
