@@ -138,6 +138,7 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 | 3. | Unit tests | We will write automated unit testing for all of the functionality covering at least 85% of the code and running on Elrond's live testnet|
 | 4. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
 | 5. | Security audit | Testing the system resilience to fraudulent or erroneous validators | 
+| 6. | Docker Image | We will provide a Docker image with the CCCB |
 
 
 
