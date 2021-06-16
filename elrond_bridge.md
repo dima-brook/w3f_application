@@ -152,4 +152,6 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 [The project repo:](https://github.com/xp-network)</br>
 The present bridge is built in close cooperation with the Elrond team.
 
+[Official Elrond announcement about this bridge](https://elrond.com/blog/elrond-bridge-polkadot-xpnetwork-nft-dapps/){:target="_blank"}
+
 <a href="https://elrond.com/blog/elrond-bridge-polkadot-xpnetwork-nft-dapps/" target="_blank">Official Elrond announcement about this bridge</a>
