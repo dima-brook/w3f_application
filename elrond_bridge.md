@@ -83,13 +83,13 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 
 ### Team Code Repos
 
-[Rust Documentation](https://xp-network.github.io/poc-documentation/docs/freezer/){:target="_blank"} Method names, parameters with types, return types and description.
-[PoC repository](https://github.com/xp-network/XP.network-Elrond-Migration){:target="_blank"}
+[Rust Documentation](https://xp-network.github.io/poc-documentation/docs/freezer/) Method names, parameters with types, return types and description.
+[PoC repository](https://github.com/xp-network/XP.network-Elrond-Migration)
 
 ### Team LinkedIn Profiles
 
-[Dmitry Bryukhanov](https://www.linkedin.com/in/dmitry-briukhanov-60b2ab45/){:target="_blank"}</br>
-[Rupansh Sekar](https://www.linkedin.com/in/rupansh-sekar-10941b16a/){:target="_blank"}
+[Dmitry Bryukhanov](https://www.linkedin.com/in/dmitry-briukhanov-60b2ab45/)</br>
+[Rupansh Sekar](https://www.linkedin.com/in/rupansh-sekar-10941b16a/)
 
 
 ## Development Roadmap
@@ -149,8 +149,7 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 
 ## Additional Information
 
-[The project repo:](https://github.com/xp-network){:target="_blank"}</br>
+[The project repo:](https://github.com/xp-network)</br>
 The present bridge is built in close cooperation with the Elrond team.
 
-[Official Elrond announcement about this bridge](https://elrond.com/blog/elrond-bridge-polkadot-xpnetwork-nft-dapps/){:target="_blank"}
-
+%md <a href="https://elrond.com/blog/elrond-bridge-polkadot-xpnetwork-nft-dapps/" target="_blank">Official Elrond announcement about this bridge</a>
