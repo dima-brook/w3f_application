@@ -101,11 +101,9 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 - **Total Costs:** $ 0.00
 
 
-### Milestone 1 - Alpha version of CCCB
+### Milestone 0 - Alpha version of CCCB
 
-- **Estimated Duration:** 10 working days (2 weeks)
-- Working days **x** ppl. **:** 5 **x** 2
-- Effort: 10 days
+- **Estimated Duration:** 0 working days (done)
 - **Costs:** $0.00
 
 | Number | Deliverable | Specification |
@@ -114,7 +112,7 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 | 0b. | Delivery time | End of June |
 | 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
 | 0d. | Tests | Interactive liquidity transfer tests in local testnets deployed in a docker container  |
-| 0e. | Video tutorial | A video demonstrating how to deploy the smart contracts and run the interactive tests |
+| 0e. | Media announcement | [Official Elrond announcement about this bridge](https://elrond.com/blog/elrond-bridge-polkadot-xpnetwork-nft-dapps/) |
 | 1. | CCCB architecture | CCCB architecture is developed and documented in textual descriptions and UML diagrams |
 | 2. | Smart Contracts in Ink! | Functionality: </br>1. Fungible & Non-fungible token locking & releasing </br>2. RPC functionality </br>3. Relay validators subscription and BFT validation |
 | 3. | Semi-decentralized relay validators | Bridge relay validators written in Typescript |
@@ -136,9 +134,10 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 | 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
 | 0d. | Video Tutorial | Preparing tutorials with examples </br>1. How to attach an XP.network CCCB pallet to a parachain, </br>2. How to use the CCCB to interact with Elrond blockchain | 
 | 1. | Substrate pallet | Migration of the smart contracts from Milestone 1.2 to a substrate pallet  |
-| 2. | Unit tests | We will write automated unit testing for all of the functionality covering at least 85% of the code and running on Elrond's live testnet|
-| 3. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
-| 4. | Security audit | Testing the system resilience to fraudulent or erroneous validators | 
+| 2. | Bridge UI | The UI in React allowing codeless cross-chain transactions  |
+| 3. | Unit tests | We will write automated unit testing for all of the functionality covering at least 85% of the code and running on Elrond's live testnet|
+| 4. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
+| 5. | Security audit | Testing the system resilience to fraudulent or erroneous validators | 
 
 
 
@@ -152,4 +151,4 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 [The project repo](https://github.com/xp-network)</br>
 The present bridge is built in close cooperation with the Elrond team.</br>
 
-[Official Elrond announcement about this bridge](https://elrond.com/blog/elrond-bridge-polkadot-xpnetwork-nft-dapps/)
+
