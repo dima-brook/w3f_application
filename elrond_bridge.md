@@ -142,7 +142,7 @@ At the moment, Elrond has not implemented smart contract event emission, therefo
 | 1. | Substrate pallet | Migration of the smart contracts in Ink! to a substrate pallet in Rust  |
 | 2. | Unit tests | We will write automated unit tests with for the 1 & 2 milestones with min 85% code coverage and will test the Elrond's side in the live Elrond Testnet, while the test Substrate parachain will run in synq with ROCOCO |
 | 3. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
-| 4. | Security audition | Testing the system resilience to fraudulent or erroneous validators | 
+| 4. | Security audit | Testing the system resilience to fraudulent or erroneous validators | 
 
 
 
