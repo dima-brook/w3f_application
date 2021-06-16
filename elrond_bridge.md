@@ -18,23 +18,23 @@ The main product of the project is a Cross-Chain Communication Bridge (CCCB) for
 
 The structure of the CCCB:
 1. A Substrate pallet implementing the following functionality:
-+ Fungible liquidity freezing  for a Parachain native token.
-+ Non-fungible liquidity freezing.
-+ Fungible liquidity release to an arbitrary account (wrapped eGold)
-+ Non-fungible liquidity release to an arbitrary account.
-+ Support of cross-chain RPC with an arbitrary number of arguments.
-+ Bridge relay validator subscription mechanism implementation.
-+ BFT consensus mechanism implementation.
+  + Fungible liquidity freezing  for a Parachain native token.
+  + Non-fungible liquidity freezing.
+  + Fungible liquidity release to an arbitrary account (wrapped eGold)
+  + Non-fungible liquidity release to an arbitrary account.
+  + Support of cross-chain RPC with an arbitrary number of arguments.
+  + Bridge relay validator subscription mechanism implementation.
+  + BFT consensus mechanism implementation.
 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
 3. “Freezer” smart contract written in Rust deployable on Elrond blockchain.
-+ Fungible liquidity freezing (eGold)
-+ Non-fungible liquidity freezing.
+  + Fungible liquidity freezing (eGold)
+  + Non-fungible liquidity freezing.
 4. “Minter” smart contract written in Rust deployable on Elrond blockchain.
-+ Fungible liquidity release to an arbitrary account (wrapped Parachain native token)
-+ Non-fungible liquidity release to an arbitrary account.
-+ Support of cross-chain RPC with an arbitrary number of arguments.
-+ Bridge relay validator subscription.
-+ BFT consensus mechanism.
+  + Fungible liquidity release to an arbitrary account (wrapped Parachain native token)
+  + Non-fungible liquidity release to an arbitrary account.
+  + Support of cross-chain RPC with an arbitrary number of arguments.
+  + Bridge relay validator subscription.
+  + BFT consensus mechanism.
 
 
 Notes:
@@ -43,8 +43,8 @@ At the moment, Elrond has not implemented smart contract event emission, therefo
 
 ### Ecosystem Fit
 
-+ Users will be able to transfer their liquidity or NFTs from any Substrate parachain to Elrond and backwards once they attach the XP.network pallet to their parachain or parathread.
-+ Substrate parachain smart contracts will be able to call smart contracts functions in Elrond and backwards with an arbitrary number of arguments via or relay validators.
+  + Users will be able to transfer their liquidity or NFTs from any Substrate parachain to Elrond and backwards once they attach the XP.network pallet to their parachain or parathread.
+  + Substrate parachain smart contracts will be able to call smart contracts functions in Elrond and backwards with an arbitrary number of arguments via or relay validators.
 
 ## Team
 
@@ -155,5 +155,6 @@ At the moment, Elrond has not implemented smart contract event emission, therefo
 
 [The project repo:](https://github.com/xp-network)
 The present bridge is built in close cooperation with the Elrond team.
+
 [Elrond announcement](https://t.me/ElrondNetworkAnn/1121)
 
