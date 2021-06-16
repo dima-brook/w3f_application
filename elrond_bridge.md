@@ -120,15 +120,15 @@ At the moment, Elrond has not implemented smart contract event emission, therefo
 | 0d. | Tests | Interactive liquidity transfer tests in local testnents deployed in a docker container  |
 | 0e. | Video tutorial | A video demonstrating how to deploy the smart contracts and run the interactive tests |
 | 1. | CCCB architecture | CCCB architecture is developed and documented in textual descriptions and UML diagrams |
-| 2. | Smart Contracts in Ink! | Functionality: 1. Fungible & Non-fungible token locking & releasing 2. RPC functionality 3. Relay validators subscription and BFT validation |
+| 2. | Smart Contracts in Ink! | Functionality: </br>1. Fungible & Non-fungible token locking & releasing </br>2. RPC functionality </br>3. Relay validators subscription and BFT validation |
 | 3. | Semi-decentralized relay validators | Bridge relay validators written in Typescript |
-| 4. | Smart Contracts in Rust (on Elrond) | Functionality: 1. Fungible & Non-fungible token locking & releasing 2. RPC functionality 3. Relay validators subscription and BFT validation |
+| 4. | Smart Contracts in Rust (on Elrond) | Functionality: </br>1. Fungible & Non-fungible token locking & releasing </br>2. RPC functionality </br>3. Relay validators subscription and BFT validation |
 
 
 
 ### Milestone 2 — Beta version of CCCB
 
-- **Estimated Duration:** 10 working days (2 weeks )
+- **Estimated Duration:** 10 working days (2 weeks)
 - Working days **x** ppl. **:** 5 **x** 2
 - Effort: 10 days
 - **Costs:** $0.00
@@ -138,7 +138,7 @@ At the moment, Elrond has not implemented smart contract event emission, therefo
 | 0a. | License | Apache 2.0 |
 | 0b. | Delivery time | End of July |
 | 0c. | Documentation | Documents containing product architecture as well as basic user manuals  |
-| 0d. | Video Tutorial | Preparing tutorials with examples 1. How to attach an XP.Network CCCB pallet to a parachain, 2. How to use the CCCB to interact with Elrond blockchain | 
+| 0d. | Video Tutorial | Preparing tutorials with examples </br>1. How to attach an XP.Network CCCB pallet to a parachain, </br>2. How to use the CCCB to interact with Elrond blockchain | 
 | 1. | Substrate pallet | Migration of the smart contracts in Ink! to a substrate pallet in Rust  |
 | 2. | Unit tests | We will write automated unit tests with for the 1 & 2 milestones with min 85% code coverage and will test the Elrond's side in the live Elrond Testnet, while the test Substrate parachain will run in synq with ROCOCO |
 | 3. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
