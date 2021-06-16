@@ -50,9 +50,9 @@ At the moment, Elrond has not implemented smart contract event emission, therefo
 
 ### Team members
 
-- Dmitry Brook - CTO, Project Lead.
+- Dmitry Brook - CTO, Project Lead
 - Virbal Kint - Expert in Move, Rust & Co-Founder
-- Rupansh Kek - Expert in C, Rust and blockchain development
+- Rupansh Sekar - Expert in C, Rust and blockchain development
 
 ### Contact
 
@@ -100,8 +100,8 @@ At the moment, Elrond has not implemented smart contract event emission, therefo
 
 ### Overview
 
-- **Total Estimated Duration:** 1 month.
-- **Total Effort:** 20 days.
+- **Total Estimated Duration:** 1 month
+- **Total Effort:** 20 days
 - **Total Costs:** $ 0.00
 
 
@@ -155,5 +155,5 @@ At the moment, Elrond has not implemented smart contract event emission, therefo
 
 [The project repo:](https://github.com/xp-network)
 The present bridge is built in close cooperation with the Elrond team.
-
+[Elrond announcement](https://t.me/ElrondNetworkAnn/1121)
 
