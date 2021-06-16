@@ -144,14 +144,12 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 
 ## Future Plans
 
-+ We will develop a DEX between the coins of the Substrate Parachains to Elrond and back.
-+ We will make the relay validators completely decentralized, implementing the PoS consensus mechanism.
++ Develop a DEX between the coins of the Substrate Parachains to Elrond and back.
++ Make the relay validators completely decentralized, implementing the PoS consensus mechanism.
 
 ## Additional Information
 
 [The project repo:](https://github.com/xp-network)</br>
 The present bridge is built in close cooperation with the Elrond team.
 
-[Official Elrond announcement about this bridge](https://elrond.com/blog/elrond-bridge-polkadot-xpnetwork-nft-dapps/){:target="_blank" rel="noopener"}
-
-<a href="https://elrond.com/blog/elrond-bridge-polkadot-xpnetwork-nft-dapps/" target="_blank">Official Elrond announcement about this bridge</a>
+[Official Elrond announcement about this bridge](https://elrond.com/blog/elrond-bridge-polkadot-xpnetwork-nft-dapps/)
