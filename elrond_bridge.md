@@ -93,7 +93,7 @@ At the moment, Elrond has not implemented smart contract event emission, therefo
 
 ### Team LinkedIn Profiles
 
-[Dmitry Bryukhanov](https://www.linkedin.com/in/dmitry-briukhanov-60b2ab45/)
+[Dmitry Bryukhanov](https://www.linkedin.com/in/dmitry-briukhanov-60b2ab45/)</br>
 [Rupansh Sekar](https://www.linkedin.com/in/rupansh-sekar-10941b16a/)
 
 
