@@ -16,8 +16,8 @@ In this project, we aim to bring Elrond’s users and ecosystem to Polkadot.
 
 The main product of the project is a Cross-Chain Communication Bridge (CCCB) for two non-identical unsynchronized blockchains A (Substrate Parachain) and B (Elrond).
 
-The structure of the CCCB:
-1. A Substrate pallet implementing the following functionality:
+####The structure of the CCCB:
+#####1. A Substrate pallet implementing the following functionality:
   + Fungible liquidity freezing  for a Parachain native token.
   + Non-fungible liquidity freezing.
   + Fungible liquidity release to an arbitrary account (wrapped eGold)
@@ -25,11 +25,11 @@ The structure of the CCCB:
   + Support of cross-chain RPC with an arbitrary number of arguments.
   + Bridge relay validator subscription mechanism implementation.
   + BFT consensus mechanism implementation.
-2. Relay validator/prover written in TypeScript. Supplied in a docker container.
-3. “Freezer” smart contract written in Rust deployable on Elrond blockchain.
+####2. Relay validator/prover written in TypeScript. Supplied in a docker container.
+####3. “Freezer” smart contract written in Rust deployable on Elrond blockchain.
   + Fungible liquidity freezing (eGold)
   + Non-fungible liquidity freezing.
-4. “Minter” smart contract written in Rust deployable on Elrond blockchain.
+####4. “Minter” smart contract written in Rust deployable on Elrond blockchain.
   + Fungible liquidity release to an arbitrary account (wrapped Parachain native token)
   + Non-fungible liquidity release to an arbitrary account.
   + Support of cross-chain RPC with an arbitrary number of arguments.
