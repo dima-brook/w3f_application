@@ -14,7 +14,7 @@ In this project, we aim to bring Elrond’s users and ecosystem to Polkadot.
 
 ### Project Details
 
-The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parachain and Elrond which are two non-identical unsynchronized blockchain. Allowing liquidity transfers.
+The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parachain and Elrond which are two non-identical unsynchronized blockchain, allowing liquidity transfers.
 
 #### The structure of the CCCB:
 ##### 1. A Substrate pallet implementing the following functionality:
