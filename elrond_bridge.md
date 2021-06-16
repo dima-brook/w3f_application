@@ -19,8 +19,8 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 #### The structure of the CCCB:
 ##### 1. A Substrate pallet implementing the following functionality:
   + Fungible liquidity freezing  for a Parachain native token and wrapped eGold.
-  + Non-fungible liquidity freezing.
   + Fungible liquidity release to an arbitrary account of wrapped eGold or Parachain native token.
+  + Non-fungible liquidity freezing.
   + Non-fungible liquidity release to an arbitrary account.
   + Support of cross-chain RPC with an arbitrary number of arguments.
   + Bridge relay validator subscription mechanism implementation.
