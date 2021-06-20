@@ -52,15 +52,16 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 
 + Liquidity transfer form an account in a substrate Parachain to Elrond or form Elrond to a Parachain.
 + Selling or purchasing Parachain based NFTs by an account holder in Elrond or vice versa.
-+ Cross chain NFT based games with RPC connected smart contracts.
-+ Lending or borrowing eGold, sovereign Parachain coins or NFTs.
++ Cross chain games with RPC connected smart contracts.
++ Lending or borrowing eGold, sovereign Parachain coins or other liquidity.
 + Cross-chain NFT smart contracts with royalties.
-+ Cross-chain NFT insurances.
++ Cross-chain insurances.
 
 ## Team
 
 ### Team members
 
+- Stat Oskin - Advisor
 - Dmitry Brook - CTO, Project Lead
 - Virbal Kint - Expert in Move, Rust & Co-Founder
 - Rupansh Sekar - Expert in C, Rust and blockchain development
@@ -105,6 +106,7 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 
 ### Team LinkedIn Profiles
 
+[Stas Oskin](https://www.linkedin.com/in/stasoskin/)
 [Dmitry Bryukhanov](https://www.linkedin.com/in/dmitry-briukhanov-60b2ab45/)</br>
 [Rupansh Sekar](https://www.linkedin.com/in/rupansh-sekar-10941b16a/)
 
@@ -128,7 +130,6 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 | 0a. | License | Apache 2.0 |
 | 0b. | Documentation | Documents containing product architecture as well as basic user manuals  |
 | 0c. | Tests | Interactive liquidity transfer tests in local testnets deployed in a docker container  |
-| 0d. | Media announcement | [Official Elrond announcement about this bridge](https://elrond.com/blog/elrond-bridge-polkadot-xpnetwork-nft-dapps/) |
 | 1. | CCCB architecture | CCCB architecture is developed and documented in textual descriptions and UML diagrams |
 | 2. | Smart Contracts in Ink! | Functionality: </br>1. Fungible & Non-fungible token locking & releasing </br>2. RPC functionality </br>3. Relay validators subscription and BFT validation |
 | 3. | Semi-decentralized relay validators | Bridge relay validators written in Typescript |
@@ -138,30 +139,29 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 
 ### Milestone 1 — Beta version of CCCB
 
-- **Estimated Duration:** 5 working days (1 week)
-- Working days **x** ppl. **:** 5 **x** 3
-- Effort: 15 days
+- **Estimated Duration:** 21 working days (1 month)
+- Working days **x** ppl. **:** 7 **x** 3
+- Effort: 21 days
 - **Costs:** $0.00
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
-| 0b. | Documentation | Documents containing product architecture as well as basic user manuals  |
-| 0c. | Video Tutorial | Preparing tutorials with examples </br>1. How to attach an XP.network CCCB pallet to a parachain, </br>2. How to use the CCCB to interact with Elrond blockchain | 
+| 0b. | Documentation | Documents containing product architecture as well as basic user manuals. Preparing tutorials with examples </br>1. How to attach an XP.network CCCB pallet to a parachain, </br>2. How to use the CCCB to interact with Elrond blockchain | 
 | 0d. | Media Announcement | We will publish a media announecement about having finished the betta version of the bridge | 
 | 1. | Substrate pallet | Migration of the smart contracts from Milestone 1.2 to a substrate pallet  |
 | 2. | Bridge UI | The UI in React allowing codeless cross-chain transactions  |
 | 3. | Unit tests | We will write automated unit testing for all of the functionality covering at least 85% of the code and running on Elrond's live testnet|
 | 4. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
-| 5. | Security audit | Testing the system resilience to fraudulent or erroneous validators | 
-| 6. | Docker Image | We will provide a Docker image with the CCCB |
+| 5. | Decentralized Validators | We will make the relay validators completely decentralized, implementing the PoS consensus mechanism. | 
+| 6. | Security audit | Testing the system resilience to fraudulent or erroneous validators | 
+| 7. | Docker Image | We will provide a Docker image with the CCCB |
 
 
 
 ## Future Plans
 
 + Develop a DEX between the coins of the Substrate Parachains to Elrond and back.
-+ Make the relay validators completely decentralized, implementing the PoS consensus mechanism.
 + Add support for Elrond Wallet and other crypto currency wallets.
 
 ## Additional Information
@@ -169,4 +169,4 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 [The project repo](https://github.com/xp-network)</br>
 The present bridge is built in close cooperation with the Elrond team.</br>
 
-
+[Official Elrond announcement about this bridge](https://elrond.com/blog/elrond-bridge-polkadot-xpnetwork-nft-dapps/) 
