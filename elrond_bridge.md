@@ -29,8 +29,19 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
 
 #### SPEC-B Structure:
 #### 1. A Substrate pallet implementing the following functionality:
+  + Fungible token transfer
+    ```rust
+    /// Transfer to elrond chain event
+    /// validators must subscribe to this
+    #[ink(event)]
+    pub struct Transfer {
+        action_id: u128,
+        to: String,
+        value: Balance
+    }
+    ```
   + Fungible liquidity freezing </br>
-    Sovereign parachain tokens as well wrapped eGold are locked in the pallet to avoid duplication during the transfer.
+    Sovereign parachain tokens as well as wrapped eGold are locked in the pallet to avoid duplication during the transfer.
   + Fungible liquidity release </br>
     A transferred number of wrapped eGold or Parachain native tokens can be released to an arbitrary account in the target parachain.
   + Non-fungible liquidity freezing </br>
@@ -40,10 +51,11 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
   + Support of cross-chain RPC with an arbitrary number of arguments </br>
     A remote procedure call can be executed via the pallet. The call will contain the following parameters:
     ```rust
-    {
-      sc: string,                       // the address of the target smart contract
-      func: string,                     // target function name
-      args: Vec<Vec<uint8>>             // An arbitrary number of arguments of arbitrary types
+      pub struct ScCall {
+        action_id:  u128,         // Unique action identifier
+        to:         String,       // smart contract address in a parachain
+        endpoint:   String,       // smart contract function name
+        args:       Vec<Vec<u8>>  // Target smart contract function arguments
     }
     ```
   + Bridge relay validator subscription mechanism implementation </br>
@@ -65,18 +77,31 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
   + Support of cross-chain RPC with an arbitrary number of arguments </br>
   A remote procedure call can be executed via the pallet. The call will contain the following parameters:
     ```rust
-    {
-      sc: string,                       // the address of the target smart contract
-      func: string,                     // target function name
-      args: Vec<Vec<uint8>>             // An arbitrary number of arguments of arbitrary types
+    pub struct ScCall {
+        action_id:  u128,         // Unique action identifier
+        to:         String,       // smart contract address in a parachain
+        endpoint:   String,       // smart contract function name
+        args:       Vec<Vec<u8>>  // Target smart contract function arguments
     }
     ```
   + Bridge relay validator subscription </br>
     This mechanism allows to dynamically add new validators in a decentralized way after the system launch.
   + BFT consensus mechanism </br>
     A blockchain embedded smart contract checks whether 2/3 * n + 1 validator have signed the transaction, where **n** is the total number of validators.
+    ```rust
+            if validated == (2*validator_cnt/3)+1 {
+                self.exec_action(act);
+            }
+    ```
   + Event emission </br>
     To signal the validators that one of the bridge-related events has occurred the smart contract emits events with the accompanying data.
+    ```
+    self.env().emit_event( Transfer {
+                action_id: self.last_action,
+                to,
+                value: val,
+            } )
+    ```
 
 ### Use-cases
 
@@ -159,8 +184,8 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
 
 ### Overview
 
-- **Total Estimated Duration:** 1 week
-- **Total Effort:** 15 days
+- **Total Estimated Duration:** 1 month
+- **Total Effort:** 63 working days
 - **Total Costs:** $ 0.00
 
 
