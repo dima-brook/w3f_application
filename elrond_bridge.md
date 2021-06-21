@@ -44,6 +44,14 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
     Sovereign parachain tokens as well as wrapped eGold are locked in the pallet to avoid duplication during the transfer.
   + Fungible liquidity release </br>
     A transferred number of wrapped eGold or Parachain native tokens can be released to an arbitrary account in the target parachain.
+    ```rust
+        /// unfreeze tokens and send them to an address
+        /// only validators can call this
+        #[ink(message)]
+        pub fn pop(&mut self, action_id: String, to: AccountId, value: Balance) {
+            self.verify_action(action_id, Action::Unfreeze { to, value })
+        }```
+  
   + Non-fungible liquidity freezing </br>
     NFTs are locked in the pallet to avoid duplication.
   + Non-fungible liquidity release to an arbitrary account </br>
@@ -60,10 +68,36 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
     ```
   + Bridge relay validator subscription mechanism implementation </br>
     This mechanism allows to dynamically add new validators in a decentralized way after the system launch.
+    ```rust
+        /// Subscribe to events & become a validator
+        #[ink(message)]
+        pub fn subscribe(&mut self) {
+            ...
+        }
+    ```
   + BFT consensus mechanism implementation </br>
     A blockchain embedded smart contract checks whether 2/3 * n + 1 validator have signed the transaction, where **n** is the total number of validators.
+    ```
+    if validated == (2*validator_cnt/3)+1 {
+                self.exec_action(act);
+            }
+    ```
   + Event emission </br>
     To signal the validators that one of the bridge-related events has occurred the pallet emits events with the accompanying data.
+  ```
+        /// Emit an SCCall event
+        #[ink(message)]
+        pub fn send_sc_call(&mut self, target_contract: String, endpoint: String, args: Vec<Vec<u8>>) {
+            bech32::decode(&target_contract).expect("Invalid address!");
+            ...
+            self.env().emit_event( ScCall {
+                action_id: self.last_action,
+                to: target_contract,
+                endpoint,
+                args
+            } )
+        }
+  ```
 #### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
   Relay validators are very thin. They consist of the private and public keys and two local nodes one for listening/submitting to Elrond another for listening/submitting to a parachain with the attached bridge pallet. 
 #### 3. “Elrond-Minter” smart contract written in Rust deployable on Elrond blockchain.
@@ -175,7 +209,7 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
 
 ### Team LinkedIn Profiles
 
-[Stas Oskin](https://www.linkedin.com/in/stasoskin/)
+[Stas Oskin](https://www.linkedin.com/in/stasoskin/)</br>
 [Dmitry Bryukhanov](https://www.linkedin.com/in/dmitry-briukhanov-60b2ab45/)</br>
 [Rupansh Sekar](https://www.linkedin.com/in/rupansh-sekar-10941b16a/)
 
