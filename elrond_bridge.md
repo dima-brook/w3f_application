@@ -110,10 +110,42 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
 #### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
   Relay validators are very thin. They consist of the private and public keys and two local nodes one for listening/submitting to Elrond another for listening/submitting to a parachain with the attached bridge pallet. 
 #### 3. “Elrond-Minter” smart contract written in Rust deployable on Elrond blockchain.
+  + Transfer Liquidity
+  ```rust
+  Action::SendXP { to, amount, data } => {
+				let token = self.token().get();
+				self.send().esdt_local_mint(&token, &amount);
+				Ok(PerformActionResult::SendXP(SendToken {
+					api: self.send(),
+					to,
+					token: token.into(),
+					amount,
+					data
+				}))
+			}
+  ```
   + Fungible liquidity freezing </br>
     eGold or wrapped Parachain native tokens are locked to avoid duplication
   + Fungible liquidity release to an arbitrary account </br>
     Wrapped Parachain native tokens or eGold are released to an arbitrary target address in Elrond.
+    ```rust
+    #[payable("*")]
+	#[endpoint(withdraw)]
+	fn withdraw(&self, #[payment] value: Self::BigUint, #[payment_token] token: TokenIdentifier, to: String)  -> SCResult<Self::BigUint> {
+		require!(value > 0, "Value must be > 0");
+		require!(token == self.token().get(), "Invalid token!");
+
+		self.send().esdt_local_burn(&token, &value);
+
+		let ident = self.event_ident().update(|event| { 
+			event.add_assign(Self::BigUint::from(1u64));
+			event.clone()
+		});
+		self.event_mapper().insert(ident.clone(), EventInfo::new(Event::Unfreeze { to, value }));
+	
+		Ok(ident)
+	}
+    ```
   + Non-fungible liquidity freezing </br>
     NFTs are locked in the smart contract to avoid duplication.
     ```rust
@@ -126,15 +158,33 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
   + Support of cross-chain RPC with an arbitrary number of arguments </br>
   A remote procedure call can be executed via the pallet. The call will contain the following parameters:
     ```rust
-    pub struct ScCall {
-        action_id:  u128,         // Unique action identifier
-        to:         String,       // smart contract address in a parachain
-        endpoint:   String,       // smart contract function name
-        args:       Vec<Vec<u8>>  // Target smart contract function arguments
-    }
+    Action::SCCall {
+				to,
+				amount,
+				endpoint,
+				args
+			} => {
+				let mut contract_call_raw =
+					ContractCall::<Self::SendApi, ()>::new(self.send(), to, endpoint)
+						.with_token_transfer(TokenIdentifier::egld(), amount);
+				for arg in args {
+					contract_call_raw.push_argument_raw_bytes(arg.as_slice());
+				}
+				Ok(PerformActionResult::AsyncCall(
+					contract_call_raw.async_call(),
+				))
+			}
     ```
   + Bridge relay validator subscription </br>
     This mechanism allows to dynamically add new validators in a decentralized way after the system launch.
+    ```rust
+    /// Initiates board member addition process.
+	  /// Can also be used to promote a proposer to board member.
+	  #[endpoint(proposeAddValidator)]
+	  fn propose_add_validator(&self, uuid: Self::BigUint, board_member_address: Address) -> SCResult<PerformActionResult<Self::SendApi>> {
+		  self.validate_action(uuid, Action::AddValidator(board_member_address))
+	  }
+    ```
   + BFT consensus mechanism </br>
     A blockchain embedded smart contract checks whether 2/3 * n + 1 validator have signed the transaction, where **n** is the total number of validators.
     ```rust
