@@ -140,8 +140,9 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
-| 0b. | Documentation | Documents containing product architecture as well as basic user manuals  |
-| 0c. | Tests | Interactive liquidity transfer tests in local testnets deployed in a docker container  |
+| 0b. | Documentation | We will provide both **inline documentation** of the code and a basic **tutorial** that explains how a user can use the Alpha version of the bridge and its structure |
+| 0c. | Testing Guide | Core functions will be fully covered by unit tests to ensure functionality and robustness. In the guide, we will describe how to run these tests. |
+| 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
 | 1. | CCCB architecture | CCCB architecture is developed and documented in textual descriptions and UML diagrams |
 | 2. | Smart Contracts in Ink! | Functionality: </br>1. Fungible & Non-fungible token locking & releasing </br>2. RPC functionality </br>3. Relay validators subscription and BFT validation |
 | 3. | Semi-decentralized relay validators | Bridge relay validators written in Typescript |
@@ -159,8 +160,10 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
-| 0b. | Documentation | Documents containing product architecture as well as basic user manuals. Preparing tutorials with examples </br>1. How to attach an XP.network CCCB pallet to a parachain, </br>2. How to use the CCCB to interact with Elrond blockchain | 
-| 0d. | Media Announcement | We will publish a media announecement about having finished the betta version of the bridge | 
+| 0b. | Documentation | We will provide both **inline documentation** of the code and a basic **tutorial** that explains </br>1. How to attach an XP.network CCCB pallet to a parachain, </br>2. How to use the CCCB to interact with Elrond blockchain |
+| 0c. | Testing Guide | Core functions will be fully covered by unit tests to ensure functionality and robustness. In the guide, we will describe how to run these tests. |
+| 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
+| 0e. | Media Announcement | We will publish a media announecement about having finished the betta version of the bridge | 
 | 1. | Substrate pallet | Migration of the smart contracts from Milestone 1.2 to a substrate pallet  |
 | 2. | Bridge UI | The UI in React allowing codeless cross-chain transactions  |
 | 3. | Unit tests | We will write automated unit testing for all of the functionality covering at least 85% of the code and running on Elrond's live testnet|
