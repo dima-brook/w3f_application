@@ -42,6 +42,9 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
     ```
   + Fungible liquidity freezing </br>
     Sovereign parachain tokens as well as wrapped eGold are locked in the pallet to avoid duplication during the transfer.
+    ```rust
+    ///TODO: implement in Milestone 1
+    ```
   + Fungible liquidity release </br>
     A transferred number of wrapped eGold or Parachain native tokens can be released to an arbitrary account in the target parachain.
     ```rust
@@ -50,12 +53,18 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
         #[ink(message)]
         pub fn pop(&mut self, action_id: String, to: AccountId, value: Balance) {
             self.verify_action(action_id, Action::Unfreeze { to, value })
-        }```
+        }
   
   + Non-fungible liquidity freezing </br>
     NFTs are locked in the pallet to avoid duplication.
+    ```rust
+    ///TODO: implement in Milestone 1
+    ```
   + Non-fungible liquidity release to an arbitrary account </br>
     Wrapped NFTs alongside their data can be released to a designated account in the target parachain.
+    ```rust
+    ///TODO: implement in Milestone 1
+    ```
   + Support of cross-chain RPC with an arbitrary number of arguments </br>
     A remote procedure call can be executed via the pallet. The call will contain the following parameters:
     ```rust
@@ -77,14 +86,14 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
     ```
   + BFT consensus mechanism implementation </br>
     A blockchain embedded smart contract checks whether 2/3 * n + 1 validator have signed the transaction, where **n** is the total number of validators.
-    ```
+    ```rust
     if validated == (2*validator_cnt/3)+1 {
                 self.exec_action(act);
             }
     ```
   + Event emission </br>
     To signal the validators that one of the bridge-related events has occurred the pallet emits events with the accompanying data.
-  ```
+  ```rust
         /// Emit an SCCall event
         #[ink(message)]
         pub fn send_sc_call(&mut self, target_contract: String, endpoint: String, args: Vec<Vec<u8>>) {
@@ -107,7 +116,13 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
     Wrapped Parachain native tokens or eGold are released to an arbitrary target address in Elrond.
   + Non-fungible liquidity freezing </br>
     NFTs are locked in the smart contract to avoid duplication.
+    ```rust
+    ///TODO: implement in Milestone 1
+    ```
   + Non-fungible liquidity release to an arbitrary account </br>
+  + ```rust
+    ///TODO: implement in Milestone 1
+    ```
   + Support of cross-chain RPC with an arbitrary number of arguments </br>
   A remote procedure call can be executed via the pallet. The call will contain the following parameters:
     ```rust
@@ -129,7 +144,7 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
     ```
   + Event emission </br>
     To signal the validators that one of the bridge-related events has occurred the smart contract emits events with the accompanying data.
-    ```
+    ```rust
     self.env().emit_event( Transfer {
                 action_id: self.last_action,
                 to,
