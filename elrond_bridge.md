@@ -82,7 +82,7 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/Use-case.png)
 
-+ Liquidity transfer form an account in a substrate Parachain to Elrond or form Elrond to a Parachain.
++ Liquidity transfer from an account in a substrate Parachain to Elrond or form Elrond to a Parachain.
 + Selling or purchasing Parachain based NFTs by an account holder in Elrond or vice versa.
 + Cross chain games with RPC connected smart contracts.
 + Lending or borrowing eGold, sovereign Parachain coins or other liquidity.
@@ -177,8 +177,8 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 | 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
 | 1. | CCCB architecture | CCCB architecture is developed and documented in textual descriptions and UML diagrams |
 | 2. | Smart Contracts in Ink! | Functionality: </br>1. Fungible & Non-fungible token locking & releasing </br>2. RPC functionality </br>3. Relay validators subscription and BFT validation |
-| 3. | Semi-decentralized relay validators | Bridge relay validators written in Typescript |
-| 4. | Smart Contracts in Rust (on Elrond) | Functionality: </br>1. Fungible & Non-fungible token locking & releasing </br>2. RPC functionality </br>3. Relay validators subscription and BFT validation |
+| 3. | Semi-decentralized relay validators | 21 Bridge relay validators written in Typescript and ready for deployment on a remoute server |
+| 4. | Smart Contracts in Rust (on Elrond) | Functionality: </br>1. Fungible token locking & releasing </br>2. Limited RPC functionality ```args:Vec<uint8>```</br>3. Relay validators subscription and BFT validation |
 
 
 
@@ -196,12 +196,13 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 | 0c. | Testing Guide | Core functions will be fully covered by unit tests to ensure functionality and robustness. In the guide, we will describe how to run these tests. |
 | 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
 | 0e. | Media Announcement | We will publish a media announecement about having finished the betta version of the bridge | 
-| 1. | Substrate pallet | Migration of the smart contracts from Milestone 1.2 to a substrate pallet  |
-| 2. | Bridge UI | The UI in React allowing codeless cross-chain transactions  |
-| 3. | Unit tests | We will write automated unit testing for all of the functionality covering at least 85% of the code and running on Elrond's live testnet|
-| 4. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
-| 5. | Decentralized Validators | We will make the relay validators completely decentralized, implementing the PoS consensus mechanism. | 
-| 6. | Security audit | Testing the system resilience to fraudulent or erroneous validators | 
+| 1. | Substrate pallet | Migration of the smart contracts from Milestone 0.2 to a substrate pallet, eliminating the RPC function argumant limitation  |
+| 2. | NFT support | We will add NFT transfer functionality from a parachain to Elrond or vice versa |
+| 3. | Bridge UI | The UI in React allowing codeless cross-chain transactions  |
+| 4. | Unit tests | We will write automated unit testing for all of the functionality covering at least 85% of the code and running on Elrond's live testnet|
+| 5. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
+| 6. | Decentralized Validators | We will make the relay validators completely decentralized, implementing the PoA consensus mechanism, where alongside with NPoS reputation is taken into account when selecting the validators. | 
+| 7. | Security audit | Testing the system resilience to fraudulent or erroneous validators | 
 
 
 
