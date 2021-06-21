@@ -113,14 +113,14 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
   
 Challenges faced by reputation systems to be mitigated:
 
-a.The following attacks can be mitigated by a centralized assessment.</br>
+a.The following attacks can be mitigated by a centralized assessment.</br></br>
 **Sybil Attack** - when an attacker creates multiple identities to gain an unfair advantage over honest users who own a single identity.</br>
 **Self-Promotion, Ballot Stuffing** - a user with multiple identities or a group of users promote themselves by assigning themselves additional positive feedback after every interaction.</br>
 **Slandering, Bad-Mouthing** - is the act of sabotaging an honest user user's reputation by assigning unfairly low feedback to ruin a competitor's reputation. Centralized reputation assessment is not vulnerable to such attacks.</br>
 **Random Ratings** - is when an attacker submits randomly generated feedback instead of providing an accurate evaluation of the peer's behavior.</br>
 **Free Riding** - is when a user does not provide any feedback taking advantage of the system without providing any contribution.</br>
 </br>
-b. The following types of attack can be mitigated by viewing every new user as untrustworthy. Positive reputation must be built by consistent benevolent behavior over a long period of time.</br>
+b. The following types of attack can be mitigated by viewing every new user as untrustworthy. Positive reputation must be built by consistent benevolent behavior over a long period of time.</br></br>
 **Whitewashing** - is when a user with negative reputation quits the system and returns with a new identity and fresh reputation.</br>
 **Oscillation** - is when a user quickly builds good reputation in several low value transactions and then reverses its good behavior to malicious taking advantage of the mislead counterparts.</br>
 
