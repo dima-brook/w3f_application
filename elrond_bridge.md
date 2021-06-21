@@ -92,6 +92,7 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
     To signal the validators that one of the bridge-related events has occurred the pallet emits events with the accompanying data.
   ```rust
 	/// Emit an SCCall event
+	/// TODO: Replace the Ink! implementation with Rust in Milestone 1
 	pub fn send_sc_call(&mut self, target_contract: String, endpoint: String, args: Vec<Vec<u8>>) {
 	    bech32::decode(&target_contract).expect("Invalid address!");
 	    ...
