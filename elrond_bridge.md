@@ -94,42 +94,45 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
   + Event emission </br>
     To signal the validators that one of the bridge-related events has occurred the pallet emits events with the accompanying data.
   ```rust
-        /// Emit an SCCall event
-        #[ink(message)]
-        pub fn send_sc_call(&mut self, target_contract: String, endpoint: String, args: Vec<Vec<u8>>) {
-            bech32::decode(&target_contract).expect("Invalid address!");
-            ...
-            self.env().emit_event( ScCall {
-                action_id: self.last_action,
-                to: target_contract,
-                endpoint,
-                args
-            } )
-        }
+/// Emit an SCCall event
+#[ink(message)]
+pub fn send_sc_call(&mut self, target_contract: String, endpoint: String, args: Vec<Vec<u8>>) {
+    bech32::decode(&target_contract).expect("Invalid address!");
+    ...
+    self.env().emit_event( ScCall {
+	action_id: self.last_action,
+	to: target_contract,
+	endpoint,
+	args
+    } )
+}
   ```
 #### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
   Relay validators are very thin. They consist of the private and public keys and two local nodes one for listening/submitting to Elrond another for listening/submitting to a parachain with the attached bridge pallet. 
+  
+  The trustworthiness of a validator is secured by the Proof-of-Authority (PoS) system. Alongside with the Proof-of-Stake validator selection mechanism, reputation of the validator is taken into account.
+  
 #### 3. “Elrond-Minter” smart contract written in Rust deployable on Elrond blockchain.
   + Transfer Liquidity
   ```rust
   Action::SendXP { to, amount, data } => {
-				let token = self.token().get();
-				self.send().esdt_local_mint(&token, &amount);
-				Ok(PerformActionResult::SendXP(SendToken {
-					api: self.send(),
-					to,
-					token: token.into(),
-					amount,
-					data
-				}))
-			}
+	let token = self.token().get();
+	self.send().esdt_local_mint(&token, &amount);
+	Ok(PerformActionResult::SendXP(SendToken {
+		api: self.send(),
+		to,
+		token: token.into(),
+		amount,
+		data
+	}))
+}
   ```
   + Fungible liquidity freezing </br>
     eGold or wrapped Parachain native tokens are locked to avoid duplication
   + Fungible liquidity release to an arbitrary account </br>
     Wrapped Parachain native tokens or eGold are released to an arbitrary target address in Elrond.
     ```rust
-    #[payable("*")]
+	#[payable("*")]
 	#[endpoint(withdraw)]
 	fn withdraw(&self, #[payment] value: Self::BigUint, #[payment_token] token: TokenIdentifier, to: String)  -> SCResult<Self::BigUint> {
 		require!(value > 0, "Value must be > 0");
@@ -142,7 +145,7 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
 			event.clone()
 		});
 		self.event_mapper().insert(ident.clone(), EventInfo::new(Event::Unfreeze { to, value }));
-	
+
 		Ok(ident)
 	}
     ```
@@ -159,26 +162,26 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
   A remote procedure call can be executed via the pallet. The call will contain the following parameters:
     ```rust
     Action::SCCall {
-				to,
-				amount,
-				endpoint,
-				args
-			} => {
-				let mut contract_call_raw =
-					ContractCall::<Self::SendApi, ()>::new(self.send(), to, endpoint)
-						.with_token_transfer(TokenIdentifier::egld(), amount);
-				for arg in args {
-					contract_call_raw.push_argument_raw_bytes(arg.as_slice());
-				}
-				Ok(PerformActionResult::AsyncCall(
-					contract_call_raw.async_call(),
-				))
-			}
+		to,
+		amount,
+		endpoint,
+		args
+	} => {
+		let mut contract_call_raw =
+			ContractCall::<Self::SendApi, ()>::new(self.send(), to, endpoint)
+				.with_token_transfer(TokenIdentifier::egld(), amount);
+		for arg in args {
+			contract_call_raw.push_argument_raw_bytes(arg.as_slice());
+		}
+		Ok(PerformActionResult::AsyncCall(
+			contract_call_raw.async_call(),
+		))
+	}
     ```
   + Bridge relay validator subscription </br>
     This mechanism allows to dynamically add new validators in a decentralized way after the system launch.
     ```rust
-    /// Initiates board member addition process.
+	  /// Initiates board member addition process.
 	  /// Can also be used to promote a proposer to board member.
 	  #[endpoint(proposeAddValidator)]
 	  fn propose_add_validator(&self, uuid: Self::BigUint, board_member_address: Address) -> SCResult<PerformActionResult<Self::SendApi>> {
@@ -217,7 +220,6 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
 
 ### Team members
 
-- Stat Oskin - Advisor
 - Dmitry Brook - CTO, Project Lead
 - Verbal Kint - Expert in Move, Rust & Co-Founder
 - Rupansh Sekar - Expert in C, Rust, and blockchain development
@@ -230,6 +232,9 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
 
 - [XP.network website](https://xp.network/)
 
+### Advisors
+
+- [Stas Oskin](https://www.linkedin.com/in/stasoskin/)</br>
 
 ### Legal Structure
 
@@ -238,18 +243,6 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
 
 
 ### Team Experience
-
-**Stas Oskin**
-
-- Over 18 years of experience in Development and Management
-- Co-founder in Pontem
-- Former Biz-Dev in dfinance
-- Former Core Dev and Biz Dev in WINGS Stiftung
-- Former CTO in Eyecam
-- Former CTO in NeoCam
-- Former CTO in NeoVSP
-- Former Co-Founder in Wordberry
-- Former CTO in BeeComm
 
 **Dmitry Briukhanov**
 
@@ -274,7 +267,6 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
 
 ### Team LinkedIn Profiles
 
-[Stas Oskin](https://www.linkedin.com/in/stasoskin/)</br>
 [Dmitry Bryukhanov](https://www.linkedin.com/in/dmitry-briukhanov-60b2ab45/)</br>
 [Rupansh Sekar](https://www.linkedin.com/in/rupansh-sekar-10941b16a/)
 
