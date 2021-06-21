@@ -33,7 +33,6 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
     ```rust
     /// Transfer to elrond chain event
     /// validators must subscribe to this
-    #[ink(event)]
     pub struct Transfer {
         action_id: u128,
         to: String,
@@ -79,7 +78,6 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
     This mechanism allows to dynamically add new validators in a decentralized way after the system launch.
     ```rust
         /// Subscribe to events & become a validator
-        #[ink(message)]
         pub fn subscribe(&mut self) {
             ...
         }
@@ -94,18 +92,17 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
   + Event emission </br>
     To signal the validators that one of the bridge-related events has occurred the pallet emits events with the accompanying data.
   ```rust
-/// Emit an SCCall event
-#[ink(message)]
-pub fn send_sc_call(&mut self, target_contract: String, endpoint: String, args: Vec<Vec<u8>>) {
-    bech32::decode(&target_contract).expect("Invalid address!");
-    ...
-    self.env().emit_event( ScCall {
-	action_id: self.last_action,
-	to: target_contract,
-	endpoint,
-	args
-    } )
-}
+	/// Emit an SCCall event
+	pub fn send_sc_call(&mut self, target_contract: String, endpoint: String, args: Vec<Vec<u8>>) {
+	    bech32::decode(&target_contract).expect("Invalid address!");
+	    ...
+	    self.env().emit_event( ScCall {
+		action_id: self.last_action,
+		to: target_contract,
+		endpoint,
+		args
+	    } )
+	}
   ```
 #### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
   Relay validators are very thin. They consist of the private and public keys and two local nodes one for listening/submitting to Elrond another for listening/submitting to a parachain with the attached bridge pallet. 
