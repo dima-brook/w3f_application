@@ -285,7 +285,7 @@ b. The following types of attack can be mitigated by viewing every new user as u
 ### Overview
 
 - **Total Estimated Duration:** 3 weeks
-- **Total Effort:** 15 working days
+- **Total Effort:** 28 working days
 - **Total Costs:** $ 8,400.00
 
 
