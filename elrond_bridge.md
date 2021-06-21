@@ -42,7 +42,7 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
     ```rust
     {
       sc: string,                       // the address of the target smart contract
-      func: "function_name",            // target function name
+      func: string,                     // target function name
       args: Vec<Vec<uint8>>             // An arbitrary number of arguments of arbitrary types
     }
     ```
@@ -67,7 +67,7 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
     ```rust
     {
       sc: string,                       // the address of the target smart contract
-      func: "function_name",            // target function name
+      func: string,                     // target function name
       args: Vec<Vec<uint8>>             // An arbitrary number of arguments of arbitrary types
     }
     ```
