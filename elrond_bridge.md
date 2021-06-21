@@ -25,7 +25,7 @@ The bridge is accompanied by intuitive UI:
 
 ### Project Details
 
-The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link a Substrate Parachain and Elrond the two non-identical unsynchronized blockchains, allowing liquidity transfers.
+The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link the two non-identical unsynchronized blockchains, allowing liquidity transfers.
 
 #### SPEC-B Structure:
 #### 1. A Substrate pallet implementing the following functionality:
