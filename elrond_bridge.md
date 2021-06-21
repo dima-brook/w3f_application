@@ -13,7 +13,15 @@ XP.network is a blockchain-agnostic platform for building NFT DApps. With XP.net
 In this project, we aim to bring Elrond’s users and ecosystem to Polkadot.
 
 ### CCCB UI
+
+The bridge will be accompanied with intuitive UI:
+
 ![img](https://github.com/xp-network/w3f_application/blob/main/Cross%20Chain%20Bridge-1.png)
+
+### Ecosystem Fit
+
+  + Users will be able to transfer their liquidity or NFTs from any Substrate parachain to Elrond and backwards once they attach the XP.network pallet to their parachain or parathread.
+  + Substrate parachain smart contracts will be able to call smart contracts functions in Elrond with an arbitrary number of arguments via the bridge relay validators. The same will be possible from the side of Elrond.
 
 ### Project Details
 
@@ -21,30 +29,53 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 
 #### CCCB Structure:
 #### 1. A Substrate pallet implementing the following functionality:
-  + Fungible liquidity freezing  for a Parachain native token and wrapped eGold.
-  + Fungible liquidity release to an arbitrary account of wrapped eGold or Parachain native token.
+  + Fungible liquidity freezing
+    Sovereign parachain tokens as well wrapped eGold can be locked in the pallet to avoid duplication during the transfer.
+  + Fungible liquidity release
+    A transfered number of wrapped eGold or Parachain native tokens can be released to an arbitrary account in the target parachain.
   + Non-fungible liquidity freezing.
+    NFTs can be locked in the pallet to avoid duplication.
   + Non-fungible liquidity release to an arbitrary account.
+    Wrapped NFTs alongside with their data can be released to a designated account in the target parachain.
   + Support of cross-chain RPC with an arbitrary number of arguments.
+    A remote procedure call can be executed via the pallet. The call will contain the following parameters:
+    ```rust
+    {
+      sc: string,                       // the address of the target smart contract
+      func: "function_name",            // target function name
+      args: Vec<Vec<uint8>>             // An arbitrary number of arguments of arbitrary types
+    }
+    ```
   + Bridge relay validator subscription mechanism implementation.
+    This mechanism allows to dynamically add new validators in a decentralized way after the system launch.
   + BFT consensus mechanism implementation.
-  + Event emission.
+    A blockchain embedded smart contract checks whether 2/3 * n + 1 validator have signed the transaction, where **n** is the total number of validators.
+  + Event emission
+    To signal the validators that one of the bridge related events has occured the pallet emits events with the accompanying data.
 #### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
+  Relay validators are very thin. They consist of the private and public keya and two local nodes one for listening/submitting to Elrond another for listening/submitting to a parachain with the attahced bridge pallet. 
 #### 3. “Elrond-Minter” smart contract written in Rust deployable on Elrond blockchain.
-  + Fungible liquidity freezing (eGold or wrapped Parachain native tokens).
-  + Fungible liquidity release to an arbitrary account (wrapped Parachain native tokens or eGold)
+  + Fungible liquidity freezing.
+    eGold or wrapped Parachain native tokens are locked to avoid duplication
+  + Fungible liquidity release to an arbitrary account
+    Wrapped Parachain native tokens or eGold are released to an arbitrary target address in Elrond.
   + Non-fungible liquidity freezing.
   + Non-fungible liquidity release to an arbitrary account.
   + Support of cross-chain RPC with an arbitrary number of arguments.
+  A remote procedure call can be executed via the pallet. The call will contain the following parameters:
+    ```rust
+    {
+      sc: string,                       // the address of the target smart contract
+      func: "function_name",            // target function name
+      args: Vec<Vec<uint8>>             // An arbitrary number of arguments of arbitrary types
+    }
+    ```
   + Bridge relay validator subscription.
+    This mechanism allows to dynamically add new validators in a decentralized way after the system launch.
   + BFT consensus mechanism.
-  + Event emission.
-
-
-### Ecosystem Fit
-
-  + Users will be able to transfer their liquidity or NFTs from any Substrate parachain to Elrond and backwards once they attach the XP.network pallet to their parachain or parathread.
-  + Substrate parachain smart contracts will be able to call smart contracts functions in Elrond with an arbitrary number of arguments via the bridge relay validators. The same will be possible from the side of Elrond.
+    A blockchain embedded smart contract checks whether 2/3 * n + 1 validator have signed the transaction, where **n** is the total number of validators.
+  + Event emission
+    To signal the validators that one of the bridge related events has occured the smart contract emits events with the accompanying data.
 
 ### Use-cases
 
@@ -170,7 +201,6 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 | 4. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
 | 5. | Decentralized Validators | We will make the relay validators completely decentralized, implementing the PoS consensus mechanism. | 
 | 6. | Security audit | Testing the system resilience to fraudulent or erroneous validators | 
-| 7. | Docker Image | We will provide a Docker image with the CCCB |
 
 
 
