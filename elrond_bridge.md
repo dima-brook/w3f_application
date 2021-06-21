@@ -49,7 +49,6 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
     ```rust
         /// unfreeze tokens and send them to an address
         /// only validators can call this
-        #[ink(message)]
         pub fn pop(&mut self, action_id: String, to: AccountId, value: Balance) {
             self.verify_action(action_id, Action::Unfreeze { to, value })
         }
