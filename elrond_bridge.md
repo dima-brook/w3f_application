@@ -110,7 +110,7 @@ pub fn send_sc_call(&mut self, target_contract: String, endpoint: String, args: 
 #### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
   Relay validators are very thin. They consist of the private and public keys and two local nodes one for listening/submitting to Elrond another for listening/submitting to a parachain with the attached bridge pallet. 
   
-  The trustworthiness of a validator is secured by the Proof-of-Authority (PoS) system. Alongside with the Proof-of-Stake validator selection mechanism, reputation of the validator is taken into account.
+  The trustworthiness of a validator is secured by the **Proof-of-Authority** (PoA) system. Alongside with the Proof-of-Stake validator selection mechanism, reputation of the validator is taken into account. A validator **reputation** is _aggregated from the feedback of the raters_, who evaluate the validators' behavior. 
   
 #### 3. “Elrond-Minter” smart contract written in Rust deployable on Elrond blockchain.
   + Transfer Liquidity
