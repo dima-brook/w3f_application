@@ -83,6 +83,18 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 
 ### Team Experience
 
+**Stas Oskin**
+
+- Over 18 years of experience in Development and Management
+- Co-founder in Pontem
+- Former Biz-Dev in dfinance
+- Former Core Dev and Biz Dev in WINGS Stiftung
+- Former CTO in Eyecam
+- Former CTO in NeoCam
+- Former CTO in NeoVSP
+- Former Co-Founder in Wordberry
+- Former CTO in BeeComm
+
 **Dmitry Briukhanov**
 
 - Over 18 years of experience in Development and Management 
@@ -106,7 +118,7 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 
 ### Team LinkedIn Profiles
 
-[Stas Oskin](https://www.linkedin.com/in/stasoskin/)</br>
+[Stas Oskin](https://www.linkedin.com/in/stasoskin/)
 [Dmitry Bryukhanov](https://www.linkedin.com/in/dmitry-briukhanov-60b2ab45/)</br>
 [Rupansh Sekar](https://www.linkedin.com/in/rupansh-sekar-10941b16a/)
 
@@ -132,7 +144,7 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 | 0c. | Tests | Interactive liquidity transfer tests in local testnets deployed in a docker container  |
 | 1. | CCCB architecture | CCCB architecture is developed and documented in textual descriptions and UML diagrams |
 | 2. | Smart Contracts in Ink! | Functionality: </br>1. Fungible & Non-fungible token locking & releasing </br>2. RPC functionality </br>3. Relay validators subscription and BFT validation |
-| 3. | Semi-decentralized relay validators | Bridge relay validators written in Typescript (Polkadot side) |
+| 3. | Semi-decentralized relay validators | Bridge relay validators written in Typescript |
 | 4. | Smart Contracts in Rust (on Elrond) | Functionality: </br>1. Fungible & Non-fungible token locking & releasing </br>2. RPC functionality </br>3. Relay validators subscription and BFT validation |
 
 
@@ -152,11 +164,10 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 | 1. | Substrate pallet | Migration of the smart contracts from Milestone 1.2 to a substrate pallet  |
 | 2. | Bridge UI | The UI in React allowing codeless cross-chain transactions  |
 | 3. | Unit tests | We will write automated unit testing for all of the functionality covering at least 85% of the code and running on Elrond's live testnet|
-| 4. | Generic Validator Interface | We will develop a generic interface for connecting the target blockchain (Elrond or any other)  |
-| 5. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem |
-| 6. | Decentralized Validators | We will make the relay validators completely decentralized, implementing the PoS consensus mechanism. | 
-| 7. | Security audit | Testing the system resilience to fraudulent or erroneous validators | 
-| 8. | Docker Image | We will provide a Docker image with the CCCB |
+| 4. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
+| 5. | Decentralized Validators | We will make the relay validators completely decentralized, implementing the PoS consensus mechanism. | 
+| 6. | Security audit | Testing the system resilience to fraudulent or erroneous validators | 
+| 7. | Docker Image | We will provide a Docker image with the CCCB |
 
 
 
