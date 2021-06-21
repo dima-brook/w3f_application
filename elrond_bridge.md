@@ -29,15 +29,15 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
 
 #### CCCB Structure:
 #### 1. A Substrate pallet implementing the following functionality:
-  + Fungible liquidity freezing
-    Sovereign parachain tokens as well wrapped eGold can be locked in the pallet to avoid duplication during the transfer.
-  + Fungible liquidity release
+  + Fungible liquidity freezing </br>
+    Sovereign parachain tokens as well wrapped eGold are locked in the pallet to avoid duplication during the transfer.
+  + Fungible liquidity release </br>
     A transfered number of wrapped eGold or Parachain native tokens can be released to an arbitrary account in the target parachain.
-  + Non-fungible liquidity freezing.
-    NFTs can be locked in the pallet to avoid duplication.
-  + Non-fungible liquidity release to an arbitrary account.
+  + Non-fungible liquidity freezing </br>
+    NFTs are locked in the pallet to avoid duplication.
+  + Non-fungible liquidity release to an arbitrary account </br>
     Wrapped NFTs alongside with their data can be released to a designated account in the target parachain.
-  + Support of cross-chain RPC with an arbitrary number of arguments.
+  + Support of cross-chain RPC with an arbitrary number of arguments </br>
     A remote procedure call can be executed via the pallet. The call will contain the following parameters:
     ```rust
     {
@@ -46,22 +46,23 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
       args: Vec<Vec<uint8>>             // An arbitrary number of arguments of arbitrary types
     }
     ```
-  + Bridge relay validator subscription mechanism implementation.
+  + Bridge relay validator subscription mechanism implementation </br>
     This mechanism allows to dynamically add new validators in a decentralized way after the system launch.
-  + BFT consensus mechanism implementation.
+  + BFT consensus mechanism implementation </br>
     A blockchain embedded smart contract checks whether 2/3 * n + 1 validator have signed the transaction, where **n** is the total number of validators.
-  + Event emission
+  + Event emission </br>
     To signal the validators that one of the bridge related events has occured the pallet emits events with the accompanying data.
 #### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
   Relay validators are very thin. They consist of the private and public keya and two local nodes one for listening/submitting to Elrond another for listening/submitting to a parachain with the attahced bridge pallet. 
 #### 3. “Elrond-Minter” smart contract written in Rust deployable on Elrond blockchain.
-  + Fungible liquidity freezing.
+  + Fungible liquidity freezing </br>
     eGold or wrapped Parachain native tokens are locked to avoid duplication
-  + Fungible liquidity release to an arbitrary account
+  + Fungible liquidity release to an arbitrary account </br>
     Wrapped Parachain native tokens or eGold are released to an arbitrary target address in Elrond.
-  + Non-fungible liquidity freezing.
-  + Non-fungible liquidity release to an arbitrary account.
-  + Support of cross-chain RPC with an arbitrary number of arguments.
+  + Non-fungible liquidity freezing </br>
+    NFTs are locked in the smart contract to avoid duplication.
+  + Non-fungible liquidity release to an arbitrary account </br>
+  + Support of cross-chain RPC with an arbitrary number of arguments </br>
   A remote procedure call can be executed via the pallet. The call will contain the following parameters:
     ```rust
     {
@@ -70,11 +71,11 @@ The proposed Cross-Chain Communication Bridge(CCCB) will link a Substrate Parach
       args: Vec<Vec<uint8>>             // An arbitrary number of arguments of arbitrary types
     }
     ```
-  + Bridge relay validator subscription.
+  + Bridge relay validator subscription </br>
     This mechanism allows to dynamically add new validators in a decentralized way after the system launch.
-  + BFT consensus mechanism.
+  + BFT consensus mechanism </br>
     A blockchain embedded smart contract checks whether 2/3 * n + 1 validator have signed the transaction, where **n** is the total number of validators.
-  + Event emission
+  + Event emission </br>
     To signal the validators that one of the bridge related events has occured the smart contract emits events with the accompanying data.
 
 ### Use-cases
