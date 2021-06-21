@@ -202,7 +202,7 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
 
 ### Use-cases
 
-![img](https://github.com/xp-network/w3f_application/blob/main/Use-case.png)
+![img](https://github.com/xp-network/w3f_application/blob/main/XP-Elrond%20bridge-1.png)
 
 + Liquidity transfer from an account in a substrate Parachain to Elrond or from Elrond to a Parachain.
 + Selling or purchasing Parachain based NFTs by an account holder in Elrond or vice versa.
