@@ -109,6 +109,8 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
   
   The trustworthiness of a validator is secured by the **Proof-of-Authority** (PoA) system. Alongside with the Proof-of-Stake validator selection mechanism, reputation of the validator is taken into account. A validator **reputation** is _aggregated from the feedback of the raters_, who evaluate the validators' behavior. 
   
+![img](https://github.com/xp-network/w3f_application/blob/main/Reputation%20System%20Choice.png)
+  
 #### 3. “Elrond-Minter” smart contract written in Rust deployable on Elrond blockchain.
   + Transfer Liquidity
   ```rust
