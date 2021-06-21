@@ -194,11 +194,7 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
   + Event emission </br>
     To signal the validators that one of the bridge-related events has occurred the smart contract emits events with the accompanying data.
     ```rust
-    self.env().emit_event( Transfer {
-                action_id: self.last_action,
-                to,
-                value: val,
-            } )
+    /// Event emission will be implemented by Elrond in ~ 2 months
     ```
 
 ### Use-cases
