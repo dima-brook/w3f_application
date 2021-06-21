@@ -185,8 +185,8 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
 ### Milestone 1 — Beta version of SPEC-B
 
 - **Estimated Duration:** 21 working days (1 month)
-- Working days **x** ppl. **:** 7 **x** 3
-- Effort: 21 days
+- Working days **x** ppl. **:** 21 **x** 3
+- Effort: 63 days
 - **Costs:** $0.00
 
 | Number | Deliverable | Specification |
