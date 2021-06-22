@@ -278,9 +278,9 @@ b. The following types of attack can be mitigated by viewing every new user as u
 
 ### GitHub Repos
 
-[Dima Brook](https://github.com/DimaBryuhanov)
-[Verbal Kint](https://github.com/VKint)
-[Rupansh Sekar](https://github.com/rupansh)
+[Dima Brook](https://github.com/DimaBryuhanov)</br>
+[Verbal Kint](https://github.com/VKint)</br>
+[Rupansh Sekar](https://github.com/rupansh)</br>
 
 
 ### Team LinkedIn Profiles
@@ -294,7 +294,7 @@ b. The following types of attack can be mitigated by viewing every new user as u
 ### Overview
 
 - **Total Estimated Duration:** 3 weeks
-- **Total Effort:** 15 working days
+- **Total Effort:** 25 working days
 - **Total Costs:** $ 5,000.00
 
 
