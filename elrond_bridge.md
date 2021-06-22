@@ -271,9 +271,17 @@ b. The following types of attack can be mitigated by viewing every new user as u
 
 ### Team Code Repos
 
+[Team repository](https://github.com/xp-network/)
 [Rust Documentation](https://xp-network.github.io/poc-documentation/docs/freezer/) Method names, parameters with types, return types, and description.
 </br>
 [PoC repository](https://github.com/xp-network/XP.network-Elrond-Migration)
+
+### GitHub Repos
+
+[Dima Brook](https://github.com/DimaBryuhanov)
+[Verbal Kint](https://github.com/VKint)
+[Rupansh Sekar](https://github.com/rupansh)
+
 
 ### Team LinkedIn Profiles
 
