@@ -241,8 +241,8 @@ b. The following types of attack can be mitigated by viewing every new user as u
 ### Team members
 
 - Dmitry Brook - CTO, Project Lead
-- Verbal Kint - Expert in Move, Rust & Co-Founder
 - Rupansh Sekar - Expert in C, Rust, and blockchain development
+- Verbal Kint - Expert in Move, Rust & Co-Founder
 
 ### Contact
 
@@ -289,8 +289,8 @@ b. The following types of attack can be mitigated by viewing every new user as u
 ### GitHub Repos
 
 [Dima Brook](https://github.com/DimaBryuhanov)</br>
-[Verbal Kint](https://github.com/VKint)</br>
 [Rupansh Sekar](https://github.com/rupansh)</br>
+[Verbal Kint](https://github.com/VKint)</br>
 
 
 ### Team LinkedIn Profiles
