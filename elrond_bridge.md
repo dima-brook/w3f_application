@@ -102,7 +102,7 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
   ```
  + Runtime Storage defined by our module:</br>
  
- Locally scoped storage, accessable only from within the pallet will contain the following data:
+	Locally scoped storage, accessable only from within the pallet will contain the following data:
  ```rust
  	// Subject to implementation change:
 	HashMap<AccountId, ()>,		// The set of the validators
