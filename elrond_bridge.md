@@ -286,7 +286,7 @@ b. The following types of attack can be mitigated by viewing every new user as u
 ### Overview
 
 - **Total Estimated Duration:** 3 weeks
-- **Total Effort:** 28 working days
+- **Total Effort:** 15 working days
 - **Total Costs:** $ 5,000.00
 
 
@@ -310,9 +310,9 @@ b. The following types of attack can be mitigated by viewing every new user as u
 
 ### Milestone 1 — Beta version of SPEC-B
 
-- **Estimated Duration:** 28 working days (3 weeks)
+- **Estimated Duration:** 15 working days (3 weeks)
 - **FTE** 1-2
-- Effort: 28 days
+- Effort: 25 days
 - **Costs:** $5,000.00
 
 | Number | Deliverable | Specification |
