@@ -112,7 +112,40 @@ last_action: u128
  
 #### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
   Relay validators are very thin. They consist of the private and public keys and two local nodes one for listening/submitting to Elrond another for listening/submitting to a parachain with the attached bridge pallet. 
+  
+  In the Alpha version of the bridge the validators are centralized, meaning our team completely controlls all the validators.
+  
+  Since version B of the bridge we will implement a decentralized setting.
 
+  Since both Substrate parachain and Elrond finalize blocks every 6 seconds we cannot use the PoW model, which, alongside with unjustifyably heavy computation, requires significant time. Hence, we're left with the other models, such as:
+
+**Proof-of-Stake (PoS)**
+Principle: the network trusts the validator, who puts his own resources as a pledge for the ability to create blocks: the larger the share, the higher the probability that the network will allow the creation of a block.
+
+Performance: high.
+
+DLT environment: public / private blockchain.
+
+Completion: probabilistic.
+
+Minimum amount: XPNET $ 25,000 worth to be locked as a stake
+
+... TODO: add the architecture here (latest 23.06)
+
+
+**Proof-of-Importance (PoI)**
+Principle: like PoS, but with additional properties that affect your ranking.
+
+Performance: high.
+
+DLT environment: public.
+
+Completion: probabilistic.
+
+... TODO: add the architecture here (latest 23.06)
+
+
+Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-Elapsed Time (PoET), Proof-of-Authority (PoA), Proof-of-Burn (PoB), Proof-of-Capacity (PoC) / Proof-of-Space (PoS), Proof-of-Stake-Time (PoST), Proof-of-Brain (PoB), Proof-ofPhysical-Address (PoPA) / Proof-of-Bank-Account (PoBA), Proof-of-Concept (PoC) and some more, we consider PoS to be more mature and easy to implement. However, in the future we will add reputation and ranking to PoS to make the system more robust and resilient to attacks.
 
   
 #### 3. “Elrond-Minter” smart contract written in Rust deployable on Elrond blockchain.
@@ -254,13 +287,16 @@ last_action: u128
 - Former Senior Software Developer in Best Systems, Israel
 - Former Team Lead in NLK, Russia
 
-**Verbal Kint**
-
-- Over 5 years of experiences in Blockchain Development 8 years in Rust, 1 year in Move, and 15 years of development experience overall
 
 **Rupansh Sekar**
 
 - Over 1 year of experiences in Blockchain Development 2 years in Rust, 4 years in C
+
+
+**Verbal Kint**
+
+- Over 5 years of experiences in Blockchain Development 8 years in Rust, 1 year in Move, and 15 years of development experience overall
+
 
 
 ### Team Code Repos
@@ -340,7 +376,7 @@ last_action: u128
 
 + Develop a DEX between the coins of the Substrate Parachains to Elrond and back.
 + Add support for Elrond Wallet and other cryptocurrency wallets.
-+ Migrating from PoS to PoA consensus mechanism.
++ Migrating from PoS to PoI consensus mechanism.
 
 ## Additional Information
 
