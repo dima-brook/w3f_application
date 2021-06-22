@@ -104,10 +104,10 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
  
 	Locally scoped storage, accessable only from within the pallet will contain the following data:
  ```rust
- 	// Subject to implementation change:
-	HashMap<AccountId, ()>,		// The set of the validators
-	HashMap<String, ActionInfo>,	// The hash map of the actions
-	last_action: u128
+// Subject to implementation change:
+HashMap<AccountId, ()>,		// The set of the validators
+HashMap<String, ActionInfo>,	// The hash map of the actions
+last_action: u128
  ```
  
 #### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
