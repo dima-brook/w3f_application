@@ -112,23 +112,7 @@ last_action: u128
  
 #### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
   Relay validators are very thin. They consist of the private and public keys and two local nodes one for listening/submitting to Elrond another for listening/submitting to a parachain with the attached bridge pallet. 
-  
-  The trustworthiness of a validator is secured by the **Proof-of-Authority** (PoA) system. Alongside with the Proof-of-Stake validator selection mechanism, reputation of the validator is taken into account. A validator **reputation** is _aggregated from the feedback of the raters_, who evaluate the validators' behavior. 
-  
-![img](https://github.com/xp-network/w3f_application/blob/main/Reputation%20System%20Choice.png)
-  
-Challenges faced by reputation systems to be mitigated:
 
-a.The following attacks can be mitigated by a centralized assessment.</br></br>
-**Sybil Attack** is when an attacker creates multiple identities to gain an unfair advantage over honest users who own a single identity.</br>
-**Self-Promotion, Ballot Stuffing** happens when a user with multiple identities or a group of users promote themselves by assigning themselves additional positive feedback after every interaction.</br>
-**Slandering, Bad-Mouthing** is the act of sabotaging an honest user's reputation by assigning unfairly low feedback to ruin a competitor's reputation. Centralized reputation assessment is not vulnerable to such attacks.</br>
-**Random Ratings** is when an attacker submits randomly generated feedback instead of providing an accurate evaluation of the peer's behavior.</br>
-**Free Riding** is a situation when a user does not provide any feedback taking advantage of the system without providing any contribution.</br>
-</br>
-b. The following types of attack can be mitigated by viewing every new user as untrustworthy. A positive reputation must be built by consistent benevolent behavior over a long period of time.</br></br>
-**Whitewashing** is when a user with a negative reputation quits the system and returns with a new identity and fresh reputation.</br>
-**Oscillation** is when a user quickly builds a good reputation in several low-value transactions and then reverses its good behavior to malicious taking advantage of the mislead counterparts.</br>
 
   
 #### 3. “Elrond-Minter” smart contract written in Rust deployable on Elrond blockchain.
@@ -303,8 +287,8 @@ b. The following types of attack can be mitigated by viewing every new user as u
 
 ### Overview
 
-- **Total Estimated Duration:** 3 weeks
-- **Total Effort:** 25 working days
+- **Total Estimated Duration:** 1 month
+- **Total Effort:** 32 working days
 - **Total Costs:** $ 5,000.00
 
 
@@ -328,9 +312,9 @@ b. The following types of attack can be mitigated by viewing every new user as u
 
 ### Milestone 1 — Beta version of SPEC-B
 
-- **Estimated Duration:** 15 working days (3 weeks)
+- **Estimated Duration:** 1 month
 - **FTE** 1-2
-- Effort: 25 days
+- Effort: 32 days
 - **Costs:** $5,000.00
 
 | Number | Deliverable | Specification |
@@ -345,14 +329,18 @@ b. The following types of attack can be mitigated by viewing every new user as u
 | 3. | Bridge UI | The UI in React allowing codeless cross-chain transactions  |
 | 4. | Unit tests | We will write automated unit testing for all of the functionality covering at least 85% of the code and running on Elrond's live testnet|
 | 5. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
-| 6. | Decentralized Validators | We will make the relay validators completely decentralized, implementing the PoA consensus mechanism | 
-| 7. | Security & efficiency audit | Testing the system resilience to fraudulent or erroneous validators and making architectural decisions about the optimal numbers of relay validators, stakes, transaction speed, and transaction fees | 
+| 6. | Decentralized Validators | We will make the relay validators completely decentralized, implementing the PoS consensus mechanism | 
+| 7. | Security & efficiency audit | Testing the system resilience to fraudulent or erroneous validators and making architectural decisions about the optimal numbers of relay validators, stakes, transaction speed, and transaction fees |
+| 8. | Testing under load | Testing the bridge with increasing load from 10 to 100 transactions per block |
+| 9. | Top 100 tokens support | We will add the top 100 token support out of the box on both sides of the bridge |
+| 10. | Unbonding the validators | We will implement the architecture for the relay validators unbonding or chilling |
 
 
 ## Future Plans
 
 + Develop a DEX between the coins of the Substrate Parachains to Elrond and back.
 + Add support for Elrond Wallet and other cryptocurrency wallets.
++ Migrating from PoS to PoA consensus mechanism.
 
 ## Additional Information
 
