@@ -266,7 +266,7 @@ last_action: u128
 ### Team Code Repos
 
 [Team repository](https://github.com/xp-network/)</br>
-[Rust Documentation](https://xp-network.github.io/poc-documentation/docs/freezer/) Method names, parameters with types, return types, and description.
+[Project Documents](https://xp-network.github.io/poc-documentation/) Method names, parameters with types, return types, and description.
 </br>
 [PoC repository](https://github.com/xp-network/XP.network-Elrond-Migration)</br>
 
