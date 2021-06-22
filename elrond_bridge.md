@@ -100,6 +100,16 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
 	    } )
 	}
   ```
+ + Runtime Storage defined by our module:</br>
+ 
+ Locally scoped storage, accessable only from within the pallet will contain the following data:
+ ```rust
+ 	// Subject to implementation change:
+	HashMap<AccountId, ()>,		// The set of the validators
+	HashMap<String, ActionInfo>,	// The hash map of the actions
+	last_action: u128
+ ```
+ 
 #### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
   Relay validators are very thin. They consist of the private and public keys and two local nodes one for listening/submitting to Elrond another for listening/submitting to a parachain with the attached bridge pallet. 
   
