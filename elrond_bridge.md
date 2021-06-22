@@ -18,10 +18,6 @@ The bridge is accompanied by intuitive UI:
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/Cross%20Chain%20Bridge-1.png)
 
-### Ecosystem Fit
-
-  + Users will be able to transfer their fungible liquidity or NFTs from any Substrate parachain to Elrond and backward once they attach the XP.network pallet to their parachain or parathread.
-  + Substrate parachain smart contracts will be able to call smart contracts functions in Elrond with an arbitrary number of arguments via the bridge relay validators. The same will be possible from the side of Elrond.
 
 ### Project Details
 
@@ -213,6 +209,11 @@ b. The following types of attack can be mitigated by viewing every new user as u
     ```rust
     /// Event emission will be implemented by Elrond in ~ 2 months
     ```
+### Ecosystem Fit
+
+  + Users will be able to transfer their fungible liquidity or NFTs from any Substrate parachain to Elrond and backward once they attach the XP.network pallet to their parachain or parathread.
+  + Substrate parachain smart contracts will be able to call smart contracts functions in Elrond with an arbitrary number of arguments via the bridge relay validators. The same will be possible from the side of Elrond.
+  + Polkadot already has bridges to [Bitcoin](https://beta.polkabtc.io/), [Ethereum](https://snowbridge.snowfork.com/), Cosmos, [EOS](https://github.com/bifrost-finance/bifrost), [Ethereum Classic and ](https://github.com/ChainSafe/ChainBridge), etc., but there's no bridge to Elrond. This project will fill the gap.
 
 ### Use-cases
 
@@ -286,7 +287,7 @@ b. The following types of attack can be mitigated by viewing every new user as u
 
 - **Total Estimated Duration:** 3 weeks
 - **Total Effort:** 28 working days
-- **Total Costs:** $ 8,400.00
+- **Total Costs:** $ 5,000.00
 
 
 ### Milestone 0 - Alpha version of SPEC-B
@@ -309,10 +310,10 @@ b. The following types of attack can be mitigated by viewing every new user as u
 
 ### Milestone 1 — Beta version of SPEC-B
 
-- **Estimated Duration:** 15 working days (3 weeks)
-- Working days **x** ppl. **:** 15 x 1 + 9 x 1 + 4 x 1
+- **Estimated Duration:** 28 working days (3 weeks)
+- **FTE** 1-2
 - Effort: 28 days
-- **Costs:** $8,400.00
+- **Costs:** $5,000.00
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
