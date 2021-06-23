@@ -374,7 +374,8 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 
 ## Future Plans
 
-+ Develop a DEX between the coins of the Substrate Parachains to Elrond and back.
++ We will build similar bridges to HECO, Solano etc using the same validators to make it financially attractive for the validators wich will keep the bridge secure and decentralized.
++ Transaction fee calculator with the UI showing how much a transaction will cost on both sides Parachain & Elrond.
 + Add support for Elrond Wallet and other cryptocurrency wallets.
 + Migrating from PoS to PoI consensus mechanism.
 
