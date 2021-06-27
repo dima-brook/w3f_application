@@ -462,6 +462,7 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 + We will build similar bridges to HECO, Solano etc.
 + We will keep the same validators to make it financially attractive for the validators which will keep the bridge secure and decentralized.
 + We will automate the relay validators' consensus mechanizm change PoA <-> PoS.
++ We may add support for the PoI (Proof-of-Importance) mechanizm.
 + We will integrate the Elrond Wallet in our bridge and other wallets.
 + We will implement a transaction fee calculator with the UI showing how much a transaction will cost on both sides Parachain & Elrond
 
