@@ -390,13 +390,13 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 ### Overview
 
 - **Total Estimated Duration:** 2.5 month
-- **Total Effort:** 74 working days
+- **Total Effort:** 58 working days
 - **Total Costs:** $ 10,000.00
 
 
 ### Milestone 0 - Pre-Alpha version of SPEC-B
 
-- **Estimated Duration:** 27 working days (done)
+- **Actual Duration:** 1 month (done)
 - **Costs:** $0.00
 
 | Number | Deliverable | Specification |
@@ -414,9 +414,9 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 
 ### Milestone 1 — Alpha version of SPEC-B
 
-- **Estimated Duration:** 1 month
+- **Estimated Duration:** 1.25 month
 - **FTE** 1-2
-- Effort: 34 days
+- Effort: 29 days
 - **Costs:** $5,000.00
 
 | Number | Deliverable | Specification |
@@ -432,16 +432,16 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 | 5. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
 | 6. | PoA consensus implementation | We will implement the PoA consensus mechanism and will address a number of professional validators with a request to join as validators.| 
 | 7. | Security & efficiency audit | Testing the system resilience to fraudulent or erroneous validators and making architectural decisions about the optimal numbers of relay validators, stakes, transaction speed, and transaction fees |
-| 8. | Using a parachain as a bridge | We will implement the functionality which will allow to use a parahcian equipped with our bridge to be used by another parachain connected via Polkadot and will make it operational in ROCCOCO, Kusama and the Polkadot mainnet |
+
 
 
 
 
 ### Milestone 2 — Beta version of SPEC-B
 
-- **Estimated Duration:** 1.5 month
+- **Estimated Duration:** 1.25 month
 - **FTE** 1-2
-- Effort: 40 days
+- Effort: 29 days
 - **Costs:** $5,000.00
 
 | Number | Deliverable | Specification |
@@ -454,15 +454,16 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 | 2. | Top 100 tokens support | We will add the top 100 token support out of the box on both sides of the bridge |
 | 3. | Adding yet unsupported tokens | We will add the automated new token support functionality |
 | 4. | Unbonding the validators | We will implement the architecture for the relay validators unbonding or chilling |
-| 5. | Transaction Fee Calculator | We will implement a transaction fee calculator with the UI showing how much a transaction will cost on both sides Parachain & Elrond |
-| 6. | Elrond wallet integration | We will integrate the Elrond Wallet in our bridge |
-| 7. | PoS consensus availability | We will add the option of PoS consensus mechanizm for the bridge relay validators, including security validation by a third party |
-| 8. | Automation of the consensus mechanizm change | We will automate the relay validators' consensus mechanizm change PoA <-> PoS. |
+| 5. | PoS consensus availability | We will add the option of PoS consensus mechanizm for the bridge relay validators, including security validation by a third party |
+| 6. | Using a parachain as a bridge | We will implement the functionality which will allow to use a parahcian equipped with our bridge to be used by another parachain connected via Polkadot and will make it operational in ROCCOCO, Kusama and the Polkadot mainnet |
 
 ## Future Plans
 
 + We will build similar bridges to HECO, Solano etc.
 + We will keep the same validators to make it financially attractive for the validators which will keep the bridge secure and decentralized.
++ We will automate the relay validators' consensus mechanizm change PoA <-> PoS.
++ We will integrate the Elrond Wallet in our bridge and other wallets.
++ We will implement a transaction fee calculator with the UI showing how much a transaction will cost on both sides Parachain & Elrond
 
 ## Additional Information
 , 
