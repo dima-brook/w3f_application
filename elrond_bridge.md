@@ -391,8 +391,7 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 
 ### Overview
 
-- **Total Estimated Duration:** 2.5 month
-- **Total Effort:** 58 working days
+- **Total Estimated Duration:** 3.5 month
 - **Total Costs:** $ 10,000.00
 
 
