@@ -48,6 +48,7 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
     ```
   + Fungible liquidity freezing </br>
     Sovereign parachain tokens as well as wrapped eGold are locked in the pallet to avoid duplication during the transfer.
+    Currently implemented in the "Freezer" smart contract in Ink! Will be implemented in Rust as a part of the pallet.
     ```rust
     ///TODO: implement in Milestone 1
     ```
@@ -62,6 +63,7 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
   
   + Non-fungible liquidity freezing </br>
     NFTs are locked in the pallet to avoid duplication.
+    Currently implemented in the "Freezer" smart contract in Ink! Will be implemented in Rust as a part of the pallet.
     ```rust
     ///TODO: implement in Milestone 1
     ```
