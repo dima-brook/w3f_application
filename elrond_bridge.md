@@ -408,8 +408,8 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 
 ### Overview
 
-- **Total Estimated Duration:** 1 month
-- **Total Effort:** 52 working days
+- **Total Estimated Duration:** 2.5 month
+- **Total Effort:** 74 working days
 - **Total Costs:** $ 10,000.00
 
 
@@ -435,7 +435,7 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 
 - **Estimated Duration:** 1 month
 - **FTE** 1-2
-- Effort: 32 days
+- Effort: 34 days
 - **Costs:** $5,000.00
 
 | Number | Deliverable | Specification |
@@ -458,9 +458,9 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 
 ### Milestone 2 — Beta version of SPEC-B
 
-- **Estimated Duration:** 1 month
+- **Estimated Duration:** 1.5 month
 - **FTE** 1-2
-- Effort: 32 days
+- Effort: 40 days
 - **Costs:** $5,000.00
 
 | Number | Deliverable | Specification |
