@@ -124,25 +124,70 @@ last_action: u128
 #### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
   Relay validators are very thin. They consist of the private and public keys and two local nodes one for listening/submitting to Elrond another for listening/submitting to a parachain with the attached bridge pallet. 
   
+  
+  **Stage 0: Centralized validators**
   In the Alpha version of the bridge the validators are centralized, meaning our team completely controls all the validators.
   
   Since version B of the bridge we will implement a decentralized setting.
 
   Since both Substrate parachain and Elrond finalize blocks every 6 seconds we cannot use the PoW model, which, alongside unjustifiably heavy computation, requires significant time. Hence, we're left with the other models, such as:
   
-**Proof-of-Authority (PoA)**
+**Stage 1: Proof-of-Authority (PoA)**
 Principle: a centralized network of trusted bodies backing the validator nodes with their reputation.
 
-Performance: high.
+We will approach a number of professional validators, among them will be:</br>
 
-**Proof-of-Stake (PoS)**
+[Stakefish](https://stake.fish/en/),  </br>
+[AUDITone](https://audit.one/), </br>
+[Ankr](https://www.ankr.com/), </br>
+[Anonstake](https://anonstake.com/), </br>
+[Blockdaemon](https://blockdaemon.com/about/), </br>
+[Chorus](https://chorus.one/), </br>
+[Chainflow](https://chainflow.io/), </br>
+[Delight Labs](https://github.com/DELIGHT-LABS), </br>
+[Dokia Capital](https://dokia.capital/), </br>
+[#Hashed](https://www.hashed.com/), </br>
+[HashQuark](https://www.hashquark.io/#/), </br>
+[Figment](https://figment.io/), </br>
+[Stakin](https://stakin.com/home), </br>
+[StakeWith.us](https://www.stakewith.us/), </br>
+[Staked](https://staked.us/), </br>
+[WolfEdge Capital](https://www.wolfedge.capital/)</br>
+
+Challenges faced by reputation systems to be mitigated:</br>
+
+1.The following attacks can be mitigated by a centralized assessment.</br>
+ Sybil Attack is when an attacker creates multiple identities to gain an unfair advantage over honest users who own a single identity.
+Self-Promotion, Ballot Stuffing happens when a user with multiple identities or a group of users promotes themselves by assigning themselves additional positive feedback after every interaction.</br>
+Slandering, Bad-Mouthing is the act of sabotaging an honest user's reputation by assigning unfairly low feedback to ruin a competitor's reputation. Centralized reputation assessment is not vulnerable to such attacks.</br>
+Random Ratings are when an attacker submits randomly generated feedback instead of providing an accurate evaluation of the peer's behavior.</br>
+ Free Riding is a situation when a user does not provide any feedback taking advantage of the system without providing any contribution.</br>
+b. The following types of attack can be mitigated by viewing every new user as untrustworthy. A positive reputation must be built by consistent benevolent behavior over a long period of time.</br>
+Whitewashing is when a user with a negative reputation quits the system and returns with a new identity and fresh reputation.</br>
+Oscillation is when a user quickly builds a good reputation in several low-value transactions and then reverses its good behavior to malicious taking advantage of the mislead counterparts.</br>
+
+#### Transaction Award
+All the participating validators will be equally awarded a share of the transaction fee, calculated like so:</br>
+
+TX<sub>award</sub> = TX<sub>fee</sub> / Val<sub>num</sub></br>
+
+Where:</br>
+**TX**<sub>award</sub> is the transaction fee share paid to a validator.</br>
+**TX**<sub>fee</sub> is the total transaction fee earned by all the validators.</br>
+**Val**<sub>num</sub> - is the total number of participating validators.</br>
+
+While the transaction fee will be calculated as follows:
+
+TX<sub>fee</sub> = bias + TX<sub>mul</sub> * size(TX<sub>bin</sub>)</br>
+
+Where:</br>
+**bias** is the fixed value of XPNET 0.001 - to avoid DoS attacks</br>
+**TX**<sub>mul</sub> is the multiplyer equal to XPNET 0.005</br>
+**size**(**TX**<sub>bin</sub>) is the binary size of the transaction code
+
+
+**Stage 2: Proof-of-Stake (PoS)**
 Principle: the network trusts the validator, who puts its own resources as a pledge for the ability to create blocks: the larger the share, the higher the probability that the network will allow the creation of a block.
-
-Performance: high.
-
-DLT environment: public / private blockchain.
-
-Completion: probabilistic.
 
 #### Transaction Award
 
@@ -158,6 +203,8 @@ Step 1: Calculating the average transaction award </br>
 Motivation: An award of a random validator may differ from one or several other validators for reasons explained in other section of the present work. This could create a precedent, that sone validators will be required to stake less that the others. This could create a vulnerability of "very little at stake". Hence, the calculation of the average award is preferable over individual one, since some validators having staked too little and providing slow service may earn from little to nothing.
 
 TX<sub>avg</sub> = TX<sub>fee</sub> / Val<sub>num</sub></br>
+
+Where:</br>
 **TX**<sub>avg</sub> is the average transaction fee for calculating the minimum required Stake.</br>
 **TX**<sub>fee</sub> is the total transaction fee earned by all the validators.</br>
 **Val**<sub>num</sub> - is the total number of participating validators.</br>
@@ -169,13 +216,19 @@ Step 2: Calculating the minimum required bond: </br>
 Motivation: We're assuming, that earning 20% of the staked amount is a fair deal. Hence, the Minimum stake formula:</br>
 
 Minimum amount: XPNET worth to be locked as a stake equals the annual S<sub>min</sub> = TX<sub>avg</sub> * 5 * E<sub>num</sub>/365, where:</br>
+
+Where:</br>
 **S**<sub>min</sub> is the minimum required stake  to remain a validator</br>
 **TX**<sub>avg</sub> is the average transaction fee for calculating the minimum required Stake.</br>
 E<sub>num</sub> - is the number of epochs <=365 days in a year.</br>
 For example, the bridge has been operating for 150 days and TX<sub>avg</sub> = 451,675,897.19</br>
 S<sub>min</sub> = 451,675,897.19 * 5 * 150/365 = XPNET 928,101,158.61</br>
 
-The "Elrond-Minter" smart contract will collect the approproate data in the following format: ```rust L = Vec<[(TotalTxFee, Validators); T]>>``` and will send it to the pallet once in an epoch.
+The "Elrond-Minter" smart contract will collect the approproate data in the following format: 
+```rust
+L = Vec<[(TotalTxFee, Validators); T]>>
+``` 
+and will send it to the pallet once in an epoch.
 
 To allow reasonable time for a validator the grace period for locking the minimum amount for a validator will be 7 epochs since the notification. If a validator does not increase the required stake it will be suspended from the validators pool.
 
