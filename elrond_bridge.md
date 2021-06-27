@@ -139,14 +139,20 @@ DLT environment: public / private blockchain.
 
 Completion: probabilistic.
 
+Med = TX_{fee} / Val_{num}
+
 Minimum amount: XPNET worth to be locked as a stake equals the annual Smin = 5 * 365 * e / d, where:</br>
 **Smin** is the minimum required stake</br>
 **e** is the earned amount since the beginning</br>
-**d** is the number of days when the earnings were made since the beginning, but less or equal than 365</br>
-For example, a user has become a validator 35 days ago and has earned 1589 XPNET since then.
-The minimum stake for such a person will be: Smin = 5 * 365 * 1589 / 35 = 82855 XPNET
+**d** is the number of epochs when the earnings were made since the beginning, but less or equal than 365</br>
+For example, a user has become a validator 35 epochs ago and has earned 1589 XPNET since then.
+The minimum stake for such a user will be: Smin = 5 * 365 * 1589 / 35 = 82855 XPNET.
 
-... TODO: add the architecture here (latest 23.06)
+
+The grace period for locking the minimum amount for a validator will be 7 epochs since the notification.
+
+PoS Distribution in code:
+![img]()
 
 
 **Proof-of-Importance (PoI)**
