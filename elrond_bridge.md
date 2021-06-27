@@ -214,7 +214,7 @@ L = Vec<[(TotalTxFee, Validators); T]>>
 ``` 
 and will send it to the pallet once in an epoch.
 
-To allow reasonable time for a validator the grace period for locking the minimum amount for a validator will be 7 epochs since the notification. If a validator does not increase the required stake it will be suspended from the validators pool.
+To allow reasonable time for a validator, the grace period for locking the minimum amount will be 7 epochs since the notification. If a validator does not increase the required stake it will be suspended from the validators pool.
 
 PoS Distribution in code:
 ![img](https://github.com/xp-network/w3f_application/blob/main/PoS%20structure.png)
