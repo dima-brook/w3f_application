@@ -471,11 +471,11 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 | 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
 | 1. | Testing under load | Testing the bridge with increasing load from 10 to 100 transactions per block |
 | 2. | Top 100 tokens support | We will add the top 100 token support out of the box on both sides of the bridge |
-| 3. | Addin yet unsupported tokens | We will add the automated new token support functionality |
+| 3. | Adding yet unsupported tokens | We will add the automated new token support functionality |
 | 4. | Unbonding the validators | We will implement the architecture for the relay validators unbonding or chilling |
 | 5. | Transaction Fee Calculator | We will implement a transaction fee calculator with the UI showing how much a transaction will cost on both sides Parachain & Elrond |
 | 6. | Elrond wallet integration | We will integrate the Elrond Wallet in our bridge |
-| 7. | PoS consensus availability | We will add the option of PoS consensus mechanizm for the bridge relay validators. |
+| 7. | PoS consensus availability | We will add the option of PoS consensus mechanizm for the bridge relay validators, including security validation by a third party |
 | 8. | Automation of the consensus mechanizm change | We will automate the relay validators' consensus mechanizm change PoA <-> PoS. |
 
 ## Future Plans
