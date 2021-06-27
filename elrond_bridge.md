@@ -384,17 +384,18 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 | 0b. | Documentation | We will provide both **inline documentation** of the code and a basic **tutorial** that explains </br>1. How to attach an XP.network SPEC-B pallet to a parachain, </br>2. How to use the SPEC-B to interact with Elrond blockchain, detailed documentation in a GitBook |
 | 0c. | Testing Guide | Core functions will be fully covered by unit tests to ensure functionality and robustness. In the guide, we will describe how to run these tests. |
 | 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
-| 8. | Testing under load | Testing the bridge with increasing load from 10 to 100 transactions per block |
-| 9. | Top 100 tokens support | We will add the top 100 token support out of the box on both sides of the bridge |
-| 10. | Unbonding the validators | We will implement the architecture for the relay validators unbonding or chilling |
-| 10. | Transaction Fee Calculator | We will implement a transaction fee calculator with the UI showing how much a transaction will cost on both sides Parachain & Elrond |
-| 10. | Elrond wallet integration | We will integrate the Elrond Wallet in our bridge |
-| 10. | PoS consensus availability | We will integrate the Elrond Wallet in our bridge |
+| 1. | Testing under load | Testing the bridge with increasing load from 10 to 100 transactions per block |
+| 2. | Top 100 tokens support | We will add the top 100 token support out of the box on both sides of the bridge |
+| 3. | Unbonding the validators | We will implement the architecture for the relay validators unbonding or chilling |
+| 4. | Transaction Fee Calculator | We will implement a transaction fee calculator with the UI showing how much a transaction will cost on both sides Parachain & Elrond |
+| 5. | Elrond wallet integration | We will integrate the Elrond Wallet in our bridge |
+| 6. | PoS consensus availability | We will add the option of PoS consensus mechanizm for the bridge relay validators. |
+| 7. | Automation of the consensus mechanizm change | We will automate the relay validators' consensus mechanizm change PoA <-> PoS. |
 
 ## Future Plans
 
-+ We will build similar bridges to HECO, Solano etc using the same validators to make it financially attractive for the validators which will keep the bridge secure and decentralized.
-+ Add an automated way of switching between different consensus mechanisms: PoA <-> PoS.
++ We will build similar bridges to HECO, Solano etc.
++ We will keep the same validators to make it financially attractive for the validators which will keep the bridge secure and decentralized.
 
 ## Additional Information
 , 
