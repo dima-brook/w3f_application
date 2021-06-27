@@ -125,15 +125,15 @@ last_action: u128
   Relay validators are very thin. They consist of the private and public keys and two local nodes one for listening/submitting to Elrond another for listening/submitting to a parachain with the attached bridge pallet. 
   
   
-  **Stage 0: Centralized validators**
+  **Stage 0: Centralized validators**</br>
   In the Alpha version of the bridge the validators are centralized, meaning our team completely controls all the validators.
   
   Since version B of the bridge we will implement a decentralized setting.
 
   Since both Substrate parachain and Elrond finalize blocks every 6 seconds we cannot use the PoW model, which, alongside unjustifiably heavy computation, requires significant time. Hence, we're left with the other models, such as:
   
-**Stage 1: Proof-of-Authority (PoA)**
-Principle: a centralized network of trusted bodies backing the validator nodes with their reputation.
+**Stage 1: Proof-of-Authority (PoA)**</br>
+Principle: a centralized network of trusted bodies backing the validator nodes with their reputation. A new validator is added or removed by a centralized body, the team of the project.
 
 We will approach a number of professional validators, among them will be:</br>
 
@@ -157,14 +157,16 @@ We will approach a number of professional validators, among them will be:</br>
 Challenges faced by reputation systems to be mitigated:</br>
 
 1.The following attacks can be mitigated by a centralized assessment.</br>
- Sybil Attack is when an attacker creates multiple identities to gain an unfair advantage over honest users who own a single identity.
-Self-Promotion, Ballot Stuffing happens when a user with multiple identities or a group of users promotes themselves by assigning themselves additional positive feedback after every interaction.</br>
-Slandering, Bad-Mouthing is the act of sabotaging an honest user's reputation by assigning unfairly low feedback to ruin a competitor's reputation. Centralized reputation assessment is not vulnerable to such attacks.</br>
-Random Ratings are when an attacker submits randomly generated feedback instead of providing an accurate evaluation of the peer's behavior.</br>
- Free Riding is a situation when a user does not provide any feedback taking advantage of the system without providing any contribution.</br>
-b. The following types of attack can be mitigated by viewing every new user as untrustworthy. A positive reputation must be built by consistent benevolent behavior over a long period of time.</br>
-Whitewashing is when a user with a negative reputation quits the system and returns with a new identity and fresh reputation.</br>
-Oscillation is when a user quickly builds a good reputation in several low-value transactions and then reverses its good behavior to malicious taking advantage of the mislead counterparts.</br>
+**Sybil Attack** is when an attacker creates multiple identities to gain an unfair advantage over honest users who own a single identity.</br>
+**Self-Promotion**, Ballot Stuffing happens when a user with multiple identities or a group of users promotes themselves by assigning themselves additional positive feedback after every interaction.</br>
+**Slandering, Bad-Mouthing** is the act of sabotaging an honest user's reputation by assigning unfairly low feedback to ruin a competitor's reputation. Centralized reputation assessment is not vulnerable to such attacks.</br>
+**Random Ratings** are when an attacker submits randomly generated feedback instead of providing an accurate evaluation of the peer's behavior.</br>
+**Free Riding** is a situation when a user does not provide any feedback taking advantage of the system without providing any contribution.</br>
+
+2. The following types of attack can be mitigated by viewing every new user as untrustworthy. A positive reputation must be built by consistent benevolent behavior over a long period of time.</br>
+
+**Whitewashing** is when a user with a negative reputation quits the system and returns with a new identity and fresh reputation.</br>
+**Oscillation** is when a user quickly builds a good reputation in several low-value transactions and then reverses its good behavior to malicious taking advantage of the mislead counterparts.</br>
 
 #### Transaction Award
 All the participating validators will be equally awarded a share of the transaction fee, calculated like so:</br>
@@ -185,6 +187,7 @@ Where:</br>
 **TX**<sub>mul</sub> is the multiplyer equal to XPNET 0.005</br>
 **size**(**TX**<sub>bin</sub>) is the binary size of the transaction code
 
+Once the bridge matures and more entities will desire to become validators we will migrate from PoA to PoS bridge validators concensus mechanism.</br>
 
 **Stage 2: Proof-of-Stake (PoS)**
 Principle: the network trusts the validator, who puts its own resources as a pledge for the ability to create blocks: the larger the share, the higher the probability that the network will allow the creation of a block.
