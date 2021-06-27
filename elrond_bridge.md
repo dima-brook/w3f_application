@@ -135,25 +135,6 @@ last_action: u128
 **Stage 1: Proof-of-Authority (PoA)**</br>
 Principle: a centralized network of trusted bodies backing the validator nodes with their reputation. A new validator is added or removed by a centralized body, the team of the project.
 
-We will approach a number of professional validators, among them will be:</br>
-
-[Stakefish](https://stake.fish/en/),  </br>
-[AUDITone](https://audit.one/), </br>
-[Ankr](https://www.ankr.com/), </br>
-[Anonstake](https://anonstake.com/), </br>
-[Blockdaemon](https://blockdaemon.com/about/), </br>
-[Chorus](https://chorus.one/), </br>
-[Chainflow](https://chainflow.io/), </br>
-[Delight Labs](https://github.com/DELIGHT-LABS), </br>
-[Dokia Capital](https://dokia.capital/), </br>
-[#Hashed](https://www.hashed.com/), </br>
-[HashQuark](https://www.hashquark.io/#/), </br>
-[Figment](https://figment.io/), </br>
-[Stakin](https://stakin.com/home), </br>
-[StakeWith.us](https://www.stakewith.us/), </br>
-[Staked](https://staked.us/), </br>
-[WolfEdge Capital](https://www.wolfedge.capital/)</br>
-
 Challenges faced by reputation systems to be mitigated:</br>
 
 1.The following attacks can be mitigated by a centralized assessment.</br>
@@ -449,7 +430,7 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 | 3. | Bridge UI | The UI in React allowing codeless cross-chain transactions  |
 | 4. | Unit tests | We will write automated unit testing for all of the functionality covering at least 85% of the code and running on Elrond's live testnet|
 | 5. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
-| 6. | PoA consensus implementation | We will implement the PoA consensus mechanism and will address a number of professional validators such as [Stakefish](https://stake.fish/en/),  [AUDITone](https://audit.one/), [Ankr](https://www.ankr.com/), [Anonstake](https://anonstake.com/), [Blockdaemon](https://blockdaemon.com/about/), [Chorus](https://chorus.one/), [Chainflow](https://chainflow.io/), [Delight Labs](https://github.com/DELIGHT-LABS), [Dokia Capital](https://dokia.capital/), [#Hashed](https://www.hashed.com/), [HashQuark](https://www.hashquark.io/#/), [Figment](https://figment.io/), [Stakin](https://stakin.com/home), [StakeWith.us](https://www.stakewith.us/), [Staked](https://staked.us/), [WolfEdge Capital](https://www.wolfedge.capital/) and several others with a request to join as validators.| 
+| 6. | PoA consensus implementation | We will implement the PoA consensus mechanism and will address a number of professional validators with a request to join as validators.| 
 | 7. | Security & efficiency audit | Testing the system resilience to fraudulent or erroneous validators and making architectural decisions about the optimal numbers of relay validators, stakes, transaction speed, and transaction fees |
 | 8. | Using a parachain as a bridge | We will implement the functionality which will allow to use a parahcian equipped with our bridge to be used by another parachain connected via Polkadot and will make it operational in ROCCOCO, Kusama and the Polkadot mainnet |
 
