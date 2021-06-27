@@ -144,6 +144,19 @@ DLT environment: public / private blockchain.
 
 Completion: probabilistic.
 
+#### Transaction Award
+
+The participating validators will be awarded the transaction fees on several conditions:</br>
+1. A validator must respond fast enough to appear in the BFT treshold in the target blockchain (this measure stimulates the validators to use fast and highly efficient servers).
+2. The transaction fee is divided between the validator in proportion of their stake (which stimulates the validators to stake more, making it more difficult to take the bridge over).
+3. The validator's signature is taken into account if the minimum required bond is locked as a stake.
+
+#### Decentralized Calculation of the Minimum Required Bond
+
+Step 1: Calculating the average transaction award </br>
+
+Motivation: An award of a random validator may differ from one or several other validators for reasons explained in other section of the present work. This could create a precedent, that sone validators will be required to stake less that the others. This could create a vulnerability of "very little at stake". Hence, the calculation of the average award is preferable over individual one, since some validators having staked too little and providing slow service may earn from little to nothing.
+
 TX<sub>avg</sub> = TX<sub>fee</sub> / Val<sub>num</sub></br>
 **TX**<sub>avg</sub> is the average transaction fee for calculating the minimum required Stake.</br>
 **TX**<sub>fee</sub> is the total transaction fee earned by all the validators.</br>
@@ -151,7 +164,10 @@ TX<sub>avg</sub> = TX<sub>fee</sub> / Val<sub>num</sub></br>
 For example, there are 21 validators. They've earned XPNET 9485193841.</br>
 The average share will be: TX<sub>avg</sub> = 9485193841 / 21 = XPNET 451,675,897.19</br>
 
-We're assuming, that earning 20% of the staked amount is a fair deal. Hence, the Minimum stake formula:</br>
+Step 2: Calculating the minimum required bond: </br>
+
+Motivation: We're assuming, that earning 20% of the staked amount is a fair deal. Hence, the Minimum stake formula:</br>
+
 Minimum amount: XPNET worth to be locked as a stake equals the annual S<sub>min</sub> = TX<sub>avg</sub> * 5 * E<sub>num</sub>/365, where:</br>
 **S**<sub>min</sub> is the minimum required stake  to remain a validator</br>
 **TX**<sub>avg</sub> is the average transaction fee for calculating the minimum required Stake.</br>
@@ -159,7 +175,9 @@ E<sub>num</sub> - is the number of epochs <=365 days in a year.</br>
 For example, the bridge has been operating for 150 days and TX<sub>avg</sub> = 451,675,897.19</br>
 S<sub>min</sub> = 451,675,897.19 * 5 * 150/365 = XPNET 928,101,158.61</br>
 
-The grace period for locking the minimum amount for a validator will be 7 epochs since the notification.
+The "Elrond-Minter" smart contract will collect the approproate data in the following format: ```rust L = Vec<[(TotalTxFee, Validators); T]>>``` and will send it to the pallet once in an epoch.
+
+To allow reasonable time for a validator the grace period for locking the minimum amount for a validator will be 7 epochs since the notification. If a validator does not increase the required stake it will be suspended from the validators pool.
 
 PoS Distribution in code:
 ![img](https://github.com/xp-network/w3f_application/blob/main/PoS%20structure.png)
