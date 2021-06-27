@@ -129,9 +129,14 @@ last_action: u128
   Since version B of the bridge we will implement a decentralized setting.
 
   Since both Substrate parachain and Elrond finalize blocks every 6 seconds we cannot use the PoW model, which, alongside unjustifiably heavy computation, requires significant time. Hence, we're left with the other models, such as:
+  
+**Proof-of-Authority (PoA)**
+Principle: a centralized network of trusted bodies backing the validator nodes with their reputation.
+
+Performance: high.
 
 **Proof-of-Stake (PoS)**
-Principle: the network trusts the validator, who puts his own resources as a pledge for the ability to create blocks: the larger the share, the higher the probability that the network will allow the creation of a block.
+Principle: the network trusts the validator, who puts its own resources as a pledge for the ability to create blocks: the larger the share, the higher the probability that the network will allow the creation of a block.
 
 Performance: high.
 
@@ -139,15 +144,20 @@ DLT environment: public / private blockchain.
 
 Completion: probabilistic.
 
-Med = TX<sub>fee</sub> / Val<sub>num</sub>
+TX<sub>avg</sub> = TX<sub>fee</sub> / Val<sub>num</sub></br>
+**TX**<sub>avg</sub> is the average transaction fee for calculating the minimum required Stake.</br>
+**TX**<sub>fee</sub> is the total transaction fee earned by all the validators.</br>
+**Val**<sub>num</sub> - is the total number of participating validators.</br>
+For example, there are 21 validators. They've earned XPNET 9485193841.</br>
+The average share will be: TX<sub>avg</sub> = 9485193841 / 21 = XPNET 451,675,897.19</br>
 
-Minimum amount: XPNET worth to be locked as a stake equals the annual Smin = 5 * 365 * e / d, where:</br>
-**Smin** is the minimum required stake</br>
-**e** is the earned amount since the beginning</br>
-**d** is the number of epochs when the earnings were made since the beginning, but less or equal than 365</br>
-For example, a user has become a validator 35 epochs ago and has earned 1589 XPNET since then.
-The minimum stake for such a user will be: Smin = 5 * 365 * 1589 / 35 = 82855 XPNET.
-
+We're assuming, that earning 20% of the staked amount is a fair deal. Hence, the Minimum stake formula:</br>
+Minimum amount: XPNET worth to be locked as a stake equals the annual S<sub>min</sub> = TX<sub>avg</sub> * 5 * E<sub>num</sub>/365, where:</br>
+**S**<sub>min</sub> is the minimum required stake  to remain a validator</br>
+**TX**<sub>avg</sub> is the average transaction fee for calculating the minimum required Stake.</br>
+E<sub>num</sub> - is the number of epochs <=365 days in a year.</br>
+For example, the bridge has been operating for 150 days and TX<sub>avg</sub> = 451,675,897.19</br>
+S<sub>min</sub> = 451,675,897.19 * 5 * 150/365 = XPNET 928,101,158.61</br>
 
 The grace period for locking the minimum amount for a validator will be 7 epochs since the notification.
 
@@ -155,19 +165,8 @@ PoS Distribution in code:
 ![img](https://github.com/xp-network/w3f_application/blob/main/PoS%20structure.png)
 
 
-**Proof-of-Importance (PoI)**
-Principle: like PoS, but with additional properties that affect your ranking.
 
-Performance: high.
-
-DLT environment: public.
-
-Completion: probabilistic.
-
-... TODO: add the architecture here (latest 23.06)
-
-
-Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-Elapsed Time (PoET), Proof-of-Authority (PoA), Proof-of-Burn (PoB), Proof-of-Capacity (PoC) / Proof-of-Space (PoS), Proof-of-Stake-Time (PoST), Proof-of-Brain (PoB), Proof-ofPhysical-Address (PoPA) / Proof-of-Bank-Account (PoBA), Proof-of-Concept (PoC) and some more, we consider PoS to be more mature and easy to implement. However, in the future we will add reputation and ranking to PoS to make the system more robust and resilient to attacks.
+Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-Elapsed Time (PoET), Proof-of-Authority (PoA), Proof-of-Burn (PoB), Proof-of-Capacity (PoC) / Proof-of-Space (PoS), Proof-of-Stake-Time (PoST), Proof-of-Brain (PoB), Proof-ofPhysical-Address (PoPA) / Proof-of-Bank-Account (PoBA), Proof-of-Concept (PoC) and some more, we consider PoS to be more mature and easy to implement. However, in the future we may add reputation and ranking to PoS to make the system more robust and resilient to attacks.
 
   
 #### 3. “Elrond-Minter” smart contract written in Rust deployable on Elrond blockchain.
