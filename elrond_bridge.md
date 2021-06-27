@@ -465,8 +465,7 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 + We will integrate the Elrond Wallet in our bridge and other wallets.
 + We will implement a transaction fee calculator with the UI showing how much a transaction will cost on both sides Parachain & Elrond
 
-## Additional Information
-, 
+## Additional Information 
 [The project repo](https://github.com/xp-network)</br>
 The present bridge is built in close cooperation with the Elrond team.</br>
 
