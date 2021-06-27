@@ -139,7 +139,7 @@ DLT environment: public / private blockchain.
 
 Completion: probabilistic.
 
-Med = TX_{fee} / Val_{num}
+Med = TX<sub>fee</sub> / Val<sub>num</sub>
 
 Minimum amount: XPNET worth to be locked as a stake equals the annual Smin = 5 * 365 * e / d, where:</br>
 **Smin** is the minimum required stake</br>
@@ -152,7 +152,7 @@ The minimum stake for such a user will be: Smin = 5 * 365 * 1589 / 35 = 82855 XP
 The grace period for locking the minimum amount for a validator will be 7 epochs since the notification.
 
 PoS Distribution in code:
-![img]()
+![img](https://github.com/xp-network/w3f_application/blob/main/PoS%20structure.png)
 
 
 **Proof-of-Importance (PoI)**
