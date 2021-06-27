@@ -23,6 +23,17 @@ The bridge is accompanied by intuitive UI:
 
 The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link the two non-identical unsynchronized blockchains, allowing liquidity transfers.
 
+### Use-cases
+
+![img](https://github.com/xp-network/w3f_application/blob/main/XP-Elrond%20bridge-1.png)
+
++ Liquidity transfer from an account in a substrate Parachain to Elrond or from Elrond to a Parachain.
++ Selling or purchasing Parachain based NFTs by an account holder in Elrond or vice versa.
++ Cross-chain games with RPC-connected smart contracts.
++ Lending or borrowing eGold, sovereign Parachain coins, or other liquidity.
++ Cross-chain NFT smart contracts with royalties.
++ Cross-chain insurances.
+
 #### SPEC-B Structure:
 #### 1. A Substrate pallet implementing the following functionality:
   + Fungible token transfer
@@ -70,7 +81,7 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
     }
     ```
   + Bridge relay validator subscription mechanism implementation </br>
-    This mechanism allows to dynamically add new validators in a decentralized way after the system launch.
+    This mechanism allows dynamically to add new validators in a decentralized way after the system launch.
     ```rust
         /// Subscribe to events & become a validator
         pub fn subscribe(&mut self) {
@@ -78,7 +89,7 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
         }
     ```
   + BFT consensus mechanism implementation </br>
-    A blockchain embedded smart contract checks whether 2/3 * n + 1 validator have signed the transaction, where **n** is the total number of validators.
+    A blockchain embedded smart contract checks whether 2/3 * n + 1 validators have signed the transaction, where **n** is the total number of validators.
     ```rust
     if validated == (2*validator_cnt/3)+1 {
                 self.exec_action(act);
@@ -102,7 +113,7 @@ The proposed Substrate Parachain - Elrond Cross-chain Bridge (SPEC-B) will link 
   ```
  + Runtime Storage defined by our module:</br>
  
-	Locally scoped storage, accessable only from within the pallet will contain the following data:
+	Locally scoped storage, accessible only from within the pallet will contain the following data:
  ```rust
 // Subject to implementation change:
 HashMap<AccountId, ()>,		// The set of the validators
@@ -113,11 +124,11 @@ last_action: u128
 #### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
   Relay validators are very thin. They consist of the private and public keys and two local nodes one for listening/submitting to Elrond another for listening/submitting to a parachain with the attached bridge pallet. 
   
-  In the Alpha version of the bridge the validators are centralized, meaning our team completely controlls all the validators.
+  In the Alpha version of the bridge the validators are centralized, meaning our team completely controls all the validators.
   
   Since version B of the bridge we will implement a decentralized setting.
 
-  Since both Substrate parachain and Elrond finalize blocks every 6 seconds we cannot use the PoW model, which, alongside with unjustifyably heavy computation, requires significant time. Hence, we're left with the other models, such as:
+  Since both Substrate parachain and Elrond finalize blocks every 6 seconds we cannot use the PoW model, which, alongside unjustifiably heavy computation, requires significant time. Hence, we're left with the other models, such as:
 
 **Proof-of-Stake (PoS)**
 Principle: the network trusts the validator, who puts his own resources as a pledge for the ability to create blocks: the larger the share, the higher the probability that the network will allow the creation of a block.
@@ -195,7 +206,7 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
     ///TODO: implement in Milestone 1
     ```
   + Support of cross-chain RPC with an arbitrary number of arguments </br>
-  A remote procedure call can be executed via the pallet. The call will contain the following parameters:
+  A remote procedure call, made from a Substrate pallet, will be executed by a smart contract deployed on Elrond. The call will contain the following parameters:
     ```rust
     Action::SCCall {
 		to,
@@ -215,7 +226,7 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 	}
     ```
   + Bridge relay validator subscription </br>
-    This mechanism allows to dynamically add new validators in a decentralized way after the system launch.
+    This mechanism allows dynamically to add new validators in a decentralized way after the system launch.
     ```rust
 	  /// Initiates board member addition process.
 	  /// Can also be used to promote a proposer to board member.
@@ -225,7 +236,7 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 	  }
     ```
   + BFT consensus mechanism </br>
-    A blockchain embedded smart contract checks whether 2/3 * n + 1 validator have signed the transaction, where **n** is the total number of validators.
+    A blockchain embedded smart contract waits for the BFT threshold to execute a required transaction.
     ```rust
             if validated == (2*validator_cnt/3)+1 {
                 self.exec_action(act);
@@ -238,20 +249,10 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
     ```
 ### Ecosystem Fit
 
-  + Users will be able to transfer their fungible liquidity or NFTs from any Substrate parachain to Elrond and backward once they attach the XP.network pallet to their parachain or parathread.
+  + Substrate parachain users will be able to trade, exchange or transfer their tokens to and from Elrond with minimal effort and transaction fees. It will open a new market for the Polkadot community and will make the tokens of both the systems more liquid.
   + Substrate parachain smart contracts will be able to call smart contracts functions in Elrond with an arbitrary number of arguments via the bridge relay validators. The same will be possible from the side of Elrond.
-  + Polkadot already has bridges to [Bitcoin](https://beta.polkabtc.io/), [Ethereum](https://snowbridge.snowfork.com/), Cosmos, [EOS](https://github.com/bifrost-finance/bifrost), [Ethereum Classic and ](https://github.com/ChainSafe/ChainBridge), etc., but there's no bridge to Elrond. This project will fill the gap.
+  + Polkadot already has bridges to [Bitcoin](https://beta.polkabtc.io/), [Ethereum](https://snowbridge.snowfork.com/), Cosmos, [EOS](https://github.com/bifrost-finance/bifrost), [Ethereum Classic](https://github.com/ChainSafe/ChainBridge), etc., but there's no bridge to Elrond. This project will fill the gap.
 
-### Use-cases
-
-![img](https://github.com/xp-network/w3f_application/blob/main/XP-Elrond%20bridge-1.png)
-
-+ Liquidity transfer from an account in a substrate Parachain to Elrond or from Elrond to a Parachain.
-+ Selling or purchasing Parachain based NFTs by an account holder in Elrond or vice versa.
-+ Cross-chain games with RPC-connected smart contracts.
-+ Lending or borrowing eGold, sovereign Parachain coins, or other liquidity.
-+ Cross-chain NFT smart contracts with royalties.
-+ Cross-chain insurances.
 
 ## Team
 
@@ -324,8 +325,8 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 ### Overview
 
 - **Total Estimated Duration:** 1 month
-- **Total Effort:** 32 working days
-- **Total Costs:** $ 5,000.00
+- **Total Effort:** 52 working days
+- **Total Costs:** $ 10,000.00
 
 
 ### Milestone 0 - Alpha version of SPEC-B
@@ -341,7 +342,7 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 | 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
 | 1. | SPEC-B architecture | SPEC-B architecture is developed and documented in textual descriptions and UML diagrams |
 | 2. | Smart Contracts in Ink! | Functionality: </br>1. Fungible token locking & releasing </br>2. Limited RPC functionality ```args: Vec<uint8>```</br>3. Relay validators subscription and BFT validation |
-| 3. | Semi-decentralized relay validators | 21 Bridge relay validators written in Typescript and ready for deployment on a remote server |
+| 3. | Centralized relay validators | 21 Bridge relay validators written in Typescript and ready for deployment on a remote server |
 | 4. | Smart Contracts in Rust (on Elrond) | Functionality: </br>1. Fungible token locking & releasing </br>2. RPC functionality ```args:Vec<Vec<uint8>>```</br>3. Relay validators subscription and BFT validation |
 
 
@@ -359,7 +360,6 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 | 0b. | Documentation | We will provide both **inline documentation** of the code and a basic **tutorial** that explains </br>1. How to attach an XP.network SPEC-B pallet to a parachain, </br>2. How to use the SPEC-B to interact with Elrond blockchain, detailed documentation in a GitBook |
 | 0c. | Testing Guide | Core functions will be fully covered by unit tests to ensure functionality and robustness. In the guide, we will describe how to run these tests. |
 | 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
-| 0e. | Media Announcement | We will publish a media announcement about having finished the beta version of the bridge | 
 | 1. | Substrate pallet | Migration of the smart contracts from Milestone 0.2 to a substrate pallet, eliminating the RPC function arguments limitation  |
 | 2. | NFT support | We will add NFT transfer functionality from a parachain to Elrond or vice versa |
 | 3. | Bridge UI | The UI in React allowing codeless cross-chain transactions  |
@@ -374,10 +374,11 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 
 ## Future Plans
 
-+ We will build similar bridges to HECO, Solano etc using the same validators to make it financially attractive for the validators wich will keep the bridge secure and decentralized.
++ We will build similar bridges to HECO, Solano etc using the same validators to make it financially attractive for the validators which will keep the bridge secure and decentralized.
 + Transaction fee calculator with the UI showing how much a transaction will cost on both sides Parachain & Elrond.
 + Add support for Elrond Wallet and other cryptocurrency wallets.
 + Migrating from PoS to PoI consensus mechanism.
++ Add an automated way of switching between different consensus mechanisms: PoA <-> PoS.
 
 ## Additional Information
 
