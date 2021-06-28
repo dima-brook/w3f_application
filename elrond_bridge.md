@@ -147,7 +147,7 @@ However, in order to stimulate the validators to keep the endpoints in the best-
 4.The chosen aggregation model is the mean.</br>
 5. The expected insignificant overhead costs will occur due to the usage of the bandwidth, Computational power, and storage of the reputational scores.</br>
 
-
+![img](https://github.com/xp-network/w3f_application/blob/main/Reputation%20System%20Choice.png)
 
 Challenges faced by reputation systems to be mitigated:</br>
 
