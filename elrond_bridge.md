@@ -212,7 +212,7 @@ S<sub>min</sub> = 451,675,897.19 * 5 * 150/365 = XPNET 928,101,158.61</br>
 
 The "Elrond-Minter" smart contract will collect the approproate data in the following format: 
 ```rust
-L = Vec<[(TotalTxFee, Validators); T]>>
+L = Vec<(TotalTxFee, [Validators; T])>
 ``` 
 and will send it to the pallet once in an epoch.
 
