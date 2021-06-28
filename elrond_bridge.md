@@ -124,7 +124,7 @@ last_action: u128
  ```
  
 #### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
-  Relay validators are very thin. They consist of the private and public keys and two local nodes one for listening/submitting to Elrond another for listening/submitting to a parachain with the attached bridge pallet. 
+  Relay validators are very thin. They consist of the private and public keys and two local nodes one for listening/submitting to Elrond another for listening/submitting to a parachain. 
   
   
   **Stage 0: Centralized validators**</br>
