@@ -137,6 +137,18 @@ last_action: u128
 **Stage 1: Proof-of-Authority (PoA)**</br>
 Principle: a centralized network of trusted bodies backing the validator nodes with their reputation. A new validator is added or removed by a centralized body, the team of the project.
 
+However, in order to stimulate the validators to keep the endpoints in the best-operating shape, we are using the reputation ranking system which will decide how to distribute the transaction fee rewards.</br>
+1. The reputation assessment will be centralized to mitigate a number of attacks (for details see challenges below)</br>
+2. The reputation assessment feedback will be in the range of 0 - 10.</br>
+3. The system ensures the following principles: </br>
+- Liveliness - a user cannot reach such a high score at which no damage to reputation can be made.</br>
+- Visibility is global, which means, all the nodes can see it. </br>
+- Durability </br>
+4.The chosen aggregation model is the mean.</br>
+5. The expected insignificant overhead costs will occur due to the usage of the bandwidth, Computational power, and storage of the reputational scores.</br>
+
+
+
 Challenges faced by reputation systems to be mitigated:</br>
 
 1.The following attacks can be mitigated by a centralized assessment.</br>
