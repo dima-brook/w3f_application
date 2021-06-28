@@ -417,7 +417,7 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 
 - **Estimated Duration:** 1 month
 - **FTE** 1-2
-- Effort: 20 days
+- Effort: 1 month
 - **Costs:** $4,000.00
 
 | Number | Deliverable | Specification |
@@ -437,7 +437,7 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 
 - **Estimated Duration:** 1 month
 - **FTE** 1-2
-- Effort: 20 days
+- Effort: 1 month
 - **Costs:** $4,000.00
 
 | Number | Deliverable | Specification |
@@ -455,7 +455,7 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 
 - **Estimated Duration:** 1 month
 - **FTE** 1-2
-- Effort: 20 days
+- Effort: 1 month
 - **Costs:** $4,000.00
 
 | Number | Deliverable | Specification |
