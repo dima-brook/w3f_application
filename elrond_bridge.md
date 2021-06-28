@@ -395,7 +395,7 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 - **Total Costs:** $ 10,000.00
 
 
-### Milestone 0 - Pre-Alpha version of SPEC-B
+### Milestone 0 - PoC version of SPEC-B
 
 - **Actual Duration:** 1 month (done)
 - **Costs:** $0.00
@@ -413,12 +413,12 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 
 
 
-### Milestone 1 — Alpha version of SPEC-B
+### Milestone 1 — Pre-Alpha version of SPEC-B
 
-- **Estimated Duration:** 1.25 month
+- **Estimated Duration:** 1 month
 - **FTE** 1-2
-- Effort: 29 days
-- **Costs:** $5,000.00
+- Effort: 20 days
+- **Costs:** $4,000.00
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
@@ -428,22 +428,17 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 | 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
 | 1. | Substrate pallet | Migration of the smart contracts from Milestone 0.2 to a substrate pallet, eliminating the RPC function arguments limitation  |
 | 2. | NFT support | We will add NFT transfer functionality from a parachain to Elrond or vice versa |
-| 3. | Bridge UI | The UI in React allowing codeless cross-chain transactions  |
-| 4. | Unit tests | We will write automated unit testing for all of the functionality covering at least 85% of the code and running on Elrond's live testnet|
-| 5. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
-| 6. | PoA consensus implementation | We will implement the PoA consensus mechanism and will address a number of professional validators with a request to join as validators.| 
-| 7. | Security & efficiency audit | Testing the system resilience to fraudulent or erroneous validators and making architectural decisions about the optimal numbers of relay validators, stakes, transaction speed, and transaction fees |
+| 3. | Unit tests | We will write automated unit testing for all of the functionality covering at least 85% of the code and running on Elrond's live testnet|
+| 4. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
+| 5. | PoA consensus implementation | We will implement the PoA consensus mechanism and will address a number of professional validators with a request to join as validators.| 
 
 
+### Milestone 2 — Alpha version of SPEC-B
 
-
-
-### Milestone 2 — Beta version of SPEC-B
-
-- **Estimated Duration:** 1.25 month
+- **Estimated Duration:** 1 month
 - **FTE** 1-2
-- Effort: 29 days
-- **Costs:** $5,000.00
+- Effort: 20 days
+- **Costs:** $4,000.00
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
@@ -451,12 +446,29 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 | 0b. | Documentation | We will provide both **inline documentation** of the code and a basic **tutorial** that explains </br>1. How to attach an XP.network SPEC-B pallet to a parachain, </br>2. How to use the SPEC-B to interact with Elrond blockchain, detailed documentation in a GitBook |
 | 0c. | Testing Guide | Core functions will be fully covered by unit tests to ensure functionality and robustness. In the guide, we will describe how to run these tests. |
 | 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
-| 1. | Testing under load | Testing the bridge with increasing load from 10 to 100 transactions per block |
-| 2. | Top 100 tokens support | We will add the top 100 token support out of the box on both sides of the bridge |
-| 3. | Adding yet unsupported tokens | We will add the automated new token support functionality |
-| 4. | Unbonding the validators | We will implement the architecture for the relay validators unbonding or chilling |
-| 5. | PoS consensus availability | We will add the option of PoS consensus mechanizm for the bridge relay validators, including security validation by a third party |
-| 6. | Using a parachain as a bridge | We will implement the functionality which will allow to use a parahcian equipped with our bridge to be used by another parachain connected via Polkadot and will make it operational in ROCCOCO, Kusama and the Polkadot mainnet |
+| 1. | Top 100 tokens support | We will add the top 100 token support out of the box on both sides of the bridge |
+| 2. | PoS consensus availability | We will add the option of PoS consensus mechanizm for the bridge relay validators, including security validation by a third party |
+| 3. | Using a parachain as a bridge | We will implement the functionality which will allow to use a parahcian equipped with our bridge to be used by another parachain connected via Polkadot and will make it operational in ROCCOCO, Kusama and the Polkadot mainnet |
+| 4. | Testing under load | Testing the bridge with increasing load from 10 to 100 transactions per block |
+
+### Milestone 3 — Beta version of SPEC-B
+
+- **Estimated Duration:** 1 month
+- **FTE** 1-2
+- Effort: 20 days
+- **Costs:** $4,000.00
+
+| Number | Deliverable | Specification |
+| ------------- | ------------- | ------------- |
+| 0a. | License | Apache 2.0 |
+| 0b. | Documentation | We will provide both **inline documentation** of the code and a basic **tutorial** that explains </br>1. How to attach an XP.network SPEC-B pallet to a parachain, </br>2. How to use the SPEC-B to interact with Elrond blockchain, detailed documentation in a GitBook |
+| 0c. | Testing Guide | Core functions will be fully covered by unit tests to ensure functionality and robustness. In the guide, we will describe how to run these tests. |
+| 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
+| 1. | Bridge UI | The UI in React allowing codeless cross-chain transactions  |
+| 2. | Adding yet unsupported tokens | We will add the automated new token support functionality |
+| 3. | Unbonding the validators | We will implement the architecture for the relay validators unbonding or chilling |
+| 4. | Elrond wallet integration | We will integrate the Elrond Wallet |
+| 5. | Security & efficiency audit | Testing the system resilience to fraudulent or erroneous validators and making architectural decisions about the optimal numbers of relay validators, stakes, transaction speed, and transaction fees |
 
 ## Future Plans
 
@@ -464,7 +476,7 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 + We will keep the same validators to make it financially attractive for the validators which will keep the bridge secure and decentralized.
 + We will automate the relay validators' consensus mechanizm change PoA <-> PoS.
 + We may add support for the PoI (Proof-of-Importance) mechanizm.
-+ We will integrate the Elrond Wallet in our bridge and other wallets.
++ We will integrate our bridge and other cryptocurrency wallets.
 + We will implement a transaction fee calculator with the UI showing how much a transaction will cost on both sides Parachain & Elrond
 
 ## Additional Information 
