@@ -127,14 +127,10 @@ last_action: u128
   Relay validators are very thin. They consist of the private and public keys and two local nodes one for listening/submitting to Elrond another for listening/submitting to a parachain. 
   
   
-  **Stage 0: Centralized validators**</br>
-  In the Alpha version of the bridge the validators are centralized, meaning our team completely controls all the validators.
+**Centralized validators**</br>
+In our bridge the validators are centralized, meaning our team completely controls all the validators. We've chosen the PoA consensus mechanizm.
   
-  Since version B of the bridge we will implement a decentralized setting.
-
-  Since both Substrate parachain and Elrond finalize blocks every 6 seconds we cannot use the PoW model, which, alongside unjustifiably heavy computation, requires significant time. Hence, we're left with the other models, such as:
-  
-**Stage 1: Proof-of-Authority (PoA)**</br>
+**Proof-of-Authority (PoA)**</br>
 Principle: a centralized network of trusted bodies backing the validator nodes with their reputation. A new validator is added or removed by a centralized body, the team of the project.
 
 However, in order to stimulate the validators to keep the endpoints in the best-operating shape, we are using the reputation ranking system which will decide how to distribute the transaction fee rewards.</br>
@@ -181,11 +177,6 @@ Where:</br>
 **bias** is the fixed value of XPNET 0.001 - to avoid DoS attacks</br>
 **TX**<sub>mul</sub> is the multiplyer equal to XPNET 0.005</br>
 **size**(**TX**<sub>bin</sub>) is the binary size of the transaction code
-
-Once the bridge matures and more entities will desire to become validators we will migrate from PoA to PoS bridge validators concensus mechanism.</br>
-
-**Stage 2: Proof-of-Stake (PoS)**
-Principle: the network trusts the validator, who puts its own resources as a pledge for the ability to create blocks: the larger the share, the higher the probability that the network will allow the creation of a block.
 
 #### Transaction Award
 
@@ -455,7 +446,7 @@ PoS Distribution in code:
 + We will build similar bridges to HECO, Solano etc.
 + We will keep the same validators to make it financially attractive for the validators which will keep the bridge secure and decentralized.
 + We may add support for the PoS (Proof-of-Stake) or PoI (Proof-of-Importance) mechanizms.
-+ + We will automate the relay validators' consensus mechanizm change PoA <-> PoA <-> PoS.
++ We will automate the relay validators' consensus mechanizm change PoA <-> PoA <-> PoS.
 + We will integrate our bridge and other cryptocurrency wallets.
 + We will implement a transaction fee calculator with the UI showing how much a transaction will cost on both sides Parachain & Elrond
 
