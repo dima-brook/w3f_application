@@ -164,7 +164,8 @@ Challenges faced by reputation systems to be mitigated:</br>
 [**Supermajority attack**](https://twitter.com/thorshadowd/status/1386747751426297857?s=21) is when, depending on the system architecture 51% or 68% of the validators are taken over by a singe malicious entity or are organized to take the bridge down or to steal assets, to double spend liquidity.
 
 #### Transaction Award
-The participating validators will be awarded the transaction fees on condition:</br>
+The participating validators will be awarded the transaction fees on one condition:</br>
+
 A validator must respond fast enough to appear in the BFT treshold in the target blockchain (this measure stimulates the validators to use fast and highly efficient servers).
 
 The participating validators will be awarded a share of the transaction fee, calculated like so:</br>
