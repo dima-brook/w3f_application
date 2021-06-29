@@ -148,7 +148,6 @@ However, in order to stimulate the validators to keep the endpoints in the best-
 Challenges faced by reputation systems to be mitigated:</br>
 
 1.The following attacks can be mitigated by a centralized assessment.</br>
-
 	**Sybil Attack** is when an attacker creates multiple identities to gain an unfair advantage over honest users who own a single identity.</br>
 	**Self-Promotion**, Ballot Stuffing happens when a user with multiple identities or a group of users promotes themselves by assigning themselves additional positive feedback after every interaction.</br>
 	**Slandering, Bad-Mouthing** is the act of sabotaging an honest user's reputation by assigning unfairly low feedback to ruin a competitor's reputation. Centralized reputation assessment is not vulnerable to such attacks.</br>
