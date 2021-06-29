@@ -160,6 +160,7 @@ Challenges faced by reputation systems to be mitigated:</br>
 **Oscillation** is when a user quickly builds a good reputation in several low-value transactions and then reverses its good behavior to malicious taking advantage of the mislead counterparts.</br>
 
 3. KYC or knowing the real world identities of the validators can mitigate the following attack:</br>
+
 [**Supermajority attack**](https://twitter.com/thorshadowd/status/1386747751426297857?s=21) is when, depending on the system architecture 51% or 68% of the validators are taken over by a singe malicious entity or are organized to take the bridge down or to steal assets, to double spend liquidity.
 
 #### Transaction Award
