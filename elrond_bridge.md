@@ -144,7 +144,7 @@ However, in order to stimulate the validators to keep the endpoints in the best-
 - Liveliness - a user cannot reach such a high score at which no damage to reputation can be made.</br>
 - Visibility is global, which means, all the nodes can see it. </br>
 - Durability </br>
-4.The chosen aggregation model is the mean.</br>
+4. The chosen aggregation model is the mean.</br>
 5. The expected insignificant overhead costs will occur due to the usage of the bandwidth, Computational power, and storage of the reputational scores.</br>
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/Reputation%20System%20Choice.png)
@@ -458,8 +458,8 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 | 0b. | Documentation | We will provide both **inline documentation** of the code and a basic **tutorial** that explains </br>1. How to attach an XP.network SPEC-B pallet to a parachain, </br>2. How to use the SPEC-B to interact with Elrond blockchain, detailed documentation in a GitBook |
 | 0c. | Testing Guide | Core functions will be fully covered by unit tests to ensure functionality and robustness. In the guide, we will describe how to run these tests. |
 | 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
-| 1. | Top 100 tokens support | We will add the top 100 token support out of the box on both sides of the bridge |
-| 2. | PoS consensus availability | We will add the option of PoS consensus mechanizm for the bridge relay validators, including security validation by a third party |
+| 1. | Adding yet unsupported tokens | We will add the automated new token support functionality 
+| 2. | Governance for new token support | We will add the governance for the users to vote what new tokens will the bridge support |
 | 3. | Using a parachain as a bridge | We will implement the functionality which will allow to use a parahcian equipped with our bridge to be used by another parachain connected via Polkadot and will make it operational in ROCCOCO, Kusama and the Polkadot mainnet |
 | 4. | Testing under load | Testing the bridge with increasing load from 10 to 100 transactions per block |
 
@@ -477,17 +477,16 @@ Even though, there other protocols, such as Proof-of-Location (PoL), Proof-of-El
 | 0c. | Testing Guide | Core functions will be fully covered by unit tests to ensure functionality and robustness. In the guide, we will describe how to run these tests. |
 | 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
 | 1. | Bridge UI | The UI in React allowing codeless cross-chain transactions  |
-| 2. | Adding yet unsupported tokens | We will add the automated new token support functionality |
-| 3. | Unbonding the validators | We will implement the architecture for the relay validators unbonding or chilling |
-| 4. | Elrond wallet integration | We will integrate the Elrond Wallet |
-| 5. | Security & efficiency audit | Testing the system resilience to fraudulent or erroneous validators and making architectural decisions about the optimal numbers of relay validators, stakes, transaction speed, and transaction fees |
+| 2. | Unbonding the validators | We will implement the architecture for the relay validators unbonding or chilling |
+| 3. | Elrond wallet integration | We will integrate the Elrond Wallet |
+| 4. | Security & efficiency audit | Testing the system resilience to fraudulent or erroneous validators and making architectural decisions about the optimal numbers of relay validators, stakes, transaction speed, and transaction fees |
 
 ## Future Plans
 
 + We will build similar bridges to HECO, Solano etc.
 + We will keep the same validators to make it financially attractive for the validators which will keep the bridge secure and decentralized.
-+ We will automate the relay validators' consensus mechanizm change PoA <-> PoS.
-+ We may add support for the PoI (Proof-of-Importance) mechanizm.
++ We may add support for the PoS (Proof-of-Stake) or PoI (Proof-of-Importance) mechanizms.
++ + We will automate the relay validators' consensus mechanizm change PoA <-> PoA <-> PoS.
 + We will integrate our bridge and other cryptocurrency wallets.
 + We will implement a transaction fee calculator with the UI showing how much a transaction will cost on both sides Parachain & Elrond
 
