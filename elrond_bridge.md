@@ -402,12 +402,12 @@ PoS Distribution in code:
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
 | 0b. | Documentation | We will provide both **inline documentation** of the code and a basic **tutorial** that explains </br>1. How to attach an XP.network SPEC-B pallet to a parachain, </br>2. How to use the SPEC-B to interact with Elrond blockchain, detailed documentation in a GitBook |
-| 0c. | Testing Guide | Core functions will be fully covered by unit tests to ensure functionality and robustness. In the guide, we will describe how to run these tests. |
+| 0c. | Testing | Core functions will be fully covered by unit tests covering at least 85% of the code to ensure functionality and robustness. |
 | 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone.</br>1. Substrate parachain</br>2. local relay validators </br>3. testnet UI & backend|
-| 1. | Substrate pallet | Migration of the smart contracts from Milestone 0.2 to a substrate pallet, eliminating the RPC function arguments limitation  |
-| 2. | NFT support | We will add NFT transfer functionality from a parachain to Elrond or vice versa |
-| 3. | Unit tests | We will write automated unit testing for all of the functionality covering at least 85% of the code and running on Elrond's live testnet|
-| 4. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem | 
+| 1. | Substrate pallet | Migration of the smart contracts from Milestone 0.2 to a substrate pallet. </br>1. Fungible token locking & releasing </br>2. Full RPC functionality ```args: Vec<Vec<uint8>>```</br>3. Relay validators subscription and BFT validation   |
+| 2. | NFT support | We will add NFT transfer functionality from a parachain to Elrond or vice versa </br> We'll be locking the NFT in the source blockchain and will mint a wrapped one in the target blockchain |
+| 3. | Integration tests & a testing guide | We will write automated integration testing for all of the functionality of the code and running on Elrond's live testnet. In the guide, we will describe how to run these tests. |
+| 4. | Transaction fees solution | Solving the transaction fee in the “foreign” blockchain problem. We will charge the account of the source blockchain in the native currency. The transaction fees will be sent to the validators for executing the transaction in the target blockchain. We will use the existing exchanges to convert the native coins. The validators must maintain a minimum amount of native coins of both the blockchains. | 
 | 5. | PoA consensus implementation | We will implement the PoA consensus mechanism and will address a number of professional validators with a request to join as validators.| 
 
 
@@ -424,10 +424,12 @@ PoS Distribution in code:
 | 0b. | Documentation | We will provide both **inline documentation** of the code and a basic **tutorial** that explains </br>1. How to attach an XP.network SPEC-B pallet to a parachain, </br>2. How to use the SPEC-B to interact with Elrond blockchain, detailed documentation in a GitBook |
 | 0c. | Testing Guide | Core functions will be fully covered by unit tests to ensure functionality and robustness. In the guide, we will describe how to run these tests. |
 | 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
-| 1. | Adding yet unsupported tokens | We will add the automated new token support functionality 
-| 2. | Governance for new token support | We will add the governance for the users to vote what new tokens will the bridge support |
+| 1. | Adding yet unsupported ERC-20 equivalent token | We will add the automated new token support functionality. We will prepare a ERC-20 equivalent token* smart contract template. It will be populated with the metadata of the token, once it becomes known. It will be automatically deployed by our pallet or the bridge smart contract on Elrond. |
+| 2. | Governance for new token support | We will add the governance for the users to vote what new tokens will the bridge support. Based on the voting results, a new token support will be added according to Milestone 2.1 |
 | 3. | Using a parachain as a bridge | We will implement the functionality which will allow to use a parahcian equipped with our bridge to be used by another parachain connected via Polkadot and will make it operational in ROCCOCO, Kusama and the Polkadot mainnet |
-| 4. | Testing under load | Testing the bridge with increasing load from 10 to 100 transactions per block |
+| 4. | Testing under load | Testing the bridge with increasing load from 100 to 1000 transactions concurrently. We will gradually grow the number of transactions untill we see the bottle neck or reach the target. |
+
+*ERC-20 equivalent in Elrond is ESDT.
 
 ### Milestone 3 — Beta version of SPEC-B
 
@@ -442,10 +444,10 @@ PoS Distribution in code:
 | 0b. | Documentation | We will provide both **inline documentation** of the code and a basic **tutorial** that explains </br>1. How to attach an XP.network SPEC-B pallet to a parachain, </br>2. How to use the SPEC-B to interact with Elrond blockchain, detailed documentation in a GitBook |
 | 0c. | Testing Guide | Core functions will be fully covered by unit tests to ensure functionality and robustness. In the guide, we will describe how to run these tests. |
 | 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone. |
-| 1. | Bridge UI | The UI in React allowing codeless cross-chain transactions  |
-| 2. | Unbonding the validators | We will implement the architecture for the relay validators unbonding or chilling |
-| 3. | Elrond wallet integration | We will integrate the Elrond Wallet |
-| 4. | Security & efficiency audit | Testing the system resilience to fraudulent or erroneous validators and making architectural decisions about the optimal numbers of relay validators, stakes, transaction speed, and transaction fees |
+| 1. | Bridge UI | The UI in React allowing codeless cross-chain transactions of a parachain native tokens or eGold  |
+| 2. | Unbonding the validators | We will implement the architecture for the relay validators unbonding (a procedure of withdrawing from the validator pool) |
+| 3. | Elrond wallet integration | We will integrate the Elrond Wallet into the bridge UI. A user will be able to use one's account to access the functionality of the Elrond wallet. In addition to that bridge operations will be available. |
+| 4. | Security & efficiency audit | Testing the system resilience to fraudulent or erroneous validators and making architectural decisions about the optimal numbers of relay validators, transaction speed, and transaction fees. |
 
 ## Future Plans
 
