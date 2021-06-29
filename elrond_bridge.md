@@ -159,20 +159,20 @@ Challenges faced by reputation systems to be mitigated:</br>
 **Whitewashing** is when a user with a negative reputation quits the system and returns with a new identity and fresh reputation.</br>
 **Oscillation** is when a user quickly builds a good reputation in several low-value transactions and then reverses its good behavior to malicious taking advantage of the mislead counterparts.</br>
 
-3. KYC or knowing the real world identities of the validators can mitigate the following attack:
+3. KYC or knowing the real world identities of the validators can mitigate the following attack:</br>
 [**Supermajority attack**](https://twitter.com/thorshadowd/status/1386747751426297857?s=21) is when, depending on the system architecture 51% or 68% of the validators are taken over by a singe malicious entity or are organized to take the bridge down or to steal assets, to double spend liquidity.
 
 #### Transaction Award
 All the participating validators will be equally awarded a share of the transaction fee, calculated like so:</br>
 
-TX<sub>award</sub> = (TX<sub>fee</sub> - TX<sub>a</sub> - TX<sub>b</sub> ) / Val<sub>num</sub> </br>
+TX<sub>award</sub> = (TX<sub>fee</sub> - TX<sub>fee-a</sub> - TX<sub>fee-b</sub> ) / Val<sub>num</sub> </br>
 
 Where:</br>
 **TX**<sub>award</sub> is the transaction fee share paid to a validator.</br>
 **TX**<sub>fee</sub> is the total transaction fee earned by all the validators.</br>
 **Val**<sub>num</sub> - is the total number of participating validators.</br>
-**TX**<sub>a</sub> - the gas or transaction fee in the blockchain of origin</br>
-**TX**<sub>b</sub> - the gas or transaction fee in the blockchain of destination</br>
+**TX**<sub>fee-a</sub> - the gas or transaction fee in the blockchain of origin</br>
+**TX**<sub>fee-b</sub> - the gas or transaction fee in the blockchain of destination</br>
 
 The remainder, if there is one will be shared equally between the validators.</br>
 
