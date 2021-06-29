@@ -164,20 +164,22 @@ Challenges faced by reputation systems to be mitigated:</br>
 [**Supermajority attack**](https://twitter.com/thorshadowd/status/1386747751426297857?s=21) is when, depending on the system architecture 51% or 68% of the validators are taken over by a singe malicious entity or are organized to take the bridge down or to steal assets, to double spend liquidity.
 
 #### Transaction Award
-All the participating validators will be equally awarded a share of the transaction fee, calculated like so:</br>
+The participating validators will be awarded the transaction fees on condition:</br>
+A validator must respond fast enough to appear in the BFT treshold in the target blockchain (this measure stimulates the validators to use fast and highly efficient servers).
 
-TX<sub>award</sub> = (TX<sub>fee</sub> - TX<sub>fee-a</sub> - TX<sub>fee-b</sub> ) / Val<sub>num</sub> </br>
+The participating validators will be awarded a share of the transaction fee, calculated like so:</br>
+
+TX<sub>award</sub> = TX<sub>mul</sub> * size(TX<sub>bin</sub>) / Val<sub>num</sub> </br>
 
 Where:</br>
 **TX**<sub>award</sub> is the transaction fee share paid to a validator.</br>
-**TX**<sub>fee</sub> is the total transaction fee earned by all the validators.</br>
-**Val**<sub>num</sub> - is the total number of participating validators.</br>
-**TX**<sub>fee-a</sub> - the gas or transaction fee in the blockchain of origin</br>
-**TX**<sub>fee-b</sub> - the gas or transaction fee in the blockchain of destination</br>
+**TX**<sub>mul</sub> is the multiplyer equal to XPNET 0.0005</br>
+**size**(**TX**<sub>bin</sub>) is the binary size of the transaction code</br>
+**Val**<sub>num</sub> - is the BFT threshold (2/3*n +1), where **n** is the total number of validators.</br>
 
 The remainder, if there is one will be shared equally between the validators.</br>
 
-While the transaction fee will be calculated as follows:
+While the full transaction fee for a user will be calculated as follows:
 
 TX<sub>fee</sub> = bias + TX<sub>mul</sub> * size(TX<sub>bin</sub>) + TX<sub>a</sub> + TX<sub>b</sub></br>
 
@@ -187,13 +189,6 @@ Where:</br>
 **size**(**TX**<sub>bin</sub>) is the binary size of the transaction code</br>
 **TX**<sub>a</sub> - the gas or transaction fee in the blockchain of origin</br>
 **TX**<sub>b</sub> - the gas or transaction fee in the blockchain of destination</br>
-
-#### Transaction Award
-
-The participating validators will be awarded the transaction fees on several conditions:</br>
-1. A validator must respond fast enough to appear in the BFT treshold in the target blockchain (this measure stimulates the validators to use fast and highly efficient servers).
-2. The transaction fee is divided between the validator in proportion of their stake (which stimulates the validators to stake more, making it more difficult to take the bridge over).
-3. The validator's signature is taken into account if the minimum required bond is locked as a stake.
 
 The "Elrond-Minter" smart contract will collect the approproate data in the following format: 
 ```rust
