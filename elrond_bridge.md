@@ -225,7 +225,7 @@ Example of calculating the **Val**<sub>rep</sub>:
     // Output: [0.08759124, 0.18978104, 0.22141121, 0.20681266, 0.18491484, 0.10948905]
 ```
 
-Validator reputation is based on whether it responded fast enough before the BFT threshold was reached. A simulation code randomly selects wether a validator made it or not. Of course the simulation must be bell-curved by contrast with the real world scenarious.
+Validator reputation is based on whether it responded fast enough before the BFT threshold was reached. A simulation code randomly selects wether a validator made it or not. Of course, the pseudo-random simulation will appear to be bell-curved by contrast with the real world scenarious.
 
 ```python
 import random
@@ -242,9 +242,11 @@ for i in range(0, 24*60*10):
     active = random.choice([True,False])
 
     if active:
+    	# promotion:
         if reputation < 100:
             reputation += 1
     else:
+    	# slashing
         if reputation >=1:
             reputation -= 1
     
