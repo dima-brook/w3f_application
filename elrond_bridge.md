@@ -185,7 +185,7 @@ Where:</br>
 **size**(**TX**<sub>bin</sub>) is the binary size of the transaction code</br>
 **Val**<sub>rep</sub> - is the reputation of a validator during an epoch </br>
 
-The remainder, if there is one will be shared equally between the validators.</br>
+The remainder, if there is one will be used for covering the bridge maintainance.</br>
 
 While the full transaction fee for a user will be calculated as follows:
 
