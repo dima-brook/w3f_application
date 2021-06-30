@@ -146,8 +146,8 @@ However, in order to stimulate the validators to keep the endpoints in the best-
 - Liveliness - a user cannot reach such a high score at which no damage to reputation can be made.</br>
 - Visibility is global, which means, all the nodes can see it. </br>
 - Durability </br>
-4. The chosen aggregation model is the mean.</br>
-5. The expected insignificant overhead costs will occur due to the usage of the bandwidth, Computational power, and storage of the reputational scores.</br>
+4. The chosen aggregation model is the historical mean of the feedbacks, collected through each epoch.</br>
+5. The expected insignificant overhead costs will occur due to the usage of the bandwidth, Computational power, and storage of the reputational scores. The costs will be covered from the bias component of the transaction fee formula.</br>
 
 ![img](https://github.com/xp-network/w3f_application/blob/main/Reputation%20System%20Choice.png)
 
