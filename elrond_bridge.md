@@ -171,13 +171,13 @@ A validator must respond fast enough to appear in the BFT treshold in the target
 
 The participating validators will be awarded a share of the transaction fee, calculated like so:</br>
 
-TX<sub>award</sub> = TX<sub>mul</sub> * size(TX<sub>bin</sub>) / Val<sub>num</sub> </br>
+TX<sub>award</sub> = TX<sub>mul</sub> * size(TX<sub>bin</sub>) / 100 * Val<sub>rep</sub> </br>
 
 Where:</br>
 **TX**<sub>award</sub> is the transaction fee share paid to a validator.</br>
 **TX**<sub>mul</sub> is the multiplyer equal to XPNET 0.0005</br>
 **size**(**TX**<sub>bin</sub>) is the binary size of the transaction code</br>
-**Val**<sub>num</sub> - is the BFT threshold (2/3*n +1), where **n** is the total number of validators.</br>
+**Val**<sub>rep</sub> - is the reputation of a validator during an epoch </br>
 
 The remainder, if there is one will be shared equally between the validators.</br>
 
