@@ -125,7 +125,7 @@ last_action: u128
  
 #### 2. Relay validator/prover written in TypeScript. Supplied in a docker container.
 
-The intention behind our choices was to keep the set-up simple, robust and secure.
+The intention behind our choices was to keep the set-up simple, robust, and secure.
 
 **Architecture**
 1. A full node, synced with the mainnet / testnet of a bridged Substrate Parachain;
@@ -135,7 +135,7 @@ The intention behind our choices was to keep the set-up simple, robust and secur
   
   
 **Centralized validators**</br>
-At the present stage, we've chosen the PoA consensus mechanizm. Each validator is meticulously chosen. For security reasons, a new validator node can currently be only manually subscribed by one of our development team members. This may change in the future versions of the present bridge.
+At the present stage, we've chosen the PoA consensus mechanism. Each validator is meticulously chosen. For security reasons, a new validator node can currently be only manually subscribed by one of our development team members. This may change in the future versions of the present bridge.
   
 **Proof-of-Authority (PoA)**</br>
 Principle: a centralized network of trusted bodies backing the validator nodes with their reputation. A new validator is added or removed by a centralized body, the team of the project.
