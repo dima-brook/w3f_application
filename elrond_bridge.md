@@ -206,14 +206,23 @@ and will send it to the pallet once in an epoch for proper awarding the validato
 
 Example of calculating the **Val**<sub>rep</sub>:
 
-```python
-# The mean of the reputation scores assigned to each validator during an epoch:
-reputation = [3.6, 7.8, 9.1, 8.5, 7.6, 4.5]
+```rust
+    // Example means of the reputation scores assigned to each validator during an epoch:
+    let rep =  [3.6f32, 7.8, 9.1, 8.5, 7.6, 4.5];
+    
+    // Sum total of the rating feedbacks
+    let s: f32 = rep.iter().sum();
+    
+    // Awards aggregator
+    let mut awards = rep.clone();
 
-# The formula for calculating the share of each validator in the transaction award:
-awards = [i/sum(reputation) for i in reputation]
-
-# Output: [0.08759124087591241, 0.1897810218978102, 0.2214111922141119, 0.20681265206812652, 0.18491484184914841, 0.1094890510948905]
+    for i in awards.iter_mut() {
+        *i /= s;
+    }
+    
+    println!("{:?}", awards);
+    
+    // Output: [0.08759124, 0.18978104, 0.22141121, 0.20681266, 0.18491484, 0.10948905]
 ```
 
 PoS Distribution in code:
