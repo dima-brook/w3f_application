@@ -224,6 +224,7 @@ Example of calculating the **Val**<sub>rep</sub>:
     
     // Output: [0.08759124, 0.18978104, 0.22141121, 0.20681266, 0.18491484, 0.10948905]
 ```
+**Collecting the reputation feedback**
 
 Validator reputation is based on whether it responded fast enough before the BFT threshold was reached. A simulation code randomly selects wether a validator made it or not. Of course, the pseudo-random simulation will appear to be bell-curved by contrast with the real world scenarious.
 
@@ -264,6 +265,8 @@ fn main() {
     println!("Epoch mean: {}", fd/(24*60*10));
 }
 ```
+**Dealing with Fradulent Validators**
+
 A more serious malicious activity, namely double signing, or signing alternative to the BFT threshold versions of transactions will be reported to the development team by the smart contract in Elrond or the substrate pallet, depending on wich side the fradulent activity occured. The team members will contact the validator and will decide whether to continue cooperation or unsubscribe the validator from the pool.
 
 Functionality distribution in code:
