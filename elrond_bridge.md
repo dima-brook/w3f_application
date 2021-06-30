@@ -208,7 +208,7 @@ Example of calculating the **Val**<sub>rep</sub>:
 
 ```rust
     // Example means of the reputation scores assigned to each validator during an epoch:
-    let rep =  [3.6f32, 7.8, 9.1, 8.5, 7.6, 4.5];
+    let rep =  [36f32, 78.0, 91.0, 85.0, 76.0, 45.0];
     
     // Sum total of the rating feedbacks
     let s: f32 = rep.iter().sum();
@@ -264,6 +264,10 @@ fn main() {
     println!("Current block reputation: {}", rep);
     println!("Epoch mean: {}", fd/(24*60*10));
 }
+
+// Example output:
+Current block reputation: 82
+Epoch mean: 69
 ```
 **Dealing with Fradulent Validators**
 
