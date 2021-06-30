@@ -174,7 +174,7 @@ Challenges faced by reputation systems to be mitigated:</br>
 #### Transaction Award
 The participating validators will be awarded the transaction fees on one condition:</br>
 
-A validator must respond fast enough to appear in the BFT treshold in the target blockchain (this measure stimulates the validators to use fast and highly efficient servers).
+A validator must respond fast enough to appear in the BFT threshold in the target blockchain (this measure stimulates the validators to use fast and highly efficient servers).
 
 The participating validators will be awarded a share of the transaction fee, calculated like so:</br>
 
@@ -182,11 +182,11 @@ TX<sub>award</sub> = TX<sub>mul</sub> * size(TX<sub>bin</sub>) * Val<sub>rep</su
 
 Where:</br>
 **TX**<sub>award</sub> is the transaction fee share paid to a validator.</br>
-**TX**<sub>mul</sub> is the multiplyer equal to XPNET 0.0005</br>
+**TX**<sub>mul</sub> is the multiplier equal to XPNET 0.0005</br>
 **size**(**TX**<sub>bin</sub>) is the binary size of the transaction code</br>
 **Val**<sub>rep</sub> - is the reputation of a validator during an epoch </br>
 
-The remainder, if there is one will be used for covering the bridge maintainance.</br>
+The remainder, if there is one will be used for covering the bridge maintenance.</br>
 
 While the full transaction fee for a user will be calculated as follows:
 
@@ -194,16 +194,16 @@ TX<sub>fee</sub> = bias + TX<sub>mul</sub> * size(TX<sub>bin</sub>) + TX<sub>a</
 
 Where:</br>
 **bias** is the fixed value of XPNET 0.005 - to cover the bridge maintenance costs</br>
-**TX**<sub>mul</sub> is the multiplyer equal to XPNET 0.0005</br>
+**TX**<sub>mul</sub> is the multiplier equal to XPNET 0.0005</br>
 **size**(**TX**<sub>bin</sub>) is the binary size of the transaction code</br>
 **TX**<sub>a</sub> - the gas or transaction fee in the blockchain of origin</br>
-**TX**<sub>b</sub> - the gas or transaction fee in the blockchain of destination</br>
+**TX**<sub>b</sub> - the gas or transaction fee in the blockchain of the destination</br>
 
-The "Elrond-Minter" smart contract will collect the approproate data in the following format: 
+The "Elrond-Minter" smart contract will collect the appropriate data in the following format: 
 ```rust
 L = Vec<(TotalTxFee, [Validators; T])>
 ``` 
-and will send it to the pallet once in an epoch for proper awarding the validators according to the results of their performance. Only the validators, who were the first to respond and appeared in the BFT treshold will get their transaction reward.
+and will send it to the pallet once in an epoch for proper awarding the validators according to the results of their performance. Only the validators, who were the first to respond and appeared in the BFT threshold will get their transaction reward.
 
 Example of calculating the **Val**<sub>rep</sub>:
 
