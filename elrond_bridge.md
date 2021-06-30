@@ -198,6 +198,18 @@ L = Vec<(TotalTxFee, [Validators; T])>
 ``` 
 and will send it to the pallet once in an epoch for proper awarding the validators according to the results of their performance. Only the validators, who were the first to respond and appeared in the BFT treshold will get their transaction reward.
 
+Example of calculating the reputation:
+
+```python
+# Reputation assigned to every validator during a round:
+reputation = [3.6, 7.8, 9.1, 8.5, 7.6, 4.5]
+
+# The formula for calculating the share of a validator:
+awards = [round(i/sum(reputation) * 100) for i in reputation]
+
+# Output (% of the TX share): [9, 19, 22, 21, 18, 11]
+```
+
 PoS Distribution in code:
 ![img](https://github.com/xp-network/w3f_application/blob/main/PoS%20structure.png)
 
