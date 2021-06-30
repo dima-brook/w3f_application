@@ -225,7 +225,38 @@ Example of calculating the **Val**<sub>rep</sub>:
     // Output: [0.08759124, 0.18978104, 0.22141121, 0.20681266, 0.18491484, 0.10948905]
 ```
 
-PoS Distribution in code:
+Validator reputation is based on whether it responded fast enough before the BFT threshold was reached. A simulation code randomly selects wether a validator made it or not. Of course the simulation must be bell-curved by contrast with the real world scenarious.
+
+```python
+import random
+
+feedback = [] 		# Accumulator of feedbacks
+reputation = 100 	# All validators start with the maximum reputation
+
+# Simulation of a 24 hour long epoch
+# with a round equal to 6 seconds:
+for i in range(0, 24*60*10):
+
+    # Simulation of a validator node
+    # appearing in the BFT threshold:
+    active = random.choice([True,False])
+
+    if active:
+        if reputation < 100:
+            reputation += 1
+    else:
+        if reputation >=1:
+            reputation -= 1
+    
+    feedback.append(reputation)
+    
+
+print(feedback)
+print("Current block reputation:", reputation)
+print("Epoch mean:", sum(feedback)/len(feedback))
+```
+
+Distribution in code:
 ![img](https://github.com/xp-network/w3f_application/blob/main/PoS%20structure.png)
 
 
