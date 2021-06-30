@@ -129,7 +129,7 @@ last_action: u128
 **Architecture**
 1. A full node, synced with the mainnet / testnet of the bridged Substrate Parachain;
 2. A full node synced with the mainnet / testnet of Elrond;
-3. Schnorrkel/Ristretto x25519 ("sr25519") elliptic curve related public and private key-pair for signing the transactions on the parachain side and Ed25519 related keys for signing on Elrond's side.
+3. Schnorrkel/Ristretto sr25519 elliptic curve related 256 bits long public and 512 bits long private key-pair for signing the transactions on the parachain side and Edwards-curve (Ed25519) related keys with the same key lengths for signing on Elrond's side.
 4. Event listening, processing, and relaying middleware
   
   
