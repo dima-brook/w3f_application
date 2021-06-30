@@ -531,7 +531,7 @@ A more serious malicious activity, namely double signing, or signing alternative
 
 ## Future Plans
 
-+ We will build similar bridges to HECO, Solana, etc.
++ We will build similar bridges to HECO, Solana, VeChain, Klaytn, Algorand, Avalanche, etc.
 + We will keep the same validators to make it financially attractive for the validators which will keep the bridge secure and decentralized.
 + We may add support for the PoS (Proof-of-Stake) or PoI (Proof-of-Importance) mechanizms.
 + We will automate the relay validators' consensus mechanizm change PoA <-> PoA <-> PoS.
