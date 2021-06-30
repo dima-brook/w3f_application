@@ -384,7 +384,7 @@ PoS Distribution in code:
 | 0a. | License | Apache 2.0 |
 | 0b. | Documentation | We will provide both **inline documentation** of the code and a basic **tutorial** that explains how a user can use the Alpha version of the bridge, detailed documentation in a GitBook |
 | 0c. | Testing Guide | Core functions will be fully covered by unit tests to ensure functionality and robustness. In the guide, we will describe how to run these tests. |
-| 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone.</br>1. "Freezer" smart contract</br>2. Local relay validators </br>3. Testsuite UI & backend |
+| 0d. | Docker | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone.</br>1. "Freezer" smart contract</br>2. Relay validators </br>3. Testsuite UI & backend |
 | 1. | SPEC-B architecture | SPEC-B architecture is developed and documented in textual descriptions and UML diagrams |
 | 2. | Smart Contracts in Ink! | Functionality: </br>1. Fungible token locking & releasing </br>2. Limited RPC functionality ```args: Vec<uint8>```</br>3. Relay validators subscription and BFT validation |
 | 3. | Centralized relay validators | 21 Bridge relay validators written in Typescript and ready for deployment on a remote server |
