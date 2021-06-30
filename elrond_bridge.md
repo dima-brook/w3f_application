@@ -269,7 +269,8 @@ fn main() {
 
 A more serious malicious activity, namely double signing, or signing alternative to the BFT threshold versions of transactions will be reported to the development team by the smart contract in Elrond or the substrate pallet, depending on wich side the fradulent activity occured. The team members will contact the validator and will decide whether to continue cooperation or unsubscribe the validator from the pool.
 
-Functionality distribution in code:
+**Functionality distribution in code**:
+
 ![img](https://github.com/xp-network/w3f_application/blob/main/PoS%20structure.png)
 
 
