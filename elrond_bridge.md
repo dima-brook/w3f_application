@@ -227,38 +227,46 @@ Example of calculating the **Val**<sub>rep</sub>:
 
 Validator reputation is based on whether it responded fast enough before the BFT threshold was reached. A simulation code randomly selects wether a validator made it or not. Of course, the pseudo-random simulation will appear to be bell-curved by contrast with the real world scenarious.
 
-```python
-import random
+The system of promotion and slashing of the active and passive validators ensures security and fast responce times of the validators. All the transaction fee awards remain with the validators. But its distribution depends on the performance of each validator.
 
-feedback = [] 		# Accumulator of feedbacks
-reputation = 100 	# All validators start with the maximum reputation
+A validator can gradually earn the reputation back, if it was lost due to a node being inactive. The other, more reliable validators, will be partially sharing this validator's awards as a punnitive measure for the unreliability.
 
-# Simulation of a 24 hour long epoch
-# with a round equal to 6 seconds:
-for i in range(0, 24*60*10):
+```rust
+use rand::Rng; // 0.8.4
+use std::iter;
 
-    # Simulation of a validator node
-    # appearing in the BFT threshold:
-    active = random.choice([True,False])
-
-    if active:
-    	# promotion:
-        if reputation < 100:
-            reputation += 1
-    else:
-    	# slashing
-        if reputation >=1:
-            reputation -= 1
+fn main() {
+    let mut rng = rand::thread_rng();
+    let mut rep: u8 = 100;  // All validators start at maximum reputation
+    let mut fd: u64 = 0;    // Feedback aggregator
+    // Simulation of a 24 hour long epoch
+    // with a round equal to 6 seconds:
+    for _ in iter::repeat(()).take(24*60*10) {
     
-    feedback.append(reputation)
-    
+        // Simulation of a validator node
+        // appearing in the BFT threshold:
+        if rng.gen::<bool>() {
+        
+            // promotion
+            if rep < 100 {
+                rep += 1;
+            }
+        } else {
+            // slashing
+            if rep >= 1 {
+                rep -= 1;
+            }
+        }
+        fd += rep as u64;
+    }
 
-print(feedback)
-print("Current block reputation:", reputation)
-print("Epoch mean:", sum(feedback)/len(feedback))
+    println!("Current block reputation: {}", rep);
+    println!("Epoch mean: {}", fd/(24*60*10));
+}
 ```
+A more serious malicious activity, namely double signing, or signing alternative to the BFT threshold versions of transactions will be reported to the development team by the smart contract in Elrond or the substrate pallet, depending on wich side the fradulent activity occured. The team members will contact the validator and will decide whether to continue cooperation or unsubscribe the validator from the pool.
 
-Distribution in code:
+Functionality distribution in code:
 ![img](https://github.com/xp-network/w3f_application/blob/main/PoS%20structure.png)
 
 
