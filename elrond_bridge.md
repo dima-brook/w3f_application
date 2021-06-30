@@ -171,7 +171,7 @@ A validator must respond fast enough to appear in the BFT treshold in the target
 
 The participating validators will be awarded a share of the transaction fee, calculated like so:</br>
 
-TX<sub>award</sub> = TX<sub>mul</sub> * size(TX<sub>bin</sub>) / 100 * Val<sub>rep</sub> </br>
+TX<sub>award</sub> = TX<sub>mul</sub> * size(TX<sub>bin</sub>) * Val<sub>rep</sub> </br>
 
 Where:</br>
 **TX**<sub>award</sub> is the transaction fee share paid to a validator.</br>
@@ -198,16 +198,16 @@ L = Vec<(TotalTxFee, [Validators; T])>
 ``` 
 and will send it to the pallet once in an epoch for proper awarding the validators according to the results of their performance. Only the validators, who were the first to respond and appeared in the BFT treshold will get their transaction reward.
 
-Example of calculating the reputation:
+Example of calculating the **Val**<sub>rep</sub>:
 
 ```python
-# Reputation assigned to every validator during a round:
+# The mean of the reputation scores assigned to each validator during an epoch:
 reputation = [3.6, 7.8, 9.1, 8.5, 7.6, 4.5]
 
-# The formula for calculating the share of a validator:
-awards = [round(i/sum(reputation) * 100) for i in reputation]
+# The formula for calculating the share of each validator in the transaction award:
+awards = [i/sum(reputation) for i in reputation]
 
-# Output (% of the TX share): [9, 19, 22, 21, 18, 11]
+# Output: [0.08759124087591241, 0.1897810218978102, 0.2214111922141119, 0.20681265206812652, 0.18491484184914841, 0.1094890510948905]
 ```
 
 PoS Distribution in code:
