@@ -237,6 +237,12 @@ The validator in the simulation below starts with the maximum reputation of 100 
 **Reputation feedback simulation**
 
 ```rust
+// This code will NOT be used in the project as is.
+// Namely, the rand::Rng will NOT be used.
+// This is a SIMULATION only to demonstrate
+// How the reputation of the validators will be
+// Promoted or slashed
+
 use rand::Rng; // 0.8.4
 use std::iter;
 
@@ -244,6 +250,7 @@ fn main() {
     let mut rng = rand::thread_rng();
     let mut rep: u8 = 100;  // All validators start at maximum reputation
     let mut fd: u64 = 0;    // Feedback aggregator
+    
     // Simulation of a 24 hour long epoch
     // with a round equal to 6 seconds:
     for _ in iter::repeat(()).take(24*60*10) {
@@ -273,9 +280,9 @@ fn main() {
 Current block reputation: 82
 Epoch mean: 69
 ```
-**Dealing with Fradulent Validators**
+**Dealing with Fraudulent Validators**
 
-A more serious malicious activity, namely double signing, or signing alternative to the BFT threshold versions of transactions will be reported to the development team by the smart contract in Elrond or the substrate pallet, depending on wich side the fradulent activity occured. The team members will contact the validator and will decide whether to continue cooperation or unsubscribe the validator from the pool.
+A more serious malicious activity, namely double signing, or signing alternative to the BFT threshold versions of transactions will be reported to the development team by the smart contract in Elrond or the substrate pallet, depending on which side the fraudulent activity occurred. The team members will contact the validator and will decide whether to continue cooperation or unsubscribe the validator from the pool.
 
 **Validator-related functionality distribution in code**:
 
