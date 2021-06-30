@@ -232,6 +232,10 @@ The system of promotion and slashing of the active and passive validators ensure
 
 A validator can gradually earn the reputation back, if it was lost due to a node being inactive. The other, more reliable validators, will be partially sharing this validator's awards as a punnitive measure for the unreliability.
 
+The validator in the simulation below starts with the maximum reputation of 100 points, however in reality a reputation a validator earned in the the previous epoch will be the starting point for the reputation during the next epoch to avoid situations, when a completely turned off validator earns some fees till its reputation falls to 0.
+
+**Reputation feedback simulation**
+
 ```rust
 use rand::Rng; // 0.8.4
 use std::iter;
