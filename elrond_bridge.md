@@ -226,7 +226,7 @@ Example of calculating the **Val**<sub>rep</sub>:
 ```
 **Collecting the reputation feedback**
 
-Validator reputation is based on whether it responded fast enough before the BFT threshold was reached. A simulation code randomly selects wether a validator made it or not. Of course, the pseudo-random simulation will appear to be bell-curved by contrast with the real world scenarious.
+Validator reputation is based on whether it responded fast enough before the BFT threshold was reached. The simulation code below randomly selects wether a validator made it or not. Of course, the pseudo-random simulation will appear to be bell-curved with the majority of the outcomes in the middle gradually diminishing towards the edge cases, by contrast with the real world scenarious, where we expect most of the feedbacks to be near the top.
 
 The system of promotion and slashing of the active and passive validators ensures security and fast responce times of the validators. All the transaction fee awards remain with the validators. But its distribution depends on the performance of each validator.
 
