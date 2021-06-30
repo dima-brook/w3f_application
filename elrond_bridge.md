@@ -275,7 +275,7 @@ A more serious malicious activity, namely double signing, or signing alternative
 
 **Functionality distribution in code**:
 
-![img](https://github.com/xp-network/w3f_application/blob/main/PoS%20structure.png)
+![img](https://github.com/xp-network/w3f_application/blob/main/PoA%20code%20distribution.png)
 
 
   
