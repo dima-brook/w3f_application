@@ -227,13 +227,12 @@ Example of calculating the **Val**<sub>rep</sub>:
 ```
 **Collecting the reputation feedback**
 
-Validator reputation is based on whether it responded fast enough before the BFT threshold is reached. The simulation code below randomly selects wether a validator made it or not. Of course, the pseudo-random simulation appears to be bell-curved with the majority of the outcomes in the middle gradually diminishing towards the edge cases, by contrast with the real world scenarious, where we expect most of the feedbacks to be near the top. However, it surves its purpose of demonstrating how the feedback could be collected.
+Validator reputation is based on whether it responded fast enough before the BFT threshold is reached. The simulation code below randomly selects whether a validator made it or not. Of course, the pseudo-random simulation appears to be bell-curved with the majority of the outcomes in the middle gradually diminishing towards the edge cases, by contrast with the real-world scenarios, where we expect most of the feedbacks to be near the top. However, it serves its purpose of demonstrating how the feedback could be collected.
 
-The system of promotion and slashing of the active and passive validators ensures security and fast responce times of the validators. All the transaction fee awards remain with the validators. But its distribution depends on the performance of each validator.
+The system of promotion and slashing of the active and passive validators ensures security and fast response times of the validators. All the transaction fee awards remain with the validators. But its distribution depends on the performance of each validator.
+A validator can gradually earn the reputation back if it was lost due to a node being inactive. The other, more reliable validators, will be partially sharing this validator's awards as a punitive measure for the unreliability.
 
-A validator can gradually earn the reputation back, if it was lost due to a node being inactive. The other, more reliable validators, will be partially sharing this validator's awards as a punnitive measure for the unreliability.
-
-The validator in the simulation below starts with the maximum reputation of 100 points, however in reality a reputation a validator earned in the the previous epoch will be the starting point for the reputation during the next epoch to avoid situations, when a completely turned off validator earns some fee till its reputation falls to 0.
+The validator in the simulation below starts with the maximum reputation of 100 points, however, in reality, the reputation a validator earned in the previous epoch will be the starting point for the reputation during the next epoch to avoid situations when a completely turned off validator earns some fee till its reputation falls to 0.
 
 **Reputation feedback simulation**
 
