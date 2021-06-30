@@ -141,7 +141,7 @@ Principle: a centralized network of trusted bodies backing the validator nodes w
 
 However, in order to stimulate the validators to keep the endpoints in the best-operating shape, we are using the reputation ranking system which will decide how to distribute the transaction fee rewards.</br>
 1. The reputation assessment will be centralized to mitigate a number of attacks (for details see challenges below)</br>
-2. The reputation assessment feedback will be in the range of 0 - 10.</br>
+2. The reputation assessment feedback will be in the range of 0 - 100.</br>
 3. The system ensures the following principles: </br>
 - Liveliness - a user cannot reach such a high score at which no damage to reputation can be made.</br>
 - Visibility is global, which means, all the nodes can see it. </br>
