@@ -134,7 +134,7 @@ last_action: u128
   
   
 **Centralized validators**</br>
-In our bridge the validators are centralized, meaning our team completely controls all the validators. We've chosen the PoA consensus mechanizm.
+At the present stage, we've chosen the PoA consensus mechanizm. Each validator is meticulously chosen. For security reasons, a new validator node can currently be only manually subscribed by one of our development team members. This may change in the future versions of the present bridge.
   
 **Proof-of-Authority (PoA)**</br>
 Principle: a centralized network of trusted bodies backing the validator nodes with their reputation. A new validator is added or removed by a centralized body, the team of the project.
