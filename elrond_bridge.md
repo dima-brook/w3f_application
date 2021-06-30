@@ -273,9 +273,9 @@ Epoch mean: 69
 
 A more serious malicious activity, namely double signing, or signing alternative to the BFT threshold versions of transactions will be reported to the development team by the smart contract in Elrond or the substrate pallet, depending on wich side the fradulent activity occured. The team members will contact the validator and will decide whether to continue cooperation or unsubscribe the validator from the pool.
 
-**Functionality distribution in code**:
+**Validator-related functionality distribution in code**:
 
-![img](https://github.com/xp-network/w3f_application/blob/main/PoA%20code%20distribution.png)
+![img](https://github.com/xp-network/w3f_application/blob/main/PoA%20code%20distribution-1.png)
 
 
   
